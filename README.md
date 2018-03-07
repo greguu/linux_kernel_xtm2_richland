@@ -119,14 +119,15 @@ make LOCALVERSION= -j8 "$1"
 - Run minicom ```minicom -D /dev/ttyUSB0```
 - Power on the router and hit CTRL-C at the boot menu. Enter the password.
 - Then load the kernel ```load -m ymodem -r -v -b %{FREEMEMLO} zImage```
-- CTRL-A SHIFT-Z in minicom and choose S for send file.
-- Select zImage from /arch/arm/boot and hit enter
-- Once loaded, boot the kernel "exec -c "console=ttyS0,115200 root=/dev/mtdblock7" -w 5"
-- See ```/_files/minimal_boot.txt``` for a minimal boot log.
+- CTRL-A SHIFT-Z in minicom and choose S (SHIFT-S) for send file.
+- Locate the just build zImage (select with Space) in ./arch/arm/boot and load it (Enter).
+- Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/mtdblock7" -w 5```
+- Example : See ```/_files/minimal_boot.txt``` for a minimal boot log.
+- Note : The init to root will fail.. but we just started hey!
 
 # Next ?
 
-Now the real work starts....
+Now the real work starts...
 
 - Get USB working
 - Get GPIO working
