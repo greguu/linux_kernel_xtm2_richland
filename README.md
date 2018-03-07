@@ -39,7 +39,7 @@ Scope:
 
 
 # Bootloader
-
+```
                 WatchGuard RedBoot 2.04 - Mar 16 2010 10:36:42
 
  +-------------------------------------------------------------------------+
@@ -52,7 +52,7 @@ Scope:
       Press enter to boot the selected OS.
 
       The highlighted entry will be loaded  5 seconds.
-
+```
 - To enter the Redboot menu, hit CTRL-C before the 5 second timer expires.
 - You will be presented with a password prompt!
 - Password : F5BA25AB44724fb5A6DD37554809CE34 (found on dd-wrt.com forum)
