@@ -23,9 +23,9 @@ Specs for the XTM 21-W:
 - SERIAL : On Board (TTL, 115200 8N1)
 - POWER  : 12V DC 2A
 
-More details you can find at ```/_files/wg_xtm2.pdf```
+- You can find more details here (official specs)  ```/_files/wg_xtm2.pdf```
 
-Scope:
+Scope of this project:
 
 - Investigate the "Richmond" platform and similarities to Cambria and the KIXRP435 Development Board.
 - Port to Linux stable 4.9.70 (at time of writing stable LEDE / OpenWrt kernel, patches available)
@@ -83,6 +83,7 @@ tar xf linux-4.9.70.tar.xz
 
 # Set up the toolchain
 
+- Depending on your setup you will need required build tools and compilers.
 - To build the extracted kernel with the Linaro toolchain, just create a simple bash script as shown below.
 - Make sure to adjust the paths and "-j", this is just an example.
 
@@ -103,17 +104,34 @@ export TARGET=armeb
 export HOSTCC=gcc
 make LOCALVERSION= -j8 "$1"
 ```
-- Save the script and "chmod 700"
+- Save the script and "chmod 700".
 
 # Build the kernel
 
-- Copy ```watchguard_config.txt``` to .config and run ./buildscript oldconfig
-- Make some sane decissions then compile with ./buildscript zImage
+- Copy ```watchguard_config.txt``` to .config and run "./buildscript oldconfig"
+- Make some sane decissions then compile with "./buildscript zImage"
 - Note: You will need to configuer some targets! See ```/_files/minimal_config_49.txt``` as an example.
 
 # Loading a kernel via ymodem
 
+- You will need minicom, a serial cable and / or a USB to serial adapter and a bus pirate.
+- To get the required packages ```pacman -S minicom lrzsz```
+- Run minicom ```minicom -D /dev/ttyUSB0```
+- Power on the router and hit CTRL-C at the boot menu. Enter the password.
+- Then load the kernel ```load -m ymodem -r -v -b %{FREEMEMLO} zImage```
+- CTRL-A SHIFT-Z in minicom and choose S for send file.
+- Select zImage from /arch/arm/boot and hit enter
+- Once loaded, boot the kernel "exec -c "console=ttyS0,115200 root=/dev/mtdblock7" -w 5"
+- See ```/_files/minimal_boot.txt``` for a minimal boot log.
 
+# Next ?
+
+Now the real work starts....
+
+- Get USB working
+- Get GPIO working
+- Get WiFI working
+- ...
 
 
 

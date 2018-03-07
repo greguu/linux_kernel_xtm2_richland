@@ -1,0 +1,175 @@
+RedBoot>fis init
+
+About to initialize [format] FLASH image system - continue (y/n)? y
+*** Initialize FLASH Image System
+... Erase from 0x500f0000-0x50100000: .
+... Program from 0x0ffe0000-0x0fff0000 at 0x500f0000: .
+
+RedBoot> fis list
+
+Name              FLASH addr  Mem addr    Length      Entry point
+RedBoot           0x50000000  0x50000000  0x00080000  0x00000000
+FIS directory     0x500F0000  0x500F0000  0x0000F000  0x00000000
+RedBoot config    0x500FF000  0x500FF000  0x00001000  0x00000000
+
+RedBoot> load -m ymodem -r -v -b %{FREEMEMLO} zImage
+
+CRaw file loaded 0x001d0000-0x00439ddf, assumed entry at 0x001d0000
+xyzModem - CRC mode, 19774(SOH)/0(STX)/0(CAN) packets, 4 retries
+
+RedBoot> exec -c "console=ttyS0,115200 rootdelay=10 root=/dev/sda1" -w 3
+
+argc:5
+argv:exec
+argv:-c
+argv:console=ttyS0,115200 rootdelay=10 root=/dev/sda1
+argv:-w
+argv:3
+About to start execution at 0x06000000 - abort with ^C within 3 seconds
+Using base address 0x001d0000 and length 0x00269de0
+
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.4.88 (operator@Z600) (gcc version 5.4.0 (LEDE GCC 5.4.0 r4852-692aa82981) ) #1 Wed Sep 20 19:40:08 NZST 2017
+[    0.000000] CPU: XScale-IXP43x Family [69054041] revision 1 (ARMv5TE), cr=000039ff
+[    0.000000] CPU: VIVT data cache, VIVT instruction cache
+[    0.000000] Machine: Intel KIXRP435 Reference Platform
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+[    0.000000] Kernel command line: console=ttyS0,115200 rootdelay=10 root=/dev/sda1
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 254640K/262144K available (3675K kernel code, 165K rwdata, 1072K rodata, 152K init, 110K bss, 7504K reserved, 0K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff800000   ( 752 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc04ab024   (4749 kB)
+[    0.000000]       .init : 0xc04ac000 - 0xc04d2000   ( 152 kB)
+[    0.000000]       .data : 0xc04d2000 - 0xc04fb520   ( 166 kB)
+[    0.000000]        .bss : 0xc04fb520 - 0xc0516fe8   ( 111 kB)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS:64
+[    0.000014] sched_clock: 32 bits at 66MHz, resolution 15ns, wraps every 32212576760ns
+[    0.000056] clocksource: OSTS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 28669193401 ns
+[    0.000271] Console: colour dummy device 80x30
+[    0.000324] Calibrating delay loop... 663.55 BogoMIPS (lpj=3317760)
+[    0.050120] pid_max: default: 32768 minimum: 301
+[    0.050319] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.050342] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.051153] CPU: Testing write buffer coherency: ok
+[    0.051718] Setting up static identity map for 0x81e0 - 0x8230
+[    0.053338] devtmpfs: initialized
+[    0.055079] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.055136] futex hash table entries: 256 (order: -1, 3072 bytes)
+[    0.056287] NET: Registered protocol family 16
+[    0.056962] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.057967] IXP4xx: Using 16MiB expansion bus window size
+[    0.058762] PCI: IXP4xx is host
+[    0.058782] PCI: IXP4xx Using direct access for memory space
+[    0.059032] PCI host bridge to bus 0000:00
+[    0.059067] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.059088] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
+[    0.059108] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.059387] pci 0000:00:02.0: dmabounce: registered device
+[    0.059698] PCI: bus0: Fast back to back transfers enabled
+[    0.059791] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
+[    0.066626] SCSI subsystem initialized
+[    0.067075] usbcore: registered new interface driver usbfs
+[    0.067170] usbcore: registered new interface driver hub
+[    0.067281] usbcore: registered new device driver usb
+[    0.067799] i2c-gpio i2c-gpio.0: using pins 7 (SDA) and 6 (SCL)
+[    0.069088] clocksource: Switched to clocksource OSTS
+[    0.069637] FS-Cache: Loaded
+[    0.070054] CacheFiles: Loaded
+[    0.092262] NET: Registered protocol family 2
+[    0.093468] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.093535] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.093581] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.093690] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.093719] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.094077] NET: Registered protocol family 1
+[    0.094844] NetWinder Floating Point Emulator V0.97 (extended precision)
+[    0.120245] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    0.125329] io scheduler noop registered
+[    0.125366] io scheduler deadline registered
+[    0.125462] io scheduler cfq registered (default)
+[    0.126051] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.128432] console [ttyS0] disabled
+[    0.128519] serial8250.0: ttyS0 at MMIO 0xc8000000 (irq = 15, base_baud = 921600) is a XScale
+[    0.545574] console [ttyS0] enabled
+[    0.574878] brd: module loaded
+[    0.590131] loop: module loaded
+[    0.594498] IXP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
+[    0.605340] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.610538]   Amd/Fujitsu Extended Query version 1.0.
+[    0.615587] IXP4XX-Flash.0: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
+[    0.623092] IXP4XX-Flash.0: Swapping erase regions for top-boot CFI table.
+[    0.629979] number of CFI chips: 1
+[    0.637516] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.644159] ehci-pci: EHCI PCI platform driver
+[    0.648755] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    0.655051] ohci-pci: OHCI PCI platform driver
+[    0.659686] uhci_hcd: USB Universal Host Controller Interface driver
+[    0.666347] usbcore: registered new interface driver usbserial
+[    0.672358] usbcore: registered new interface driver usbserial_generic
+[    0.678976] usbserial: USB Serial support registered for generic
+[    0.685159] usbcore: registered new interface driver pl2303
+[    0.690908] usbserial: USB Serial support registered for pl2303
+[    0.697025] i2c /dev entries driver
+[    0.701302] ixp4xx_wdt: timer heartbeat 60 sec
+[    0.706145] usbcore: registered new interface driver usbhid
+[    0.711797] usbhid: USB HID core driver
+[    0.716216] Initializing XFRM netlink socket
+[    0.722173] NET: Registered protocol family 10
+[    0.728566] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    0.734086] NET: Registered protocol family 17
+[    0.738598] NET: Registered protocol family 15
+[    0.743227] XScale DSP coprocessor detected.
+[    0.749766] hctosys: unable to open rtc device (rtc0)
+[    0.755356] Waiting 10 sec before mounting root device...
+[   32.222316] VFS: Cannot open root device "sda1" or unknown-block(0,0): error -6
+[   32.229632] Please append a correct "root=" boot option; here are the available partitions:
+[   32.237985] 0100           30000 ram0  (driver?)
+[   32.242598] 0101           30000 ram1  (driver?)
+[   32.247215] 0102           30000 ram2  (driver?)
+[   32.251823] 0103           30000 ram3  (driver?)
+[   32.256433] 0104           30000 ram4  (driver?)
+[   32.261042] 0105           30000 ram5  (driver?)
+[   32.265651] 0106           30000 ram6  (driver?)
+[   32.270260] 0107           30000 ram7  (driver?)
+[   32.274869] 0108           30000 ram8  (driver?)
+[   32.279478] 0109           30000 ram9  (driver?)
+[   32.284088] 010a           30000 ram10  (driver?)
+[   32.288783] 010b           30000 ram11  (driver?)
+[   32.293480] 010c           30000 ram12  (driver?)
+[   32.298175] 010d           30000 ram13  (driver?)
+[   32.302871] 010e           30000 ram14  (driver?)
+[   32.307567] 010f           30000 ram15  (driver?)
+[   32.312269] 1f00            1024 mtdblock0  (driver?)
+[   32.317315] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+[   32.325580] CPU: 0 PID: 1 Comm: swapper Not tainted 4.4.88 #1
+[   32.331319] Hardware name: Intel KIXRP435 Reference Platform
+[   32.336968] Backtrace: 
+[   32.339448] [<c0016c74>] (dump_backtrace) from [<c0016e74>] (show_stack+0x18/0x1c)
+[   32.347012]  r7:00008000 r6:cfa53000 r5:c04fb7e8 r4:cfa53000
+[   32.352681] [<c0016e5c>] (show_stack) from [<c01b7b10>] (dump_stack+0x20/0x28)
+[   32.359909] [<c01b7af0>] (dump_stack) from [<c006c76c>] (panic+0x84/0x1e8)
+[   32.366806] [<c006c6ec>] (panic) from [<c04ad334>] (mount_block_root+0x280/0x2c4)
+[   32.374284]  r3:00000000 r2:a0000013 r1:cf83bed0 r0:c044537a
+[   32.379934]  r7:00008000
+[   32.382477] [<c04ad0b4>] (mount_block_root) from [<c04ad4d4>] (mount_root+0x64/0x80)
+[   32.390211]  r10:00000000 r9:c04fb520 r8:c04fb520 r7:c04d063c r6:c04ca86d r5:c04fb544
+[   32.398033]  r4:00000000
+[   32.400574] [<c04ad470>] (mount_root) from [<c04ad654>] (prepare_namespace+0x164/0x1c4)
+[   32.408571]  r5:c04fb544 r4:c04ca858
+[   32.412155] [<c04ad4f0>] (prepare_namespace) from [<c04ace80>] (kernel_init_freeable+0x184/0x1d0)
+[   32.421018]  r6:c04ca834 r5:00000063 r4:00000008
+[   32.425652] [<c04accfc>] (kernel_init_freeable) from [<c03995d0>] (kernel_init+0x10/0xec)
+[   32.433821]  r9:00000000 r8:00000000 r7:00000000 r6:00000000 r5:c03995c0 r4:00000000
+[   32.441568] [<c03995c0>] (kernel_init) from [<c0013630>] (ret_from_fork+0x14/0x24)
+[   32.449132]  r5:c03995c0 r4:00000000
+[   32.452710] ---[ end Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
