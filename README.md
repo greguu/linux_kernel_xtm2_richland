@@ -24,17 +24,40 @@ Specs for the XTM 21-W:
 
 Scope:
 
-- Investigate the "Richmond" platform and check possible similarities to Cambria and the KIXRP435 Development Board.
-- Port to Linux stable 4.9.70 (at the writing the stable used by LEDE / OpenWrt)
+- Investigate the "Richmond" platform and similarities to Cambria and the KIXRP435 Development Board.
+- Port to Linux stable 4.9.70 (at time of writing stable LEDE / OpenWrt kernel)
 - Port to Linux mainline.
 - Test userland and port to LEDE / OpenWrt.
 
+
+# Serial Console
+
+- You will need a bus pirate or similar to access the serial port on the motherboard. 
+- See the pin layout below as an example.
+
+![Serial Port](https://github.com/greguu/linux_kernel_xtm2_richland/blob/master/_files/board_pin.png)
+
+
 # Bootloader
 
-Redboot bootloader (Watchguard version)
+                WatchGuard RedBoot 2.04 - Mar 16 2010 10:36:42
 
-- Bootloader password : F5BA25AB44724fb5A6DD37554809CE34 (found on dd-wrt.com forum)
+ +-------------------------------------------------------------------------+
+ |WatchGuard (SYSA)                                                        |
+ |WatchGuard (SYSB)                                                        |
+ |WatchGuard (SAFE MODE)                                                   |
+ +-------------------------------------------------------------------------+
 
+      Use the ^ and v keys to select which entry is highlighted.
+      Press enter to boot the selected OS.
+
+      The highlighted entry will be loaded  5 seconds.
+
+- To enter the Redboot menu, hit CTRL-C before the 5 second timer expires.
+- You will be presented with a password prompt!
+- Password : F5BA25AB44724fb5A6DD37554809CE34 (found on dd-wrt.com forum)
+
+# Loading a kernel via ymodem
 
 
 
