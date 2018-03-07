@@ -1,0 +1,887 @@
+Uncompressing Linux... done, booting the kernel.
+Linux version 2.6.35.12 (release@cm17se) (gcc version 4.4.5 (WatchGuard Inc./crosstool-ng version: 0.1.5/1.9.0) ) #1 Tue Nov 22 14:09:08 PST 2011
+CPU: XScale-IXP43x Family [69054041] revision 1 (ARMv5TE), cr=000039ff
+CPU: VIVT data cache, VIVT instruction cache
+Machine: WatchGuard XTM2 Platform (Richland)
+Memory policy: ECC disabled, Data cache writeback
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+Kernel command line: console=ttyS0,115200 root=/dev/mtdblock7
+PID hash table entries: 1024 (order: 0, 4096 bytes)
+Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+Memory: 256MB = 256MB total
+Memory: 255764k/255764k available, 6380k reserved, 0K highmem
+Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+    DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+    vmalloc : 0xd0800000 - 0xff000000   ( 744 MB)
+    lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+    modules : 0xbf000000 - 0xc0000000   (  16 MB)
+      .init : 0xc0008000 - 0xc0023000   ( 108 kB)
+      .text : 0xc0023000 - 0xc03b7000   (3664 kB)
+      .data : 0xc03b8000 - 0xc03dff20   ( 160 kB)
+SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+NR_IRQS:64
+Console: colour dummy device 80x30
+Calibrating delay loop... 665.19 BogoMIPS (lpj=3325952)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+CPU: Testing write buffer coherency: ok
+devtmpfs: initialized
+NET: Registered protocol family 16
+IXP4xx: Using 16MiB expansion bus window size
+PCI: IXP43x Richland silicon detected - PCI Non-Prefetch Workaround Enabled
+PCI: IXP4xx is host
+PCI: IXP4xx Using direct access for memory space
+PCI: bus0: Fast back to back transfers enabled
+pci 0000:00:02.0: dmabounce: registered device
+Richland PCI: mapping IRQ pin 1 to GPIO0
+pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
+pci 0000:00:02.0: BAR 0: set to [mem 0x48000000-0x4800ffff] (PCI address [0x48000000-0x4800ffff]
+bio: create slab <bio-0> at 0
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+i2c-gpio i2c-gpio.0: using pins 5 (SDA) and 4 (SCL)
+Switching to clocksource OSTS
+Slow work thread pool: Starting up
+Slow work thread pool: Ready
+FS-Cache: Loaded
+CacheFiles: Loaded
+NET: Registered protocol family 2
+IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
+TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
+TCP: Hash tables configured (established 8192 bind 8192)
+TCP reno registered
+UDP hash table entries: 256 (order: 0, 4096 bytes)
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+NET: Registered protocol family 1
+NetWinder Floating Point Emulator V0.97 (extended precision)
+JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+msgmni has been set to 499
+alg: No test for cipher_null (cipher_null-generic)
+alg: No test for ecb(cipher_null) (ecb-cipher_null)
+alg: No test for digest_null (digest_null-generic)
+alg: No test for compress_null (compress_null-generic)
+alg: No test for stdrng (krng)
+io scheduler noop registered
+io scheduler deadline registered
+io scheduler cfq registered (default)
+Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+serial8250.0: ttyS0 at MMIO 0xc8000000 (irq = 15) is a XScale
+console [ttyS0] enabled
+brd: module loaded
+loop: module loaded
+IXP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank
+Amd/Fujitsu Extended Query Table at 0x0040
+IXP4XX-Flash.0: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
+IXP4XX-Flash.0: Swapping erase regions for top-boot CFI table.
+number of CFI chips: 1
+RedBoot partition parsing not available
+cmdlinepart partition parsing not available
+IXP4xx flash: using static partition definition
+Creating 6 MTD partitions on "IXP4XX-Flash.0":
+0x000000000000-0x000000080000 : "Redboot"
+0x000000080000-0x0000000a0000 : "cfg0"
+0x0000000a0000-0x0000000b0000 : "cfg1"
+0x0000000b0000-0x0000000c0000 : "mfg"
+0x0000000c0000-0x0000000d0000 : "bootOpt"
+0x0000000e0000-0x000000100000 : "RedbootConfig"
+GPIO NAND driver, © 2004 Simtec Electronics
+NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND 256MiB 3,3V 8-bit)
+Scanning device for bad blocks
+Bad eraseblock 461 at 0x0000039a0000
+Bad eraseblock 599 at 0x000004ae0000
+Bad eraseblock 661 at 0x0000052a0000
+Bad eraseblock 1286 at 0x00000a0c0000
+Bad eraseblock 1322 at 0x00000a540000
+Bad eraseblock 1503 at 0x00000bbe0000
+Creating 5 MTD partitions on "NAND 256MiB 3,3V 8-bit":
+0x000000000000-0x000000400000 : "SysA Kernel"
+0x000000400000-0x000008000000 : "SysA Code"
+0x000008000000-0x00000e400000 : "SysA Data"
+0x00000e400000-0x00000e800000 : "SysB Kernel"
+0x00000e800000-0x000010000000 : "SysB Code"
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+ixp4xx-ehci ixp4xx-ehci.0: IXP4XX EHCI Host Controller
+ixp4xx-ehci ixp4xx-ehci.0: new USB bus registered, assigned bus number 1
+ixp4xx-ehci ixp4xx-ehci.0: irq 32, io mem 0xcd000000
+ixp4xx-ehci ixp4xx-ehci.0: USB 0.0 started, EHCI 1.00
+usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb usb1: Product: IXP4XX EHCI Host Controller
+usb usb1: Manufacturer: Linux 2.6.35.12 ehci_hcd
+usb usb1: SerialNumber: ixp4xx-ehci.0
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+ixp4xx-ehci ixp4xx-ehci.1: IXP4XX EHCI Host Controller
+ixp4xx-ehci ixp4xx-ehci.1: new USB bus registered, assigned bus number 2
+ixp4xx-ehci ixp4xx-ehci.1: irq 33, io mem 0xce000000
+ixp4xx-ehci ixp4xx-ehci.1: USB 0.0 started, EHCI 1.00
+usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
+usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb usb2: Product: IXP4XX EHCI Host Controller
+usb usb2: Manufacturer: Linux 2.6.35.12 ehci_hcd
+usb usb2: SerialNumber: ixp4xx-ehci.1
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 1 port detected
+ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+uhci_hcd: USB Universal Host Controller Interface driver
+Initializing USB Mass Storage driver...
+usbcore: registered new interface driver usb-storage
+USB Mass Storage support registered.
+usbcore: registered new interface driver usbserial
+USB Serial support registered for generic
+usbcore: registered new interface driver usbserial_generic
+usbserial: USB Serial Driver core
+USB Serial support registered for pl2303
+usbcore: registered new interface driver pl2303
+pl2303: Prolific PL2303 USB to serial adaptor driver
+rtc-s35390a 0-0030: rtc core: registered rtc-s35390a as rtc0
+i2c /dev entries driver
+IXP4xx Watchdog Timer: heartbeat 60 sec
+TCP cubic registered
+
+wg_shim_init: Built Nov 22 2011 14:09:06 CPUs 1
+
+wg_shim_init: xfrm_skb_cb 40 Hw_callback_data 12
+Initializing XFRM netlink socket
+NET: Registered protocol family 10
+lo: Disabled Privacy Extensions
+ip6_tables: (C) 2000-2006 Netfilter Core Team
+NET: Registered protocol family 17
+NET: Registered protocol family 15
+XScale DSP coprocessor detected.
+rtc-s35390a 0-0030: setting system clock to 2011-05-05 09:05:30 UTC (1304586330)
+VFS: Mounted root (jffs2 filesystem) on device 31:7.
+Freeing init memory: 108K
+rtl8366s_init: Version 0.1.1 Built Nov 22 2011 14:12:41
+rtl8366s_probe: rtl8366s
+rtl8366s_init: Platform data at bf00d9c0
+ixp400: module license 'unspecified' taints kernel.
+Disabling lock debugging due to kernel taint
+richland: Starting Richland Board Driver V2.6 Built Nov 22 2011 14:13:11
+ixp400_eth: Starting IXP400 NPE Ethernet Driver V1.6A Built Nov 22 2011 14:12:41
+ixp400_eth: CPU clock speed (approx) = 665 MHz
+ixp400_eth: Init Chip realtek_split 3f7
+rtl8366s h/w revision=6027
+RTL8366 force link success!
+RTL8366 TMIIOneArm disable!
+RTL8366 TMIIOneArm success!
+ixp400_eth: Set Jumbo
+ixp400_eth: Set CPU Port
+ixp400_eth: ACL split
+ixp400_eth: Split up Realtek device
+ixp400_eth: Starting Queue Manager...
+ixp400_eth: ixCryptoAccInit() completed without error
+ixp400_eth: Setting PHY 16 Speed 100 Duplex FULL Autonegotiation ON
+ixp400_eth: Setting PHY 17 Speed 100 Duplex FULL Autonegotiation ON
+ixp400_eth: Setting PHY 18 Speed 100 Duplex FULL Autonegotiation ON
+ixp400_eth: Setting PHY 32 Speed 100 Duplex FULL Autonegotiation ON
+ixp400_eth: Setting PHY 33 Speed 100 Duplex FULL Autonegotiation ON
+ixp400_eth: Setting PHY 34 Speed 100 Duplex FULL Autonegotiation ON
+ixp400_eth: eth0 is using NPE C PHY 16      
+ixp400_eth: eth1 is using NPE C PHY 17      
+ixp400_eth: eth2 is using NPE C PHY 18      
+ixp400_eth: eth3 is using NPE A PHY 32      
+ixp400_eth: eth4 is using NPE A PHY 33      
+ixp400_eth: eth5 is using NPE A PHY 34      
+ixp400_eth: Register tx_done_disable_cb(1)
+ixp400_eth: Setting promiscuous mode eth0 port 1
+ixp400_eth: eth3 Realtek Tag 9001
+ixp400_eth: Register tx_done_disable_cb(2)
+ixp400_eth: Setting promiscuous mode eth3 port 2
+ixp400_eth: eth4 Realtek Tag 9002
+ixp400_eth: eth5 Realtek Tag 9004
+jffs2_scan_dirent_node(): Name CRC failed on node at 0x00882fd4: Read 0x80731f78, calculated 0x21af9e81
+jffs2_scan_inode_node(): CRC failed on node at 0x05d85fd8: Read 0xffffffff, calculated 0xc08a2468
+jffs2_scan_inode_node(): CRC failed on node at 0x05d8afd8: Read 0xffffffff, calculated 0xc08a2468
+disabling IPv6 autoconf
+disabling IPv6 autoconf
+enable IPv6 forwarding
+enable IPv6 forwarding
+disabling IPv6
+disabling IPv6
+PPP generic driver version 2.4.2
+PPP MPPE Compression module registered
+PPP Deflate Compression module registered
+NET: Registered protocol family 24
+tun: Universal TUN/TAP device driver, 1.6
+tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+The version in configuration is latest, conversion logic will not run.
+Config ok
+Bridge firewalling registered
+Ebtables v2.0 registered
+GRE over IPv4 tunneling driver
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+JFFS2 notice: (49) check_node_data: wrong data CRC in data node at 0x05d800f4: read 0xf132e27f, calculated 0xc42a2a33.
+Cannot create directory `/etc/wg/tmp'
+
+wg_crypto_init: Built Nov 22 2011 14:11:25 FIPS 0
+
+wg_crypto_init: Insert aead  'authenc(digest_null,cbc(des3_ede))'
+alg: No test for authenc(digest_null,cbc(des3_ede)) (authenc(digest_null,cbc(des3_ede))-wg)
+wg_crypto_init: Insert aead  'authenc(digest_null,cbc(aes))'
+alg: No test for authenc(digest_null,cbc(aes)) (authenc(digest_null,cbc(aes))-wg)
+wg_crypto_init: Insert aead  'authenc(hmac(sha1),cbc(cipher_null))'
+alg: No test for authenc(hmac(sha1),cbc(cipher_null)) (authenc(hmac(sha1),cbc(cipher_null))-wg)
+wg_crypto_init: Insert aead  'authenc(hmac(sha1),cbc(des3_ede))'
+alg: No test for authenc(hmac(sha1),cbc(des3_ede)) (authenc(hmac(sha1),cbc(des3_ede))-wg)
+wg_crypto_init: Insert aead  'authenc(hmac(sha1),cbc(aes))'
+alg: No test for authenc(hmac(sha1),cbc(aes)) (authenc(hmac(sha1),cbc(aes))-wg)
+Netfilter messages via NETLINK v0.30.
+ip_set: protocol 5
+nf_conntrack version 0.5.0 (3998 buckets, 15992 max)
+nf_conntrack_init_init_net: conntrack max=15992 high water mark=12793
+CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Please use
+nf_conntrack.acct=1 kernel parameter, acct=1 nf_conntrack module option or
+sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+ip_tables: (C) 2000-2006 Netfilter Core Team
+nf_ct_ftp: Maximum expected value 1
+ctnetlink v0.93: registering with nfnetlink.
+arp_tables: (C) 2002 David S. Miller
+u32 classifier
+    Performance counters on
+    input device check on
+    Actions configured
+ipt_addrpairs v0.1.0: Loaded
+xt_ifset: Loaded with set limit 5000 and entry limit 5000
+xt_classify : Loaded
+xt_master: Loaded
+xt_MASTER: Loaded
+xt_WGTEE: Loaded
+xt_STP: Loaded
+Schedule: Loaded
+xt_POLICY: Loaded
+xt_policy : Loaded
+xt_EXPIRES: Loaded
+xt_IPPRECEDENCE: Loaded
+xt_PKTCACHE: Loaded
+xt_session : Loaded limit 1000 hash 1024 WG IPC ID 92274688 (0x05800000)
+xt_CONNCLASSIFY: Loaded
+xt_connclassify : Loaded
+xt_ipspoof : Loaded
+xt_LBDNAT: Loaded
+xt_MWAN: Loaded
+xt_psd: Loaded
+xt_ipsd: Loaded
+xt_ddos: Loaded
+xt_dos: Loaded
+xt_wgaccount: Loaded
+xt_block : Loaded limit 1000 hash 1024 WG IPC ID 155189248
+xt_localroute: Loaded
+xt_duplicate: Loaded
+WG workqueue: Loaded
+bw driver: Loaded
+enabling sched_compat_yield for more aggressive scheduling
+Linking proxy needed libs to sandbox
+Linking Done.
+Setting IPv4 route garbage collection timeout to 2 minutes
+Setting promote_secondaries to 1
+setmac: setting device eth0 to 00:00:00:00:00:00
+ixp400_eth: eth0: Setting MAC Address: 00:00:00:00:00:00
+setmac: setting device eth1 to 00:00:00:00:00:00
+ixp400_eth: eth1: Setting MAC Address: 00:00:00:00:00:00
+setmac: setting device eth2 to 00:00:00:00:00:00
+ixp400_eth: eth2: Setting MAC Address: 00:00:00:00:00:00
+setmac: setting device eth3 to 00:00:00:00:00:00
+ixp400_eth: Get Unicast eth3 Port 5
+ixp400_eth: eth3: Setting MAC Address: 00:00:00:00:00:00
+setmac: setting device eth4 to 00:00:00:00:00:00
+ixp400_eth: Get Unicast eth4 Port 5
+ixp400_eth: eth4: Setting MAC Address: 00:00:00:00:00:00
+setmac: setting device eth5 to 00:00:00:00:00:00
+ixp400_eth: Get Unicast eth5 Port 5
+ixp400_eth: eth5: Setting MAC Address: 00:00:00:00:00:00
+nf_ct_ftp: Maximum expected value 0 is out of range 1-10, using default 1
+nf_ct_ftp: Maximum expected value 1
+xt_ifset ifset_entry_write: Cannot add non-existent ipset set "vpn:muvpn"
+xt_ifset ifset_entry_write: Cannot add non-existent ipset set "vpn:muvpntrs"
+xt_ifset ifset_entry_write: Cannot add non-existent ipset set "vpn:muvpnopt"
+xt_wgaccount: Requested policy limit 9 is not larger than current limit 100 so limit will not change
+xt_session: TS is shut down by configuration data, ts count: 0 len : 0
+Compat-wireless backport release: compat-wireless-2011-09-28-6-g8163a60
+Backport based on linux-next.git next-20111007
+cfg80211: Calling CRDA to update world regulatory domain
+PCI: enabling device 0000:00:02.0 (0340 -> 0342)
+ieee80211 phy0: Atheros AR9160 MAC/BB Rev:1 AR5133 RF Rev:b0 mem=0xd2ae0000, irq=6
+cfg80211: World regulatory domain updated:
+cfg80211:     (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp)
+cfg80211:     (2422000 KHz - 2457000 KHz @ 20000 KHz), (200 mBi, 1000 mBm)
+cfg80211:     (2422000 KHz - 2457000 KHz @ 0 KHz), (200 mBi, 1000 mBm)
+cfg80211:     (2422000 KHz - 2457000 KHz @ 0 KHz), (200 mBi, 1000 mBm)
+cfg80211: Calling CRDA for country: US
+cfg80211: Regulatory domain changed to country: US
+cfg80211:     (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp)
+cfg80211:     (5735000 KHz - 5835000 KHz @ 40000 KHz), (200 mBi, 3000 mBm)
+cfg80211:     (5170000 KHz - 5250000 KHz @ 40000 KHz), (200 mBi, 2000 mBm)
+cfg80211:     (2402000 KHz - 2472000 KHz @ 0 KHz), (200 mBi, 2700 mBm)
+cfg80211:     (2402000 KHz - 2472000 KHz @ 0 KHz), (200 mBi, 2700 mBm)
+cfg80211: Calling CRDA to update world regulatory domain
+cfg80211: World regulatory domain updated:
+cfg80211:     (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp)
+cfg80211:     (2422000 KHz - 2457000 KHz @ 20000 KHz), (200 mBi, 1000 mBm)
+cfg80211:     (2422000 KHz - 2457000 KHz @ 0 KHz), (200 mBi, 1000 mBm)
+cfg80211:     (2422000 KHz - 2457000 KHz @ 0 KHz), (200 mBi, 1000 mBm)
+ixp400_eth: eth1: Link status thread created, pid = 864
+ixp400_eth: port_enable(eth0)
+ixp400_eth: Register tx_done_cb(1)
+ixp400_eth: eth2: Link status thread created, pid = 865
+ixp400_eth: eth3: Link status thread created, pid = 866
+ixp400_eth: port_enable(eth3)
+ixp400_eth: Register tx_done_cb(2)
+ixp400_eth: eth4: Link status thread created, pid = 867
+ixp400_eth: eth5: Link status thread created, pid = 868
+ixp400_eth: eth0: Link status thread created, pid = 878
+
+Firebox login: admin
+Password: 
+--
+-- WatchGuard Firebox Operating System Software.
+-- Fireware XTM Version 11.5.1
+-- Support: https://www.watchguard.com/support/supportLogin.asp
+-- Copyright (c) 1996-2011 by WatchGuard Technologies, Inc.
+--
+WG#help
+The WatchGuard help command provides a brief description of
+the context-sensitive help system.
+
+(1) To see a list of all commands available for a particular
+    command mode, enter a question mark (?) at the system prompt.
+
+(2) To see a list of commands that start with a particular
+    character string, enter the abbreviated command entry
+    immediately followed by a question mark (?). This is called
+    word help, because it shows only the key words or arguments
+    that begin with the abbreviation you entered.
+
+(3) To see a list of the key words and arguments for a command,
+    enter a question mark (?) in place of a key word or argument
+    on the command line. This is called command syntax help,
+    because it gives you a list of the keywords or arguments
+    that apply based on the command, key words, and arguments
+    you have already entered.
+
+WG#?
+Privilege commands:
+  arp               Manipulate the system ARP cache
+  backup            Backup previous software release or configuration
+  cert-request      Certificate request
+  checksum          The checksum of all the packages installed on appliance
+  clock             Manage the system clock
+  configure         Enter configuration mode
+  debug-cli         Configure debugging options
+  diagnose          Display internal diagnostic information
+  dnslookup         Look up domain name
+  exit              Exit from the EXEC
+  export            Export information to external platform
+  fips              FIPS mode setting
+  help              Description of the interactive help system
+  history           Display the command history list with line numbers
+  import            Import information from external platform
+  mgmt-user-unlock  Unlock a locked management account
+  no                Negate a command or set its defaults
+  password          Change the current administrator's password
+  ping              Send echo messages
+  reboot            Reboot system
+  restore           Appliance software image
+  show              Show running system information
+  shutdown          Shutdown this WatchGuard appliance
+  sync              Sync info from live security server
+  sysinfo           Display system information
+  tcpdump           Dump traffic on a network
+  traceroute        Trace route to destination
+  upgrade           Upgrade software release with dl file
+  usb               USB drive
+  vpn-tunnel        Encrypted virtual connection
+  who               Show who is logged on
+
+WG#sysinfo
+--
+-- System Information
+--
+system name         : Firebox
+system model        : XTM21-W
+contact             : system contact
+location            : system location
+system time         : 09:08:57GMT 05/05/2011
+up time             : 0 days 0 hours 3 minutes 28 seconds
+serial number       : 70A1048802DF8
+version             : 11.5.1.B331198
+cpu utilization     : 0%(1 min)  0%(5 min)  0%(15 min)
+memory usage        : 255872 kB(total)  65160 kB(free)  190712 kB(used)
+time zone           : GMT+0:00 Greenwich Mean Time
+WG#diagnose
+-- Diagnose Report --
+
+Status report for &apos;Firebox&apos; from Thu May  5 09:09:21 2011
+
+Version : 11.5.1.B331198
+sysb :  
+Serial #: XXXXXXXXXXXX
+Model   :  XTM21-W
+
+Current local time: Thu May  5 09:09:21 2011
+Current UTC time  : Thu May  5 09:09:21 2011
+Uptime            : 3m 53s
+
+
+Firebox Modular Components
+--------------------------
+Module               Version              Build Number        
+xtables-addons       11.5.1               331198              
+wireless             11.5.1               331198              
+wgversion            11.5.1               331198              
+wgplatform           11.5.1               331198              
+wgcore               11.5.1               331198              
+wgbase               11.5.1               331198              
+webui                11.5.1               331198              
+vpn-data             11.5.1               331198              
+vpn                  11.5.1               331198              
+rootfs               11.5.1               331198              
+root                 11.5.1               331198              
+ra                   11.5.1               331198              
+python               11.5.1               331198              
+proxy                11.5.1               331198              
+product-schema       11.5.1               331198              
+product-common       11.5.1               331198              
+product              11.5.1               331198              
+polsvc               11.5.1               331198              
+ntp                  11.5.1               331198              
+networking6          11.5.1               331198              
+networking           11.5.1               331198              
+net-tools            11.5.1               331198              
+net-snmp             11.5.1               331198              
+ixp                  11.5.1               331198              
+ike                  11.5.1               331198              
+foundation           11.5.1               331198              
+firewall6            11.5.1               331198              
+firewall             11.5.1               331198              
+fips                 11.5.1               331198              
+dynroute             11.5.1               331198              
+deprecated           11.5.1               331198              
+cli                  11.5.1               331198              
+appID                11.5.1               331198              
+
+
+Log Configuration
+-----------------
+Syslog Server: 0.0.0.0
+Status: Disconnected
+
+Watchguard Log Server: Disabled
+
+
+
+Process list
+------------
+   PID ST   %CPU      VSS      RSS   SHARED                        STARTED     TIME    COMMAND
+     0  -   9.91        0        0        0       Thu May  5 09:05:28 2011   1:37.50  system
+     1  S   0.00     5012     1492     1036       Thu May  5 09:05:28 2011   0:32.25  /sbin/init
+     2  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.01  kthreadd
+     3  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.24  ksoftirqd/0
+     4  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:01.18  events/0
+     5  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  khelper
+     6  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  async/mgr
+     7  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.40  sync_supers
+     8  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:01.37  bdi-default
+     9  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.11  kblockd/0
+    10  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  khubd
+    11  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  kseriod
+    12  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  kslowd000
+    13  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  kslowd001
+    14  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  kswapd0
+    15  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  aio/0
+    16  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  crypto/0
+    34  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  mtdblock0
+    35  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.10  mtdblock1
+    36  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  mtdblock2
+    37  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  mtdblock3
+    38  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  mtdblock4
+    39  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  mtdblock5
+    40  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  mtdblock6
+    41  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  mtdblock7
+    42  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  mtdblock8
+    43  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  mtdblock9
+    44  S   0.00        0        0        0       Thu May  5 09:05:28 2011   0:00.00  mtdblock10
+    47  S   0.00     1716      572      488       Thu May  5 09:06:00 2011   0:00.08  /usr/bin/fipsfaild
+    50  S   0.00        0        0        0       Thu May  5 09:06:00 2011   0:00.29  flush-mtd-unmap
+    52  R   0.00        3        0        0       Thu May  5 09:05:28 2011   0:00.00  EthMa
+    53  S   0.00        0        0        0       Thu May  5 09:06:12 2011   0:00.00  ixp400_eth
+    54  S   0.00        0        0        0       Thu May  5 09:06:12 2011   0:00.00  ixp400_eth
+    55  w   0.00        4        0        0       Thu May  5 09:05:28 2011   0:00.00  ethD
+    56  S   0.00        0        0        0       Thu May  5 09:06:15 2011   0:00.11  jffs2_gcd_mtd8
+    73  S   0.00        0        0        0       Thu May  5 09:06:33 2011   0:00.00  SLB-Probe
+    74  S   0.00        0        0        0       Thu May  5 09:06:34 2011   0:00.03  bwdrv_wq/0
+    75  S   0.00    12292     3972     2832       Thu May  5 09:06:54 2011   0:06.95  /usr/bin/loggerd --wrapper-config /etc/loggerd-modules.conf
+    76  S   0.00    18560     5744     2204       Thu May  5 09:06:54 2011   0:03.09  /usr/bin/configd
+    81  S   0.00     9540     2976     2276       Thu May  5 09:06:56 2011   0:00.41  /usr/bin/alarmd
+    82  S   0.00    23380     6464     3976       Thu May  5 09:06:56 2011   0:05.71  /usr/bin/firewalld
+   837  S   0.00    20264     4768     3708       Thu May  5 09:07:21 2011   0:03.01  /usr/bin/networkd
+   838  S   0.00        0        0        0       Thu May  5 09:07:23 2011   0:00.00  cfg80211
+   839  S   0.00        0        0        0       Thu May  5 09:07:26 2011   0:00.00  phy0
+   864  e   0.00       12        0        0       Thu May  5 09:05:28 2011   0:00.10  ixp40
+   865  e   0.00       12        0        0       Thu May  5 09:05:28 2011   0:00.10  ixp40
+   866  e   0.00       12        0        0       Thu May  5 09:05:28 2011   0:00.09  ixp40
+   867  e   0.00       12        0        0       Thu May  5 09:05:28 2011   0:00.08  ixp40
+   868  e   0.00       12        0        0       Thu May  5 09:05:28 2011   0:00.00  ixp40
+   871  R   5.41    17884     3104     2332       Thu May  5 09:07:34 2011   0:01.10  /usr/bin/systemd
+   872  S   0.00     7424     2020     1596       Thu May  5 09:07:34 2011   0:00.09  /usr/bin/sslvpn_firecluster
+   873  S   0.00    10720     3028     2440       Thu May  5 09:07:34 2011   0:00.38  /usr/bin/dvcpcld
+   874  S   0.00    21060     3640     2756       Thu May  5 09:07:34 2011   0:03.03  /usr/bin/spamd -D -s /var/cfm_sandbox/spamd -m 8
+   875  S   0.00    21292     4228     3220       Thu May  5 09:07:34 2011   0:07.93  /usr/bin/scand -D -s /var/cfm_sandbox/scand -m 4
+   876  S   0.00     2760      772      608       Thu May  5 09:07:34 2011   0:00.03  /usr/bin/klogd -c 4
+   878  e   0.00       12        0        0       Thu May  5 09:05:28 2011   0:00.04  ixp40
+   881  S   0.00    10632     3336     2696       Thu May  5 09:07:34 2011   0:01.58  /usr/bin/wgif_dhcp eth0 eth0.out External
+   883  S   0.00     1536      376      324       Thu May  5 09:07:34 2011   0:00.47  /sbin/gettyd
+   884  S   0.00    12936     9412     2420       Thu May  5 09:07:34 2011   0:07.28  /usr/bin/python /usr/bin/polsvc/server.fcgi
+   885  S   0.00     7880     1812     1344       Thu May  5 09:07:34 2011   0:00.10  netdbg
+   886  S   0.00    11192      992      780       Thu May  5 09:07:34 2011   0:00.12  /usr/sbin/keeper
+   887  S   0.00     9560     2796     2276       Thu May  5 09:07:34 2011   0:00.41  /usr/bin/ikestubd
+   888  S   0.00     8064     2064     1588       Thu May  5 09:07:34 2011   0:00.16  /usr/bin/wgagent
+   889  S   0.00     8160     2456     1960       Thu May  5 09:07:34 2011   0:00.22  /usr/bin/sessiond
+   890  S   0.00    29172     1548     1024       Thu May  5 09:07:34 2011   0:00.10  /usr/bin/counterd
+   891  S   0.00    10256     3004     2384       Thu May  5 09:07:34 2011   0:00.54  /usr/bin/drclient -l
+   892  S   0.00     7280     1948     1568       Thu May  5 09:07:34 2011   0:00.07  /usr/bin/drproxy
+   893  S   0.00     9192     2404     1916       Thu May  5 09:07:34 2011   0:00.14  /usr/bin/widsd
+   894  S   0.00     7704     2244     1732       Thu May  5 09:07:34 2011   0:00.67  /usr/bin/oss-daemon -c /etc/oss-conf/radvd.conf
+   895  S   0.00    14016     5588     4416       Thu May  5 09:07:34 2011   0:04.21  bosscfm
+   896  S   0.00    24136     7300     3944       Thu May  5 09:07:34 2011   0:03.85  -cli
+   897  S   0.00    12004     4860     2540       Thu May  5 09:07:34 2011   0:01.43  /usr/bin/oss-daemon -c /etc/oss-conf/light.conf
+   898  S   0.00    10392     3988     2224       Thu May  5 09:07:34 2011   0:00.62  /usr/bin/certd -a -o 200
+   899  S   0.00     3968     1584     1304       Thu May  5 09:07:34 2011   0:00.45  /sbin/sshd -p 4118 -D
+   900  S   0.00    10128     2932     2324       Thu May  5 09:07:34 2011   0:00.69  /usr/bin/snmp-wrap --wrapper-config /etc/snmp-wrap.conf
+   901  S   0.00     9548     3076     2348       Thu May  5 09:07:34 2011   0:00.59  /usr/bin/sigd -D
+   902  S   0.00    12312     5824     3064       Thu May  5 09:07:34 2011   0:01.44  /usr/bin/oss-daemon -c /etc/oss-conf/configs
+   903  S   0.00    13964     5676     3480       Thu May  5 09:07:34 2011   0:01.35  /usr/bin/iked -d
+   904  S   0.00     9352     2880     2320       Thu May  5 09:07:34 2011   0:00.28  /usr/bin/gred
+   905  S   0.00     9764     3244     2288       Thu May  5 09:07:34 2011   0:00.68  /usr/bin/admd -f
+   906  S   0.00     7524     2084     1652       Thu May  5 09:07:34 2011   0:00.09  /usr/bin/red -m 50
+   934  S   0.00     5768     2476     1812       Thu May  5 09:07:57 2011   0:00.65  /usr/sbin/lighttpd -D -f /tmp/lighttpd.conf -m /usr/lib/lighttpd
+   935  S   0.00     3740     2404      908       Thu May  5 09:08:06 2011   0:00.67  /usr/bin/dhcpd -f -d -cf /tmp/dhcpd.conf -lf /tmp/dhcpd.leases eth1
+   936  S   0.00     1792      808      648       Thu May  5 09:08:06 2011   0:00.09  /usr/sbin/ntpd -d -s -f /var/run/ntpd/ntpd.conf
+   938  S   0.00     7380     2064     1668       Thu May  5 09:08:06 2011   0:00.14  /usr/bin/dd_client
+   940  S   0.00     1636      624      476       Thu May  5 09:08:09 2011   0:00.00  /usr/sbin/ntpd -d -s -f /var/run/ntpd/ntpd.conf
+   958  S   0.00    14220     3060     1872       Thu May  5 09:08:14 2011   0:00.05  wkrcfm-1
+   959  S   0.00    14220     3060     1872       Thu May  5 09:08:14 2011   0:00.05  wkrcfm-2
+
+
+Memory info
+------------
+MemTotal:         255872 kB
+MemFree:           64800 kB
+Buffers:               0 kB
+Cached:            52788 kB
+SwapCached:            0 kB
+Active:            54456 kB
+Inactive:          44400 kB
+Active(anon):      48600 kB
+Inactive(anon):     2596 kB
+Active(file):       5856 kB
+Inactive(file):    41804 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:         46076 kB
+Mapped:            17020 kB
+Shmem:              5128 kB
+Slab:              21100 kB
+SReclaimable:       2028 kB
+SUnreclaim:        19072 kB
+KernelStack:        1000 kB
+PageTables:         1260 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      127936 kB
+Committed_AS:     178444 kB
+VmallocTotal:     761856 kB
+VmallocUsed:      209240 kB
+VmallocChunk:     515920 kB
+
+
+Load Average
+-------------
+1-min   5-min   15-min   run-proc   last-pid
+3.34    2.32    0.95     1/125       972
+
+
+Network Configuration
+------------
+Enabled If-#  Name                    Address           Type*/MTU  Status IP-Assignment
+Yes     0     External                0.0.0.0/0         EX/1500    down   dhcp           
+Yes     1     Trusted                 10.0.1.1/24       TR/1500    down   static         
+Yes     2     Optional-1              10.0.2.1/24       OP/1500    down   static         
+Yes     3     Optional-2              10.0.3.1/24       OP/1500    down   static         
+Yes     4     Optional-3              10.0.4.1/24       OP/1500    down   static         
+Yes     5     Optional-4              10.0.5.1/24       OP/1500    down   static         
+
+* Type:  TR = trusted, EX = external, OP = optional, VL = vlan, BR = bridge, CL = cluster
+
+
+Interfaces
+------------
+eth0      Link encap:Ethernet  HWaddr 00:00:00:00:00:00
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:2040 
+          RX bytes:0 (0.0 B)  TX bytes:372 (372.0 B)
+
+eth1      Link encap:Ethernet  HWaddr 00:00:00:00:00:00  
+          inet addr:10.0.1.1  Bcast:10.0.1.255  Mask:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:2040 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+eth2      Link encap:Ethernet  HWaddr 00:00:00:00:00:00 
+          inet addr:10.0.2.1  Bcast:10.0.2.255  Mask:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:2040 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+eth3      Link encap:Ethernet  HWaddr 00:00:00:00:00:00
+          inet addr:10.0.3.1  Bcast:10.0.3.255  Mask:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:2040 
+          RX bytes:0 (0.0 B)  TX bytes:192 (192.0 B)
+
+eth4      Link encap:Ethernet  HWaddr 00:00:00:00:00:00  
+          inet addr:10.0.4.1  Bcast:10.0.4.255  Mask:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:2040 
+          RX bytes:0 (0.0 B)  TX bytes:192 (192.0 B)
+
+eth5      Link encap:Ethernet  HWaddr 00:00:00:00:00:00  
+          inet addr:10.0.5.1  Bcast:10.0.5.255  Mask:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:2040 
+          RX bytes:0 (0.0 B)  TX bytes:192 (192.0 B)
+
+wlan0     Link encap:Ethernet  HWaddr 00:00:00:00:00:00 
+          BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+
+
+Physical Interfaces Link Status
+------------
+Settings for eth0:
+Basic registers of MII PHY #16:  1000 7849 0141 0c87 05e1 0000 0004 2001.
+ Basic mode control register 0x1000: Auto-negotiation enabled.
+ Basic mode status register 0x7849 ... 7849.
+   Link status: not established.
+   End of basic transceiver information.
+
+Settings for eth1:
+Basic registers of MII PHY #17:  1000 7849 0141 0c87 05e1 0000 0004 2001.
+ Basic mode control register 0x1000: Auto-negotiation enabled.
+ Basic mode status register 0x7849 ... 7849.
+   Link status: not established.
+   End of basic transceiver information.
+
+Settings for eth2:
+Basic registers of MII PHY #18:  1000 7849 0141 0c87 05e1 0000 0004 2001.
+ Basic mode control register 0x1000: Auto-negotiation enabled.
+ Basic mode status register 0x7849 ... 7849.
+   Link status: not established.
+   End of basic transceiver information.
+
+Settings for eth3:
+Basic registers of MII PHY #32:  3100 7949 001c c960 0de1 0000 0004 2001.
+ Basic mode control register 0x3100: Auto-negotiation enabled.
+ Basic mode status register 0x7949 ... 7949.
+   Link status: not established.
+   End of basic transceiver information.
+
+Settings for eth4:
+Basic registers of MII PHY #33:  3100 7949 001c c960 0de1 0000 0004 2001.
+ Basic mode control register 0x3100: Auto-negotiation enabled.
+ Basic mode status register 0x7949 ... 7949.
+   Link status: not established.
+   End of basic transceiver information.
+
+Settings for eth5:
+Basic registers of MII PHY #34:  3100 7949 001c c960 0de1 0000 0004 2001.
+ Basic mode control register 0x3100: Auto-negotiation enabled.
+ Basic mode status register 0x7949 ... 7949.
+   Link status: not established.
+   End of basic transceiver information.
+
+
+
+Wireless
+------------
+ok
+
+Routes
+------------
+Destination       Gateway           Flags  Metric Ref  Use Iface
+10.0.4.0/24       *                 U      0      0      0 eth4
+10.0.5.0/24       *                 U      0      0      0 eth5
+10.0.1.0/24       *                 U      0      0      0 eth1
+10.0.2.0/24       *                 U      0      0      0 eth2
+10.0.3.0/24       *                 U      0      0      0 eth3
+127.0.0.0/24      *                 U      0      0      0 lo
+
+Special routing tables
+------------
+eth0.out:
+
+Destination                                    Gateway                                        Flags  Metric Iface
+::1/128                                        *                                                     256    lo
+
+
+
+Arp
+------------
+IP address       HW type     Flags       HW address            Mask     Device
+
+
+Multi-WAN
+------------
+ok
+
+DHCP Leases
+------------
+no active leases
+
+
+Domain Name Servers
+------------
+no name servers
+
+
+Dynamic Routing
+------------
+Feature is not enabled
+
+RIP
+------------
+Feature is not enabled
+
+OSPF
+------------
+Feature is not enabled
+
+BGP
+------------
+Feature is not enabled
+
+IPSec Routes
+------------
+Empty list
+
+
+Multi-WAN
+------------
+**
+** Multi-WAN status (Firewalld)
+**
+failbackGracePeriod=0, stickyTime:tcp=0, udp=0, others=0
+=== Sticky Table === curTime=1304586565 seconds
+
+
+System Health
+---------------
+100
+
+Module              status              delay               
+cfm                 ok                  13                  
+configd             ok                  13                  
+drclient            ok                  13                  
+firewalld           ok                  14                  
+iked                ok                  14                  
+sessiond            ok                  14                  
+systemd             ok                  14                  
+wgagent             ok                  14                  
+
+
+------------
+
+WG#?
+Privilege commands:
+  arp               Manipulate the system ARP cache
+  backup            Backup previous software release or configuration
+  cert-request      Certificate request
+  checksum          The checksum of all the packages installed on appliance
+  clock             Manage the system clock
+  configure         Enter configuration mode
+  debug-cli         Configure debugging options
+  diagnose          Display internal diagnostic information
+  dnslookup         Look up domain name
+  exit              Exit from the EXEC
+  export            Export information to external platform
+  fips              FIPS mode setting
+  help              Description of the interactive help system
+  history           Display the command history list with line numbers
+  import            Import information from external platform
+  mgmt-user-unlock  Unlock a locked management account
+  no                Negate a command or set its defaults
+  password          Change the current administrator's password
+  ping              Send echo messages
+  reboot            Reboot system
+  restore           Appliance software image
+  show              Show running system information
+  shutdown          Shutdown this WatchGuard appliance
+  sync              Sync info from live security server
+  sysinfo           Display system information
+  tcpdump           Dump traffic on a network
+  traceroute        Trace route to destination
+  upgrade           Upgrade software release with dl file
+  usb               USB drive
+  vpn-tunnel        Encrypted virtual connection
+  who               Show who is logged on
+
+WG#configure
+
+WG(config)#?
+Configure commands:
+  auth-setting             Authentication settings
+  bridge                   Local area network settings
+  ddns                     Dynamic DNS service
+  default-packet-handling  Default packet handling
+  exit                     Exit from configure mode
+  global-setting           Global settings
+  help                     Description of the interactive help system
+  history                  Display the command history list with line numbers
+  interface                Select an interface to configure
+  ip                       Internet protocol
+  log-setting              Log setting
+  managed-client           Configure this firebox as a managed client
+  modem                    Modem configuration
+  network-mode             WatchGuard security appliance system mode
+  no                       Negate a command or set its defaults
+  ntp                      Network Time Protocol
+  policy                   Enter policy configuration mode
+  show                     Show running system information
+  signature-update         Signature update configuration
+  snat                     Configure SNAT.
+  snmp                     Simple Network Management Protocol
+  static-arp               Static arp binding
+  system                   System properties
+  v6                       Configure the ipv6
+  vlan                     Virtual Local Area Network (VLAN)
+  vpn-setting              Vpn setting
+  web-server-cert          Web Server Certificate
+  wireless                 Wireless configure
