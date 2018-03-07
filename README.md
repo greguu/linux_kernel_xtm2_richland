@@ -7,7 +7,7 @@
 - Watchguard ended support for these models (EOL) on the 30th of June 2017. (ebay ?)
 - The XTM 25 and 26 models are out of scope for this project.
 - For this project we are using the model XTM 21-W (HW Model #XP3E6W)
-- Watchguard uses a custom Linux kernel based on 2.6.35.x and the source has not been made public.
+- Watchguard uses a custom Linux kernel based on 2.6.35.x and the source has not been released.
 - The bootloader is a custom version of Redboot, called Watchguard Redboot.
 
 Specs for the XTM 21-W:
@@ -30,8 +30,9 @@ Scope of this project:
 - Investigate the "Richmond" platform and similarities to Cambria and the KIXRP435 Development Board.
 - Port to Linux stable 4.9.70 (at time of writing stable LEDE / OpenWrt kernel, patches available)
 - Test basic userland on USB drive (LEDE ?)
-- Investigate and update Redboot or flash alternative bootloader (uboot ?)
+- Investigate and update Redboot or flash an alternative bootloader (uboot ?) ..risky..
 - Test userland and port to LEDE / OpenWrt.
+- Flash LEDE to NAND.
 
 
 # Serial Console
@@ -69,7 +70,7 @@ Scope of this project:
 - Note: We are using Arch Linux as a build host in this example.
 - Note: The CPU is armeb (big endian).
 - Although this CPU should support little endian, too - we will focus on armeb.
-- A prebuild Linaro armeb toolchain will do just fine for building and testing the kernel.
+- A prebuild Linaro armeb toolchain will do just fine for building and testing the kernel. Later we move to the LEDE SDK.
 
 ```
 cd ~
@@ -84,8 +85,8 @@ tar xf linux-4.9.70.tar.xz
 # Set up the toolchain
 
 - Depending on your setup you will need required build tools and compilers.
-- To build the extracted kernel with the Linaro toolchain, just create a simple bash script as shown below.
-- Make sure to adjust the paths and "-j", this is just an example.
+- To build the extracted kernel with the Linaro toolchain, just create a simple bash script as shown below to set all the variables.
+- Make sure to adjust the paths and "-j". (this is just an example).
 
 ```
 #!/bin/bash
@@ -116,7 +117,7 @@ make LOCALVERSION= -j8 "$1"
 
 - You will need minicom, a serial cable and / or a USB to serial adapter and a bus pirate.
 - To get the required packages: ```pacman -S minicom lrzsz```
-- Run minicom: ```minicom -D /dev/ttyUSB0```
+- Connect the bus pirate to the pins and the hosts USB port. Then run minicom: ```minicom -D /dev/ttyUSB0```
 - Power on the router and hit CTRL-C at the boot menu. Enter the password.
 - Then load the kernel ```load -m ymodem -r -v -b %{FREEMEMLO} zImage```
 - CTRL-A SHIFT-Z in minicom and choose S (SHIFT-S) for send file.
@@ -132,6 +133,7 @@ Now the real work starts...
 - Get USB working
 - Get GPIO working
 - Get WiFI working
+- Get Ethernet working
 - ...
 
 
