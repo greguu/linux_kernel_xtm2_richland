@@ -108,22 +108,22 @@ make LOCALVERSION= -j8 "$1"
 
 # Build the kernel
 
-- Copy ```watchguard_config.txt``` to .config and run "./buildscript oldconfig"
-- Make some sane decissions then compile with "./buildscript zImage"
-- Note: You will need to configuer some targets! See ```/_files/minimal_config_49.txt``` as an example.
+- Copy ```watchguard_config.txt``` to ```.config``` and run ```./buildscript oldconfig```
+- Make some sane decissions then compile with ```./buildscript zImage```
+- Note: You will need to configure some targets! See ```/_files/minimal_config_49.txt``` for an (minimal) example config.
 
 # Loading a kernel via ymodem
 
 - You will need minicom, a serial cable and / or a USB to serial adapter and a bus pirate.
-- To get the required packages ```pacman -S minicom lrzsz```
-- Run minicom ```minicom -D /dev/ttyUSB0```
+- To get the required packages: ```pacman -S minicom lrzsz```
+- Run minicom: ```minicom -D /dev/ttyUSB0```
 - Power on the router and hit CTRL-C at the boot menu. Enter the password.
 - Then load the kernel ```load -m ymodem -r -v -b %{FREEMEMLO} zImage```
 - CTRL-A SHIFT-Z in minicom and choose S (SHIFT-S) for send file.
 - Locate the just build zImage (select with Space) in ./arch/arm/boot and load it (Enter).
 - Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/mtdblock7" -w 5```
 - Example : See ```/_files/minimal_boot.txt``` for a minimal boot log.
-- Note : The init to root will fail.. but we just started hey!
+- Note : The mount of root and the init will fail.. but we just started, hey!
 
 # Next ?
 
