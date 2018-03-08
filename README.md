@@ -111,7 +111,7 @@ make LOCALVERSION= -j8 "$1"
 
 - Copy ```watchguard_config.txt``` to ```.config``` and run ```./buildscript oldconfig```
 - Make some sane decissions then compile with ```./buildscript zImage```
-- Note: You will need to configure some targets! See ```/_files/minimal_config_49.txt``` for an (minimal) example config.
+- Note: You will need to configure some targets! See ```/_files/minimal_config_44.txt``` for an (minimal) example config.
 
 # Loading a kernel via ymodem
 
