@@ -23,7 +23,7 @@ Specs for the XTM 21-W:
 - SERIAL: On Board (TTL, 115200 8N1)
 - POWER: 12V DC 2A
 
-- You can find more details here (official specs)  ```/_files/wg_xtm2.pdf```
+- You can find the official specs here:  ```/_files/wg_xtm2.pdf```
 
 Scope of this project:
 
@@ -64,77 +64,58 @@ Scope of this project:
 - Password : F5BA25AB44724fb5A6DD37554809CE34 (found on dd-wrt.com forum)
 - Watchguard Boot Log : ```/_files/watchguard_boot.txt```
 - Watchguard Kernel Config : ```/_files/watchguard_config.txt```
+- To logon to the Watchguard shell use the default credentials: admin / readwrite.
 
 # Getting a toolchain and kernel
 
 - Note: We are using Arch Linux as a build host in this example.
 - Note: The CPU is armeb (big endian).
 - Although this CPU should support little endian, too - we will focus on armeb.
-- A prebuild Linaro armeb toolchain will do just fine for building and testing the kernel. Later we move to the LEDE SDK.
+- Currently the OpenWrt / LEDE toolchain is used. Follow the OpenWrt / LEDE wiki and get the source via git.
 
-```
-cd ~
-mkdir build
-cd build
-wget https://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/armeb-linux-gnueabi/gcc-linaro-7.2.1-2017.11-x86_64_armeb-linux-gnueabi.tar.xz
-tar xf gcc-linaro-7.2.1-2017.11-x86_64_armeb-linux-gnueabi.tar.xz
-wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.70.tar.xz
-tar xf linux-4.9.70.tar.xz
-```
+- Build with:  ```openwrt-toolchain-ixp4xx-generic_gcc-5.5.0_musl.Linux-x86_64.tar.bz2```
+
 
 # Set up the toolchain
 
 - Depending on your setup you will need required build tools and compilers.
-- To build the extracted kernel with the Linaro toolchain, just create a simple bash script as shown below to set all the variables.
-- Make sure to adjust the paths and "-j". (this is just an example).
+- Follow the OpenWrt Wiki on how to setup the toolchain. Then replace the ```config-4.9``` with the one under ```_files```.
+- Note : The target is ixp4xx and the subtarget is currently KIXRP435, this may change.
 
-```
-#!/bin/bash
-CPPFLAGS="-D_FORTIFY_SOURCE=2"
-CFLAGS="-march=armeb -mtune=xscale -O2 -pipe -fstack-protector --param=ssp-buffer-size=4"
-CXXFLAGS="-march=armeb -mtune=xscale -O2 -pipe -fstack-protector --param=ssp-buffer-size=4"
-LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro"
-export BUILDMACH=x86_64-pc-linux-gnu
-export ARCH=arm
-export PATH='/home/user/build/xtm21w/x-tools/bin':$PATH
-export CROSS_COMPILE=armeb-linux-gnueabi-
-export STAGING_DIR=/home/user/build/xtm22w/x-tools/armeb-linux-gnueabi
-export CC=armeb-gnueabi-gcc
-export LD=armeb-gnueabi-ld
-export TARGET=armeb
-export HOSTCC=gcc
-make LOCALVERSION= -j8 "$1"
-```
-- Save the script and "chmod 700".
 
-# Build the kernel
+# Build
 
-- Copy ```watchguard_config.txt``` to ```.config``` and run ```./buildscript oldconfig```
-- Make some sane decissions then compile with ```./buildscript zImage```
-- Note: You will need to configure some targets! See ```/_files/minimal_config_44.txt``` for an (minimal) example config.
+- Run ```make menuconfig``` and choose the right target and subtarget. IXP4xx and Generic should be fine.
+- Then just run ```make -j16 V=s``` (adjust -j to match your available CPU threads)
+
 
 # Loading a kernel via ymodem
 
-- You will need minicom, a serial cable and / or a USB to serial adapter and a bus pirate.
-- To get the required packages: ```pacman -S minicom lrzsz```
+- You will need minicom, a serial cable and / or a USB to serial adapter. A "bus pirate" is also needed (or similar).
+- To get the required packages (Arch Linux): ```pacman -S minicom lrzsz```
 - Connect the bus pirate to the pins and the hosts USB port. Then run minicom: ```minicom -D /dev/ttyUSB0```
 - Power on the router and hit CTRL-C at the boot menu. Enter the password.
 - Then load the kernel ```load -m ymodem -r -v -b %{FREEMEMLO} zImage```
 - CTRL-A SHIFT-Z in minicom and choose S (SHIFT-S) for send file.
-- Locate the just build zImage (select with Space) in ./arch/arm/boot and load it (Enter).
-- Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/mtdblock7" -w 5```
-- Example : See ```/_files/minimal_boot.txt``` for a minimal boot log.
-- Note : The mount of root and the init will fail.. but we just started, hey!
+- Locate the just build zImage in /root (select with Space) and load it (Enter).
+- Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/sda1" -w 5```
+- Example : See ```/_files/minimal_boot_49.txt``` for a minimal boot log.
+- Note : The mount of root and the init will fail..(there is USB support and no /dev/sda1), but we just started, hey!
+
 
 # Next ?
 
-Now the real work starts...
+There is quite some work to do..
 
-- Get USB working
+- Get USB working to boot a rootfs from USB media for testing.
 - Get GPIO working
 - Get WiFI working
 - Get Ethernet working
 - ...
+
+# Want to help ? 
+
+- I am quite new to developing / porting to OpenWrt. If you know the IXP4xx platform. Just comment on this github repo if you likek to help!
 
 
 
