@@ -1,5 +1,3 @@
-+2011-May 07 Sat 08:57:14
-WatchGuard RedBoot 2.04 - Mar 16 2010 10:36:42--------------------------------------------------------------------------||||||||||||||||||||||||-------------------------------------------------------------------------++++Use the ^ and v keys to select which entry is highlighted.Press enter to boot the selected OS.WatchGuard (SYSA)                                                     WatchGuard (SYSB)                                                     WatchGuard (SAFE MODE)                                                 The highlighted entry will be loaded in  5 seconds. The highlighted entry will be loaded in  4 seconds.
 Password> F5BA25AB44724fb5A6DD37554809CE34
 
 Trying NPE-C...success. Using NPE-C with PHY 16.
@@ -7,8 +5,8 @@ Trying NPE-C...success. Using NPE-C with PHY 16.
 Trying NPE-A...success. Using NPE-A with PHY 5.
 Ethernet wan: MAC address 04:00:00:00:00:01
 RedBoot> load -m ymodem -r -v -b %{FREEMEMLO} zImage
-CRaw file loaded 0x001d0000-0x0036fd37, assumed entry at 0x001d0000
-xyzModem - CRC mode, 13309(SOH)/0(STX)/0(CAN) packets, 4 retries
+CCRaw file loaded 0x001d0000-0x003147b7, assumed entry at 0x001d0000
+xyzModem - CRC mode, 10386(SOH)/0(STX)/0(CAN) packets, 5 retries
 RedBoot> exec -c "console=ttyS0,115200 rootdelay=10 root=/dev/sda1" -w 3
 argc:5
 argv:exec
@@ -17,10 +15,10 @@ argv:console=ttyS0,115200 rootdelay=10 root=/dev/sda1
 argv:-w
 argv:3
 About to start execution at 0x06000000 - abort with ^C within 3 seconds
-Using base address 0x001d0000 and length 0x0019fd38
+Using base address 0x001d0000 and length 0x001447b8
 Uncompressing Linux... done, booting the kernel.
 [    0.000000] Booting Linux on physical CPU 0x0
-[    0.000000] Linux version 4.9.85 (gregor@Z600) (gcc version 5.5.0 (OpenWrt GCC 5.5.0 r6399-332b736) ) #0 Thu Mar 8 20:16:24 2018
+[    0.000000] Linux version 4.9.85 (operator@Z600) (gcc version 5.5.0 (OpenWrt GCC 5.5.0 r6399-332b736a3e) ) #0 Thu Mar 8 20:16:24 2018
 [    0.000000] CPU: XScale-IXP43x Family [69054041] revision 1 (ARMv5TE), cr=000039ff
 [    0.000000] CPU: VIVT data cache, VIVT instruction cache
 [    0.000000] Machine: Intel KIXRP435 Reference Platform
@@ -30,121 +28,113 @@ Uncompressing Linux... done, booting the kernel.
 [    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
 [    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
 [    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
-[    0.000000] Memory: 254752K/262144K available (3624K kernel code, 140K rwdata, 912K rodata, 152K init, 215K bss, 7392K reserved, 0K cma-reserved)
+[    0.000000] Memory: 255812K/262144K available (2808K kernel code, 114K rwdata, 720K rodata, 136K init, 204K bss, 6332K reserved, 0K cma-reserved)
 [    0.000000] Virtual kernel memory layout:
 [    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
 [    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
 [    0.000000]     vmalloc : 0xd0800000 - 0xff800000   ( 752 MB)
 [    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
 [    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
-[    0.000000]       .text : 0xc0008000 - 0xc03925b8   (3626 kB)
-[    0.000000]       .init : 0xc0478000 - 0xc049e000   ( 152 kB)
-[    0.000000]       .data : 0xc049e000 - 0xc04c1100   ( 141 kB)
-[    0.000000]        .bss : 0xc04c1100 - 0xc04f6e4c   ( 216 kB)
+[    0.000000]       .text : 0xc0008000 - 0xc02c6340   (2809 kB)
+[    0.000000]       .init : 0xc037c000 - 0xc039e000   ( 136 kB)
+[    0.000000]       .data : 0xc039e000 - 0xc03baac0   ( 115 kB)
+[    0.000000]        .bss : 0xc03baac0 - 0xc03edc2c   ( 205 kB)
 [    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
 [    0.000000] NR_IRQS:64
 [    0.000014] sched_clock: 32 bits at 66MHz, resolution 15ns, wraps every 32212576760ns
-[    0.000055] clocksource: OSTS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 28669193401 ns
-[    0.000132] Calibrating delay loop... 663.55 BogoMIPS (lpj=3317760)
-[    0.050122] pid_max: default: 32768 minimum: 301
-[    0.050302] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
-[    0.050321] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
-[    0.051100] CPU: Testing write buffer coherency: ok
+[    0.000052] clocksource: OSTS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 28669193401 ns
+[    0.000127] Calibrating delay loop... 663.55 BogoMIPS (lpj=3317760)
+[    0.050119] pid_max: default: 32768 minimum: 301
+[    0.050299] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.050319] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.051096] CPU: Testing write buffer coherency: ok
 [    0.051641] Setting up static identity map for 0x81e0 - 0x8230
-[    0.053633] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-[    0.053671] futex hash table entries: 256 (order: -1, 3072 bytes)
-[    0.054548] NET: Registered protocol family 16
-[    0.055189] DMA: preallocated 256 KiB pool for atomic coherent allocations
-[    0.056190] IXP4xx: Using 16MiB expansion bus window size
-[    0.056781] PCI: IXP4xx is host
-[    0.056802] PCI: IXP4xx Using direct access for memory space
-[    0.056979] PCI host bridge to bus 0000:00
-[    0.057014] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
-[    0.057037] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
-[    0.057055] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
-[    0.057344] pci 0000:00:02.0: dmabounce: registered device
-[    0.057621] PCI: bus0: Fast back to back transfers enabled
-[    0.057711] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
-[    0.080736] SCSI subsystem initialized
-[    0.082056] usbcore: registered new interface driver usbfs
-[    0.082173] usbcore: registered new interface driver hub
-[    0.082287] usbcore: registered new device driver usb
-[    0.082566] i2c-gpio i2c-gpio.0: using pins 7 (SDA) and 6 (SCL)
-[    0.083747] clocksource: Switched to clocksource OSTS
-[    0.085012] NET: Registered protocol family 2
-[    0.085970] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
-[    0.086038] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
-[    0.086083] TCP: Hash tables configured (established 2048 bind 2048)
-[    0.086196] UDP hash table entries: 256 (order: 0, 4096 bytes)
-[    0.086225] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
-[    0.086501] NET: Registered protocol family 1
-[    0.087027] IXP4xx Queue Manager initialized.
-[    0.088578] NPE-B: reset: npe_debug_instr(): timeout
-[    0.089667] Crashlog allocated RAM at address 0x3f00000
-[    0.097112] workingset: timestamp_bits=30 max_order=16 bucket_order=0
-[    0.111832] squashfs: version 4.0 (2009/01/31) Phillip Lougher
-[    0.111858] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
-[    0.127905] io scheduler noop registered
-[    0.127930] io scheduler deadline registered (default)
-[    0.172403] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
-[    0.173992] console [ttyS0] disabled
-[    0.174077] serial8250.0: ttyS0 at MMIO 0xc8000000 (irq = 15, base_baud = 921600) is a XScale
-[    0.664283] console [ttyS0] enabled
-[    0.669598] IXP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
-[    0.680344] Amd/Fujitsu Extended Query Table at 0x0040
-[    0.685533]   Amd/Fujitsu Extended Query version 1.0.
-[    0.690581] IXP4XX-Flash.0: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
-[    0.698068] IXP4XX-Flash.0: Swapping erase regions for top-boot CFI table.
-[    0.704951] number of CFI chips: 1
-[    0.710270] Searching for RedBoot partition table in IXP4XX-Flash.0 at offset 0xf0000
-[    0.777087] 3 RedBoot partitions found on MTD device IXP4XX-Flash.0
-[    0.783371] Creating 3 MTD partitions on "IXP4XX-Flash.0":
-[    0.788940] 0x000000000000-0x000000080000 : "RedBoot"
-[    0.795967] 0x0000000f0000-0x0000000ff000 : "FIS directory"
-[    0.803957] 0x0000000ff000-0x000000100000 : "RedBoot config"
-[    0.826831] libphy: IXP4xx MII Bus: probed
-[    0.831068] ixp4xx_eth: probe of ixp4xx_eth.16 failed with error -5
-[    0.837612] libphy: PHY ixp4xx-eth-0:01 not found
-[    0.842323] eth%d: Could not attach to PHY
-[    0.846568] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
-[    0.853096] ehci-pci: EHCI PCI platform driver
-[    0.857735] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
-[    0.864182] usbcore: registered new interface driver usb-storage
-[    0.870557] i2c /dev entries driver
-[    0.936363] ixp4xx_wdt: timer heartbeat 60 sec
-[    0.942027] NET: Registered protocol family 10
-[    0.949728] NET: Registered protocol family 17
-[    0.954361] 8021q: 802.1Q VLAN Support v1.8
-[    0.958693] XScale DSP coprocessor detected.
-[    0.964758] hctosys: unable to open rtc device (rtc0)
-[    0.970410] Waiting 10 sec before mounting root device...
-[    2.603730] random: fast init done
-[   11.364470] VFS: Cannot open root device "sda1" or unknown-block(0,0): error -6
-[   11.371790] Please append a correct "root=" boot option; here are the available partitions:
-[   11.380219] 1f00             512 mtdblock0 [   11.384234]  (driver?)
-[   11.386596] 1f01              60 mtdblock1 [   11.390589]  (driver?)
-[   11.392947] 1f02               4 mtdblock2 [   11.396957]  (driver?)
-[   11.399311] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
-[   11.407577] CPU: 0 PID: 1 Comm: swapper Not tainted 4.9.85 #0
-[   11.413314] Hardware name: Intel KIXRP435 Reference Platform
-[   11.418965] Backtrace: 
-[   11.421437] [<c000d2d0>] (dump_backtrace) from [<c000d594>] (show_stack+0x18/0x1c)
-[   11.429010]  r7:cfbd5000 r6:c04a6708 r5:c04c15a8 r4:00000000
-[   11.434672] [<c000d57c>] (show_stack) from [<c01c2c38>] (dump_stack+0x20/0x28)
-[   11.441906] [<c01c2c18>] (dump_stack) from [<c006af18>] (panic+0xbc/0x250)
-[   11.448807] [<c006ae60>] (panic) from [<c0479374>] (mount_block_root+0x218/0x2ac)
-[   11.456291]  r3:523b05d3 r2:523b05d3 r1:cf835ecc r0:c0414e61
-[   11.461941]  r7:cfbd5000
-[   11.464479] [<c047915c>] (mount_block_root) from [<c04794c0>] (mount_root+0xb8/0xec)
-[   11.472222]  r10:00000000 r9:c04c1100 r8:c04c1100 r7:c049c070 r6:c0494834 r5:c0494858
-[   11.480047]  r4:00000000
-[   11.482586] [<c0479408>] (mount_root) from [<c0479624>] (prepare_namespace+0x130/0x184)
-[   11.490588]  r5:c0494858 r4:c04c1124
-[   11.494167] [<c04794f4>] (prepare_namespace) from [<c0478e94>] (kernel_init_freeable+0x184/0x1d0)
-[   11.503035]  r5:0000005a r4:00000008
-[   11.506612] [<c0478d10>] (kernel_init_freeable) from [<c038e060>] (kernel_init+0x10/0xf4)
-[   11.514788]  r9:00000000 r8:00000000 r7:00000000 r6:00000000 r5:c038e050 r4:00000000
-[   11.522528] [<c038e050>] (kernel_init) from [<c000a248>] (ret_from_fork+0x14/0x2c)
-[   11.530091]  r5:c038e050 r4:00000000
-[   11.535083] Rebooting in 1 seconds..
-[   13.529433] Reboot failed -- System halted
+[    0.053560] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.053598] futex hash table entries: 256 (order: -1, 3072 bytes)
+[    0.054473] NET: Registered protocol family 16
+[    0.055083] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.056038] IXP4xx: Using 16MiB expansion bus window size
+[    0.056602] PCI: IXP4xx is host
+[    0.056624] PCI: IXP4xx Using direct access for memory space
+[    0.056807] PCI host bridge to bus 0000:00
+[    0.056841] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.056861] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
+[    0.056879] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.057165] pci 0000:00:02.0: dmabounce: registered device
+[    0.057447] PCI: bus0: Fast back to back transfers enabled
+[    0.057534] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
+[    0.073946] i2c-gpio i2c-gpio.0: using pins 7 (SDA) and 6 (SCL)
+[    0.075062] clocksource: Switched to clocksource OSTS
+[    0.076282] NET: Registered protocol family 2
+[    0.077271] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.077335] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.077380] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.077490] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.077520] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.077812] NET: Registered protocol family 1
+[    0.083109] IXP4xx Queue Manager initialized.
+[    0.084662] NPE-B: reset: npe_debug_instr(): timeout
+[    0.085770] Crashlog allocated RAM at address 0x3f00000
+[    0.086688] workingset: timestamp_bits=30 max_order=16 bucket_order=0
+[    0.099110] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.099137] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.114258] io scheduler noop registered
+[    0.114283] io scheduler deadline registered (default)
+[    0.158642] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.160097] console [ttyS0] disabled
+[    0.160189] serial8250.0: ttyS0 at MMIO 0xc8000000 (irq = 15, base_baud = 921600) is a XScale
+[    0.631944] console [ttyS0] enabled
+[    0.636984] IXP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
+[    0.647734] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.652906]   Amd/Fujitsu Extended Query version 1.0.
+[    0.657971] IXP4XX-Flash.0: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
+[    0.665463] IXP4XX-Flash.0: Swapping erase regions for top-boot CFI table.
+[    0.672336] number of CFI chips: 1
+[    0.677183] Searching for RedBoot partition table in IXP4XX-Flash.0 at offset 0xf0000
+[    0.743984] 3 RedBoot partitions found on MTD device IXP4XX-Flash.0
+[    0.750345] Creating 3 MTD partitions on "IXP4XX-Flash.0":
+[    0.755868] 0x000000000000-0x000000080000 : "RedBoot"
+[    0.762819] 0x0000000f0000-0x0000000ff000 : "FIS directory"
+[    0.770748] 0x0000000ff000-0x000000100000 : "RedBoot config"
+[    0.793621] libphy: IXP4xx MII Bus: probed
+[    0.797981] ixp4xx_eth: probe of ixp4xx_eth.16 failed with error -5
+[    0.804420] libphy: PHY ixp4xx-eth-0:01 not found
+[    0.809177] eth%d: Could not attach to PHY
+[    0.813714] i2c /dev entries driver
+[    0.879088] ixp4xx_wdt: timer heartbeat 60 sec
+[    0.884851] NET: Registered protocol family 10
+[    0.892603] NET: Registered protocol family 17
+[    0.897227] 8021q: 802.1Q VLAN Support v1.8
+[    0.901528] XScale DSP coprocessor detected.
+[    0.907614] hctosys: unable to open rtc device (rtc0)
+[    0.913277] Waiting 10 sec before mounting root device...
+[    2.615047] random: fast init done
+[   11.365773] VFS: Cannot open root device "sda1" or unknown-block(0,0): error -6
+[   11.373094] Please append a correct "root=" boot option; here are the available partitions:
+[   11.381518] 1f00             512 mtdblock0 [   11.385536]  (driver?)
+[   11.387898] 1f01              60 mtdblock1 [   11.391899]  (driver?)
+[   11.394258] 1f02               4 mtdblock2 [   11.398267]  (driver?)
+[   11.400622] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+[   11.408887] CPU: 0 PID: 1 Comm: swapper Not tainted 4.9.85 #0
+[   11.414626] Hardware name: Intel KIXRP435 Reference Platform
+[   11.420276] Backtrace: 
+[   11.422749] [<c000d2d0>] (dump_backtrace) from [<c000d594>] (show_stack+0x18/0x1c)
+[   11.430320]  r7:cf2b8000 r6:c03a6668 r5:c03baf68 r4:00000000
+[   11.435994] [<c000d57c>] (show_stack) from [<c01483f8>] (dump_stack+0x20/0x28)
+[   11.443226] [<c01483d8>] (dump_stack) from [<c006af18>] (panic+0xbc/0x250)
+[   11.450107] [<c006ae60>] (panic) from [<c037d374>] (mount_block_root+0x218/0x2ac)
+[   11.457592]  r3:523b05d3 r2:523b05d3 r1:cf835ecc r0:c0332dc3
+[   11.463243]  r7:cf2b8000
+[   11.465777] [<c037d15c>] (mount_block_root) from [<c037d4c0>] (mount_root+0xb8/0xec)
+[   11.473524]  r10:00000000 r9:c03baac0 r8:c03baac0 r7:c039ce94 r6:c0397834 r5:c0397858
+[   11.481349]  r4:00000000
+[   11.483884] [<c037d408>] (mount_root) from [<c037d624>] (prepare_namespace+0x130/0x184)
+[   11.491882]  r5:c0397858 r4:c03baae4
+[   11.495454] [<c037d4f4>] (prepare_namespace) from [<c037ce94>] (kernel_init_freeable+0x184/0x1d0)
+[   11.504319]  r5:00000035 r4:00000008
+[   11.507903] [<c037cd10>] (kernel_init_freeable) from [<c02c1de8>] (kernel_init+0x10/0xf4)
+[   11.516082]  r9:00000000 r8:00000000 r7:00000000 r6:00000000 r5:c02c1dd8 r4:00000000
+[   11.523823] [<c02c1dd8>] (kernel_init) from [<c000a248>] (ret_from_fork+0x14/0x2c)
+[   11.531384]  r5:c02c1dd8 r4:00000000
+[   11.536295] Rebooting in 1 seconds..
+[   13.530648] Reboot failed -- System halted
