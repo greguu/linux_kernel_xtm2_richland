@@ -115,7 +115,7 @@ There is quite some work to do..
 
 # Want to help ? 
 
-- I am quite new to developing / porting to OpenWrt. If you know the IXP4xx platform. Just comment on this github repo if you likek to help!
+- I am quite new to developing / porting to OpenWrt. If you know the IXP4xx platform, just comment on this github repo if you like to help!
 
 
 
