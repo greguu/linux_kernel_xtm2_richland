@@ -107,15 +107,22 @@ Scope of this project:
 
 There is quite some work to do..
 
-- Get USB working to boot a rootfs from USB media for testing.
-- Get GPIO working
-- Get WiFI working
-- Get Ethernet working
+- USB (EHCI)
+- Tested with basic EHCI support in the kernel. USB was not detected.
+- Note : Looking at the cambria-setup.c it seems that the resources for pdata and GPIO (IRQ) need to be defined. 
+
+- Ethernet (NPE PHY)
+
+- WiFi (Atheros)
+
+- LEDs and Triggers
+
 - ...
 
 # Want to help ? 
 
 - I am quite new to developing / porting to OpenWrt. If you know the IXP4xx platform, just comment on this github repo if you like to help!
+
 
 
 
