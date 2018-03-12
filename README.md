@@ -100,18 +100,62 @@ Scope of this project:
 - Locate the just build zImage in /root (select with Space) and load it (Enter).
 - Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/sda1" -w 5```
 - Example : See ```/_files/minimal_boot_49.txt``` for a minimal boot log.
-- Note : The mount of root and the init will fail..(there is USB support and no /dev/sda1), but we just started, hey!
+- Note : The mount of root and the init will fail..(there is no USB support and no therefore /dev/sda1), but we just started, hey!
+
+
+# USB (EHCI)
+
+The platform USB driver ehci-ipx4xx.c was removed with kernel 3.8 or so as part of the "USB: EHCI and OHCI platform driver conversions" but we can find some clues from the Watchguard kernel boot log:
+```
+ixp4xx-ehci ixp4xx-ehci.0: IXP4XX EHCI Host Controller
+ixp4xx-ehci ixp4xx-ehci.0: new USB bus registered, assigned bus number 1
+ixp4xx-ehci ixp4xx-ehci.0: irq 32, io mem 0xcd000000
+ixp4xx-ehci ixp4xx-ehci.0: USB 0.0 started, EHCI 1.00
+usb usb1: configuration #1 chosen from 1 choice
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+ixp4xx-ehci ixp4xx-ehci.1: IXP4XX EHCI Host Controller
+ixp4xx-ehci ixp4xx-ehci.1: new USB bus registered, assigned bus number 2
+ixp4xx-ehci ixp4xx-ehci.1: irq 33, io mem 0xce000000
+ixp4xx-ehci ixp4xx-ehci.1: USB 0.0 started, EHCI 1.00
+usb usb2: configuration #1 chosen from 1 choice
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 1 port detected 
+```
+Looking closer at the OpenWrt cmabria-setup.c we can see that the cambira uses the same IRQ and memory.
+
+```
+static struct resource cambria_usb0_resources[] = {
+	{
+		.start	= 0xCD000000,
+		.end	= 0xCD000300,
+		.flags	= IORESOURCE_MEM,
+	},
+	{
+		.start	= 32,
+		.flags	= IORESOURCE_IRQ,
+	},
+};
+
+static struct resource cambria_usb1_resources[] = {
+	{
+		.start	= 0xCE000000,
+		.end	= 0xCE000300,
+		.flags	= IORESOURCE_MEM,
+	},
+	{
+		.start	= 33,
+		.flags	= IORESOURCE_IRQ,
+	},
+};
+```
+
+- Todo : Port the cambria-support patch to a richland-support patch and test first with just porting the EHCI support.
 
 
 # Next ?
 
-There is quite some work to do..
-
-- USB (EHCI)
-- Tested with basic EHCI support in the kernel. USB was not detected.
-- Note : Looking at the cambria-setup.c it seems that the resources for pdata and GPIO (IRQ) need to be defined. 
-
-- Ethernet (NPE PHY)
+- Ethernet (NPE PHY) Cambria-support patch seems to help here too.
 
 - WiFi (Atheros)
 
