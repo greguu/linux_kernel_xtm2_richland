@@ -105,7 +105,7 @@ Scope of this project:
 
 # USB (EHCI)
 
-The platform USB driver ehci-ipx4xx.c was removed with kernel 3.8 or so as part of the "USB: EHCI and OHCI platform driver conversions" but we can find some clues from the Watchguard kernel boot log:
+The platform USB driver ehci-ipx4xx.c was removed with kernel 3.8 or so as part of the "USB: EHCI and OHCI platform driver conversions" but we can find some clues in the Watchguard kernel boot log:
 ```
 ixp4xx-ehci ixp4xx-ehci.0: IXP4XX EHCI Host Controller
 ixp4xx-ehci ixp4xx-ehci.0: new USB bus registered, assigned bus number 1
