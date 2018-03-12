@@ -122,7 +122,7 @@ usb usb2: configuration #1 chosen from 1 choice
 hub 2-0:1.0: USB hub found
 hub 2-0:1.0: 1 port detected 
 ```
-Looking closer at the OpenWrt cmabria-setup.c we can see that the cambira uses the same IRQ and memory.
+Looking closer at the OpenWrt cambria-setup.c we can see that the cambira uses the same IRQ and memory.
 
 ```
 static struct resource cambria_usb0_resources[] = {
