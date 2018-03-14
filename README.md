@@ -172,13 +172,12 @@ static struct resource cambria_usb1_resources[] = {
 [    0.982380] hub 2-0:1.0: 1 port detected
 ```
 
-- There seems to be a "bug" in this particular redboot instance ?. If a USB device is inserted before booting the kernel, the kernel load fails with the following output:
-
+- There seems to be a "bug" in this particular redboot instance ? If a USB device is inserted before booting the kernel, the kernel load will fail with the following output:
 ```
 Using base address 0x001d0000 and length 0x0015a6a8
 $T050f:06000034;0d:000789b0;#24
 ```
-- Let's try to increase rootdely to  ``` rootdelay=30``` to give enough time to insert the USB after boot.....
+- Let's try to increase the rootdelay to  ``` rootdelay=30``` to give us enough time to insert the USB after boot.....
 
 
 # Next ?
