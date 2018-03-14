@@ -181,41 +181,51 @@ $T050f:06000034;0d:000789b0;#24
 - And this seemed to work, somewhat. The kernel does detect the USB stick, ext4 format, but does not assign it a /dev/sdx1 
 
 ```
-[    0.850442] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
-[    0.857023] ehci-pci: EHCI PCI platform driver
-[    0.861608] ehci-platform: EHCI generic platform driver
-[    0.867100] ehci-platform ehci-platform.0: EHCI Host Controller
-[    0.873178] ehci-platform ehci-platform.0: new USB bus registered, assigned bus number 1
-[    0.881624] ehci-platform ehci-platform.0: irq 32, io mem 0xcd000000
-[    0.912136] ehci-platform ehci-platform.0: USB 2.0 started, EHCI 1.00
-[    0.919875] hub 1-0:1.0: USB hub found
-[    0.924234] hub 1-0:1.0: 1 port detected
-[    0.928838] ehci-platform ehci-platform.1: EHCI Host Controller
-[    0.934919] ehci-platform ehci-platform.1: new USB bus registered, assigned bus number 2
-[    0.943384] ehci-platform ehci-platform.1: irq 33, io mem 0xce000000
-[    0.972123] ehci-platform ehci-platform.1: USB 2.0 started, EHCI 1.00
-[    0.979771] hub 2-0:1.0: USB hub found
-[    0.984120] hub 2-0:1.0: 1 port detected
-[    0.988878] usbcore: registered new interface driver usb-storage
-[    0.995349] i2c /dev entries driver
-[    1.053049] ixp4xx_wdt: timer heartbeat 60 sec
-[    1.058732] NET: Registered protocol family 10
-[    1.066532] NET: Registered protocol family 17
-[    1.071059] 8021q: 802.1Q VLAN Support v1.8
-[    1.075463] XScale DSP coprocessor detected.
-[    1.081449] hctosys: unable to open rtc device (rtc0)
-[    1.087174] Waiting 30 sec before mounting root device...
-[    2.612097] random: fast init done
-[    3.162135] usb 1-1: new high-speed USB device number 2 using ehci-platform
-[    3.361123] usb-storage 1-1:1.0: USB Mass Storage device detected
-[    3.368388] scsi host0: usb-storage 1-1:1.0
-[    4.405144] scsi 0:0:0:0: Direct-Access     Generic  Flash Disk       8.07 PQ: 0 ANSI: 4
-[   31.202843] VFS: Cannot open root device "sda1" or unknown-block(0,0): error -6
-[   31.210161] Please append a correct "root=" boot option; here are the available partitions:
-[   31.218592] 1f00             512 mtdblock0 [   31.222604]  (driver?)
-[   31.224966] 1f01              60 mtdblock1 [   31.228960]  (driver?)
-[   31.231318] 1f02               4 mtdblock2 [   31.235325]  (driver?)
-[   31.237682] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+[    0.851217] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.857809] ehci-pci: EHCI PCI platform driver
+[    0.862417] ehci-platform: EHCI generic platform driver
+[    0.867824] ehci-platform ehci-platform.0: EHCI Host Controller
+[    0.873899] ehci-platform ehci-platform.0: new USB bus registered, assigned bus number 1
+[    0.882370] ehci-platform ehci-platform.0: irq 32, io mem 0xcd000000
+[    0.911909] ehci-platform ehci-platform.0: USB 2.0 started, EHCI 1.00
+[    0.918644] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    0.925508] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.932746] usb usb1: Product: EHCI Host Controller
+[    0.937617] usb usb1: Manufacturer: Linux 4.9.85 ehci_hcd
+[    0.943029] usb usb1: SerialNumber: ehci-platform.0
+[    0.948939] hub 1-0:1.0: USB hub found
+[    0.953278] hub 1-0:1.0: 1 port detected
+[    0.957824] ehci-platform ehci-platform.1: EHCI Host Controller
+[    0.963901] ehci-platform ehci-platform.1: new USB bus registered, assigned bus number 2
+[    0.972370] ehci-platform ehci-platform.1: irq 33, io mem 0xce000000
+[    1.001901] ehci-platform ehci-platform.1: USB 2.0 started, EHCI 1.00
+[    1.008621] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
+[    1.015486] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.022723] usb usb2: Product: EHCI Host Controller
+[    1.027595] usb usb2: Manufacturer: Linux 4.9.85 ehci_hcd
+[    1.033007] usb usb2: SerialNumber: ehci-platform.1
+[    1.038816] hub 2-0:1.0: USB hub found
+[    1.043149] hub 2-0:1.0: 1 port detected
+[    1.047907] usbcore: registered new interface driver usb-storage
+[    1.054376] i2c /dev entries driver
+[    1.111745] ixp4xx_wdt: timer heartbeat 60 sec
+[    1.117514] NET: Registered protocol family 10
+[    1.125259] NET: Registered protocol family 17
+[    1.129785] 8021q: 802.1Q VLAN Support v1.8
+[    1.134195] XScale DSP coprocessor detected.
+[    1.140163] hctosys: unable to open rtc device (rtc0)
+[    1.145888] Waiting 30 sec before mounting root device...
+[    2.611871] random: fast init done
+[    3.741909] usb 1-1: new high-speed USB device number 2 using ehci-platform
+[    3.939641] usb 1-1: New USB device found, idVendor=058f, idProduct=6387
+[    3.946423] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    3.953591] usb 1-1: Product: Mass Storage
+[    3.957679] usb 1-1: Manufacturer: Generic
+[    3.961769] usb 1-1: SerialNumber: 27618DF8
+[    3.967161] usb-storage 1-1:1.0: USB Mass Storage device detected
+[    3.974461] scsi host0: usb-storage 1-1:1.0
+[    5.044891] scsi 0:0:0:0: Direct-Access     Generic  Flash Disk       8.07 PQ: 0 ANSI: 4
+[   31.202620] VFS: Cannot open root device "sda1" or unknown-block(0,0): error -6
 ```
 
 - So, lets check the kernel .config if we missed something...
