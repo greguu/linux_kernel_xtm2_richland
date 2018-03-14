@@ -152,7 +152,7 @@ static struct resource cambria_usb1_resources[] = {
 
 - Note : The board seems to be identified as KIXRP435, "Intel KIXRP435 Reference Platform" and there is no complete support in the kernel for this platform. It falls back to basic IXDP425 support with some exemptions for IXP43x CPU's. For POC the USB support code will be included in ixdp425-setup.c
 
-- The above approach turned out to be successful. Porting the Cambria USB EHCI support into the ixdp425-setup.c brought up EHCI USB on boot. A patch will be released once it turns out to be usable.
+- This turned out to be successful. Porting the Cambria USB EHCI support into the ixdp425-setup.c brought up EHCI USB on boot. A patch will be released once it turns out to be usable.
 
 ```
   0.843103] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
@@ -172,12 +172,14 @@ static struct resource cambria_usb1_resources[] = {
 [    0.982380] hub 2-0:1.0: 1 port detected
 ```
 
-- There seems to be a "bug" in this particular redboot. If a USB device is inserted before booting the kernel, the kernel load fails with the following output:
+- There seems to be a "bug" in this particular redboot instance ?. If a USB device is inserted before booting the kernel, the kernel load fails with the following output:
 
 ```
 Using base address 0x001d0000 and length 0x0015a6a8
 $T050f:06000034;0d:000789b0;#24
 ```
+- Let's try to increase rootdely to  ``` rootdelay=30``` to give enough time to insert the USB after boot.....
+
 
 # Next ?
 
