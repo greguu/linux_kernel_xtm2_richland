@@ -28,7 +28,7 @@ Specs for the XTM 21-W:
 Scope of this project:
 
 - Investigate the "Richmond" platform and similarities to Cambria and the KIXRP435 Development Board.
-- Port to Linux stable 4.9.70 (at time of writing stable LEDE / OpenWrt kernel, patches available)
+- Port to Linux stable 4.9.85 (at time of writing stable LEDE / OpenWrt kernel, patches available)
 - Test basic userland on USB drive (LEDE ?)
 - Investigate and update Redboot or flash an alternative bootloader (uboot ?) ..risky..
 - Test userland and port to LEDE / OpenWrt.
@@ -150,8 +150,7 @@ static struct resource cambria_usb1_resources[] = {
 };
 ```
 
-- Todo : Port the cambria-support patch to a richland-support patch and test first with just porting the EHCI support.
-
+- Note : The board seems to be identified as KIXRP435, "Intel KIXRP435 Reference Platform" and there is no complete support in the kernel for this platform. It falls back to basic IXDP425 support with some exemptions for IXP43x CPU's. For POC the USB support code will be included in ixdp425-setup.c
 
 # Next ?
 
