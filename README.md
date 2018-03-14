@@ -27,7 +27,7 @@ Specs for the XTM 21-W:
 
 Scope of this project:
 
-- Investigate the "Richmond" platform and similarities to Cambria and the KIXRP435 Development Board.
+- Investigate the "Richland" platform and similarities to Cambria and the KIXRP435 Development Board.
 - Port to Linux stable 4.9.85 (at time of writing stable LEDE / OpenWrt kernel, patches available)
 - Test basic userland on USB drive (LEDE ?)
 - Investigate and update Redboot or flash an alternative bootloader (uboot ?) ..risky..
