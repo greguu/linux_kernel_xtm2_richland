@@ -178,7 +178,47 @@ Using base address 0x001d0000 and length 0x0015a6a8
 $T050f:06000034;0d:000789b0;#24
 ```
 - Let's try to increase the rootdelay to  ``` rootdelay=30``` to give us enough time to insert the USB after boot.....
+- And this seemed to work, somewhat. The kernel does detect the USB stick, ext4 format, but does not assign it a /dev/sdx1 
 
+```
+[    0.850442] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.857023] ehci-pci: EHCI PCI platform driver
+[    0.861608] ehci-platform: EHCI generic platform driver
+[    0.867100] ehci-platform ehci-platform.0: EHCI Host Controller
+[    0.873178] ehci-platform ehci-platform.0: new USB bus registered, assigned bus number 1
+[    0.881624] ehci-platform ehci-platform.0: irq 32, io mem 0xcd000000
+[    0.912136] ehci-platform ehci-platform.0: USB 2.0 started, EHCI 1.00
+[    0.919875] hub 1-0:1.0: USB hub found
+[    0.924234] hub 1-0:1.0: 1 port detected
+[    0.928838] ehci-platform ehci-platform.1: EHCI Host Controller
+[    0.934919] ehci-platform ehci-platform.1: new USB bus registered, assigned bus number 2
+[    0.943384] ehci-platform ehci-platform.1: irq 33, io mem 0xce000000
+[    0.972123] ehci-platform ehci-platform.1: USB 2.0 started, EHCI 1.00
+[    0.979771] hub 2-0:1.0: USB hub found
+[    0.984120] hub 2-0:1.0: 1 port detected
+[    0.988878] usbcore: registered new interface driver usb-storage
+[    0.995349] i2c /dev entries driver
+[    1.053049] ixp4xx_wdt: timer heartbeat 60 sec
+[    1.058732] NET: Registered protocol family 10
+[    1.066532] NET: Registered protocol family 17
+[    1.071059] 8021q: 802.1Q VLAN Support v1.8
+[    1.075463] XScale DSP coprocessor detected.
+[    1.081449] hctosys: unable to open rtc device (rtc0)
+[    1.087174] Waiting 30 sec before mounting root device...
+[    2.612097] random: fast init done
+[    3.162135] usb 1-1: new high-speed USB device number 2 using ehci-platform
+[    3.361123] usb-storage 1-1:1.0: USB Mass Storage device detected
+[    3.368388] scsi host0: usb-storage 1-1:1.0
+[    4.405144] scsi 0:0:0:0: Direct-Access     Generic  Flash Disk       8.07 PQ: 0 ANSI: 4
+[   31.202843] VFS: Cannot open root device "sda1" or unknown-block(0,0): error -6
+[   31.210161] Please append a correct "root=" boot option; here are the available partitions:
+[   31.218592] 1f00             512 mtdblock0 [   31.222604]  (driver?)
+[   31.224966] 1f01              60 mtdblock1 [   31.228960]  (driver?)
+[   31.231318] 1f02               4 mtdblock2 [   31.235325]  (driver?)
+[   31.237682] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+```
+
+- So, lets check the kernel .config if we missed something...
 
 # Next ?
 
