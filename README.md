@@ -27,8 +27,8 @@ Specs for the XTM 21-W:
 
 Scope of this project:
 
-- Investigate the "Richmond" platform and similarities to Cambria and the KIXRP435 Development Board.
-- Port to Linux stable 4.9.70 (at time of writing stable LEDE / OpenWrt kernel, patches available)
+- Investigate the "Richland" platform and similarities to Cambria and the KIXRP435 Development Board.
+- Port to Linux stable 4.9.85 (at time of writing stable LEDE / OpenWrt kernel, patches available)
 - Test basic userland on USB drive (LEDE ?)
 - Investigate and update Redboot or flash an alternative bootloader (uboot ?) ..risky..
 - Test userland and port to LEDE / OpenWrt.
@@ -100,18 +100,155 @@ Scope of this project:
 - Locate the just build zImage in /root (select with Space) and load it (Enter).
 - Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/sda1" -w 5```
 - Example : See ```/_files/minimal_boot_49.txt``` for a minimal boot log.
-- Note : The mount of root and the init will fail..(there is USB support and no /dev/sda1), but we just started, hey!
+- Note : The mount of root and the init will fail..(there is no USB support and no therefore /dev/sda1), but we just started, hey!
+
+
+# USB (EHCI)
+
+The platform USB driver ehci-ipx4xx.c was removed with kernel 3.8 or so as part of the "USB: EHCI and OHCI platform driver conversions" but we can find some clues in the Watchguard kernel boot log:
+```
+ixp4xx-ehci ixp4xx-ehci.0: IXP4XX EHCI Host Controller
+ixp4xx-ehci ixp4xx-ehci.0: new USB bus registered, assigned bus number 1
+ixp4xx-ehci ixp4xx-ehci.0: irq 32, io mem 0xcd000000
+ixp4xx-ehci ixp4xx-ehci.0: USB 0.0 started, EHCI 1.00
+usb usb1: configuration #1 chosen from 1 choice
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+ixp4xx-ehci ixp4xx-ehci.1: IXP4XX EHCI Host Controller
+ixp4xx-ehci ixp4xx-ehci.1: new USB bus registered, assigned bus number 2
+ixp4xx-ehci ixp4xx-ehci.1: irq 33, io mem 0xce000000
+ixp4xx-ehci ixp4xx-ehci.1: USB 0.0 started, EHCI 1.00
+usb usb2: configuration #1 chosen from 1 choice
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 1 port detected 
+```
+Looking closer at the OpenWrt cambria-setup.c we can see that the cambira uses the same IRQ and memory.
+
+```
+static struct resource cambria_usb0_resources[] = {
+	{
+		.start	= 0xCD000000,
+		.end	= 0xCD000300,
+		.flags	= IORESOURCE_MEM,
+	},
+	{
+		.start	= 32,
+		.flags	= IORESOURCE_IRQ,
+	},
+};
+
+static struct resource cambria_usb1_resources[] = {
+	{
+		.start	= 0xCE000000,
+		.end	= 0xCE000300,
+		.flags	= IORESOURCE_MEM,
+	},
+	{
+		.start	= 33,
+		.flags	= IORESOURCE_IRQ,
+	},
+};
+```
+
+- Note : The board seems to be identified as KIXRP435, "Intel KIXRP435 Reference Platform" and there is no complete support in the kernel for this platform. It falls back to basic IXDP425 support with some exemptions for IXP43x CPU's. For POC the USB support code will be included in ixdp425-setup.c
+
+- This turned out to be successful. Porting the Cambria USB EHCI support into the ixdp425-setup.c brought up EHCI USB on boot. A patch will be released once it turns out to be usable.
+
+```
+  0.843103] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.849623] ehci-pci: EHCI PCI platform driver
+[    0.854277] ehci-platform: EHCI generic platform driver
+[    0.859688] ehci-platform ehci-platform.0: EHCI Host Controller
+[    0.865763] ehci-platform ehci-platform.0: new USB bus registered, assigned bus number 1
+[    0.874230] ehci-platform ehci-platform.0: irq 32, io mem 0xcd000000
+[    0.910357] ehci-platform ehci-platform.0: USB 2.0 started, EHCI 1.00
+[    0.918070] hub 1-0:1.0: USB hub found
+[    0.922398] hub 1-0:1.0: 1 port detected
+[    0.926960] ehci-platform ehci-platform.1: EHCI Host Controller
+[    0.933035] ehci-platform ehci-platform.1: new USB bus registered, assigned bus number 2
+[    0.941502] ehci-platform ehci-platform.1: irq 33, io mem 0xce000000
+[    0.970345] ehci-platform ehci-platform.1: USB 2.0 started, EHCI 1.00
+[    0.978049] hub 2-0:1.0: USB hub found
+[    0.982380] hub 2-0:1.0: 1 port detected
+```
+
+- There seems to be a "bug" in this particular redboot instance ? If a USB device is inserted before booting the kernel, the kernel load will fail with the following output:
+```
+Using base address 0x001d0000 and length 0x0015a6a8
+$T050f:06000034;0d:000789b0;#24
+```
+- Let's try to increase the rootdelay to  ``` rootdelay=12``` to give us enough time to insert the USB after boot.....
+- And this seemed to work, and we can boot into OpenWrt on the USB stick !
+
+```
+[    3.822347] usb 1-1: new high-speed USB device number 2 using ehci-platform
+[    4.021319] usb-storage 1-1:1.0: USB Mass Storage device detected
+[    4.028480] scsi host0: usb-storage 1-1:1.0
+[    5.044901] scsi 0:0:0:0: Direct-Access     Generic  Flash Disk       8.07 PQ: 0 ANSI: 4
+[    5.057247] sd 0:0:0:0: [sda] 7864320 512-byte logical blocks: (4.03 GB/3.75 GiB)
+[    5.065930] sd 0:0:0:0: [sda] Write Protect is off
+[    5.070741] sd 0:0:0:0: [sda] Mode Sense: 23 00 00 00
+[    5.076952] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    5.093018]  sda: sda1
+[    5.100195] sd 0:0:0:0: [sda] Attached SCSI removable disk
+[   13.924777] EXT4-fs (sda1): couldn't mount as ext3 due to feature incompatibilities
+[   13.934899] EXT4-fs (sda1): couldn't mount as ext2 due to feature incompatibilities
+[   13.968559] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+[   13.976386] VFS: Mounted root (ext4 filesystem) on device 8:1.
+[   13.982635] Freeing unused kernel memory: 136K
+[   13.987079] This architecture does not have kernel memory protection.
+[   14.146046] init: Console is alive
+[   14.149826] init: - watchdog -
+[   14.296698] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[   14.304619] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[   14.322688] init: - preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[   18.185004] mount_root: mounting /dev/root
+[   18.189609] EXT4-fs (sda1): re-mounted. Opts: (null)
+[   18.197831] urandom-seed: Seed file not found (/etc/urandom.seed)
+[   18.241285] procd: - early -
+[   18.244462] procd: - watchdog -
+[   19.469045] procd: - watchdog -
+[   19.472751] procd: - ubus -
+[   19.533067] procd: - init -
+Please press Enter to activate this console.
+[   19.799914] kmodloader: loading kernel modules from /etc/modules.d/*
+[   19.813947] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   19.851118] Loading modules backported from Linux version wt-2017-11-01-0-gfe248fc2c180
+[   19.859236] Backport generated by backports.git v4.14-rc2-1-31-g86cf0e5d
+[   19.870122] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   19.885379] nf_conntrack version 0.5.0 (4096 buckets, 16384 max)
+[   19.959693] xt_time: kernel timezone is -0000
+[   20.036476] PPP generic driver version 2.4.2
+[   20.044262] NET: Registered protocol family 24
+[   20.068951] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   25.182464] random: crng init done
+
+
+
+BusyBox v1.27.2 () built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt SNAPSHOT, r6399-332b736a3e
+ -----------------------------------------------------
+=== WARNING! =====================================
+There is no root password defined on this device!
+Use the "passwd" command to set up a new password
+in order to prevent unauthorized SSH logins.
+--------------------------------------------------
+root@OpenWrt:/# ls -la
+```
 
 
 # Next ?
 
-There is quite some work to do..
-
-- USB (EHCI)
-- Tested with basic EHCI support in the kernel. USB was not detected.
-- Note : Looking at the cambria-setup.c it seems that the resources for pdata and GPIO (IRQ) need to be defined. 
-
-- Ethernet (NPE PHY)
+- Ethernet (NPE PHY) Cambria-support patch seems to help here too.
 
 - WiFi (Atheros)
 
