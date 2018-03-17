@@ -99,8 +99,7 @@ Scope of this project:
 - CTRL-A SHIFT-Z in minicom and choose S (SHIFT-S) for send file.
 - Locate the just build zImage in /root (select with Space) and load it (Enter).
 - Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/sda1" -w 5```
-- Example : See ```/_files/minimal_boot_49.txt``` for a minimal boot log.
-- Note : The mount of root and the init will fail..(there is no USB support and no therefore /dev/sda1), but we just started, hey!
+- Example : See ```/_files/boot_49.txt``` for a minimal boot log.
 
 
 # USB (EHCI)
@@ -123,7 +122,6 @@ hub 2-0:1.0: USB hub found
 hub 2-0:1.0: 1 port detected 
 ```
 Looking closer at the OpenWrt cambria-setup.c we can see that the cambira uses the same IRQ and memory.
-
 ```
 static struct resource cambria_usb0_resources[] = {
 	{
@@ -149,7 +147,6 @@ static struct resource cambria_usb1_resources[] = {
 	},
 };
 ```
-
 - Note : The board seems to be identified as KIXRP435, "Intel KIXRP435 Reference Platform" and there is no complete support in the kernel for this platform. It falls back to basic IXDP425 support with some exemptions for IXP43x CPU's. For POC the USB support code will be included in ixdp425-setup.c
 
 - This turned out to be successful. Porting the Cambria USB EHCI support into the ixdp425-setup.c brought up EHCI USB on boot. A patch will be released once it turns out to be usable.
@@ -225,8 +222,6 @@ Please press Enter to activate this console.
 [   20.068951] kmodloader: done loading kernel modules from /etc/modules.d/*
 [   25.182464] random: crng init done
 
-
-
 BusyBox v1.27.2 () built-in shell (ash)
 
   _______                     ________        __
@@ -244,7 +239,6 @@ in order to prevent unauthorized SSH logins.
 --------------------------------------------------
 root@OpenWrt:/# ls -la
 ```
-
 
 # Next ?
 
