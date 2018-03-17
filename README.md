@@ -177,58 +177,74 @@ static struct resource cambria_usb1_resources[] = {
 Using base address 0x001d0000 and length 0x0015a6a8
 $T050f:06000034;0d:000789b0;#24
 ```
-- Let's try to increase the rootdelay to  ``` rootdelay=30``` to give us enough time to insert the USB after boot.....
-- And this seemed to work, somewhat. The kernel does detect the USB stick, ext4 format, but does not assign it a /dev/sdx1 
+- Let's try to increase the rootdelay to  ``` rootdelay=12``` to give us enough time to insert the USB after boot.....
+- And this seemed to work, and we can boot into OpenWrt on the USB stick !
 
 ```
-[    0.851217] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
-[    0.857809] ehci-pci: EHCI PCI platform driver
-[    0.862417] ehci-platform: EHCI generic platform driver
-[    0.867824] ehci-platform ehci-platform.0: EHCI Host Controller
-[    0.873899] ehci-platform ehci-platform.0: new USB bus registered, assigned bus number 1
-[    0.882370] ehci-platform ehci-platform.0: irq 32, io mem 0xcd000000
-[    0.911909] ehci-platform ehci-platform.0: USB 2.0 started, EHCI 1.00
-[    0.918644] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
-[    0.925508] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
-[    0.932746] usb usb1: Product: EHCI Host Controller
-[    0.937617] usb usb1: Manufacturer: Linux 4.9.85 ehci_hcd
-[    0.943029] usb usb1: SerialNumber: ehci-platform.0
-[    0.948939] hub 1-0:1.0: USB hub found
-[    0.953278] hub 1-0:1.0: 1 port detected
-[    0.957824] ehci-platform ehci-platform.1: EHCI Host Controller
-[    0.963901] ehci-platform ehci-platform.1: new USB bus registered, assigned bus number 2
-[    0.972370] ehci-platform ehci-platform.1: irq 33, io mem 0xce000000
-[    1.001901] ehci-platform ehci-platform.1: USB 2.0 started, EHCI 1.00
-[    1.008621] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
-[    1.015486] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
-[    1.022723] usb usb2: Product: EHCI Host Controller
-[    1.027595] usb usb2: Manufacturer: Linux 4.9.85 ehci_hcd
-[    1.033007] usb usb2: SerialNumber: ehci-platform.1
-[    1.038816] hub 2-0:1.0: USB hub found
-[    1.043149] hub 2-0:1.0: 1 port detected
-[    1.047907] usbcore: registered new interface driver usb-storage
-[    1.054376] i2c /dev entries driver
-[    1.111745] ixp4xx_wdt: timer heartbeat 60 sec
-[    1.117514] NET: Registered protocol family 10
-[    1.125259] NET: Registered protocol family 17
-[    1.129785] 8021q: 802.1Q VLAN Support v1.8
-[    1.134195] XScale DSP coprocessor detected.
-[    1.140163] hctosys: unable to open rtc device (rtc0)
-[    1.145888] Waiting 30 sec before mounting root device...
-[    2.611871] random: fast init done
-[    3.741909] usb 1-1: new high-speed USB device number 2 using ehci-platform
-[    3.939641] usb 1-1: New USB device found, idVendor=058f, idProduct=6387
-[    3.946423] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
-[    3.953591] usb 1-1: Product: Mass Storage
-[    3.957679] usb 1-1: Manufacturer: Generic
-[    3.961769] usb 1-1: SerialNumber: 27618DF8
-[    3.967161] usb-storage 1-1:1.0: USB Mass Storage device detected
-[    3.974461] scsi host0: usb-storage 1-1:1.0
-[    5.044891] scsi 0:0:0:0: Direct-Access     Generic  Flash Disk       8.07 PQ: 0 ANSI: 4
-[   31.202620] VFS: Cannot open root device "sda1" or unknown-block(0,0): error -6
+[    3.822347] usb 1-1: new high-speed USB device number 2 using ehci-platform
+[    4.021319] usb-storage 1-1:1.0: USB Mass Storage device detected
+[    4.028480] scsi host0: usb-storage 1-1:1.0
+[    5.044901] scsi 0:0:0:0: Direct-Access     Generic  Flash Disk       8.07 PQ: 0 ANSI: 4
+[    5.057247] sd 0:0:0:0: [sda] 7864320 512-byte logical blocks: (4.03 GB/3.75 GiB)
+[    5.065930] sd 0:0:0:0: [sda] Write Protect is off
+[    5.070741] sd 0:0:0:0: [sda] Mode Sense: 23 00 00 00
+[    5.076952] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    5.093018]  sda: sda1
+[    5.100195] sd 0:0:0:0: [sda] Attached SCSI removable disk
+[   13.924777] EXT4-fs (sda1): couldn't mount as ext3 due to feature incompatibilities
+[   13.934899] EXT4-fs (sda1): couldn't mount as ext2 due to feature incompatibilities
+[   13.968559] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+[   13.976386] VFS: Mounted root (ext4 filesystem) on device 8:1.
+[   13.982635] Freeing unused kernel memory: 136K
+[   13.987079] This architecture does not have kernel memory protection.
+[   14.146046] init: Console is alive
+[   14.149826] init: - watchdog -
+[   14.296698] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[   14.304619] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[   14.322688] init: - preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[   18.185004] mount_root: mounting /dev/root
+[   18.189609] EXT4-fs (sda1): re-mounted. Opts: (null)
+[   18.197831] urandom-seed: Seed file not found (/etc/urandom.seed)
+[   18.241285] procd: - early -
+[   18.244462] procd: - watchdog -
+[   19.469045] procd: - watchdog -
+[   19.472751] procd: - ubus -
+[   19.533067] procd: - init -
+Please press Enter to activate this console.
+[   19.799914] kmodloader: loading kernel modules from /etc/modules.d/*
+[   19.813947] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   19.851118] Loading modules backported from Linux version wt-2017-11-01-0-gfe248fc2c180
+[   19.859236] Backport generated by backports.git v4.14-rc2-1-31-g86cf0e5d
+[   19.870122] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   19.885379] nf_conntrack version 0.5.0 (4096 buckets, 16384 max)
+[   19.959693] xt_time: kernel timezone is -0000
+[   20.036476] PPP generic driver version 2.4.2
+[   20.044262] NET: Registered protocol family 24
+[   20.068951] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   25.182464] random: crng init done
+
+
+
+BusyBox v1.27.2 () built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt SNAPSHOT, r6399-332b736a3e
+ -----------------------------------------------------
+=== WARNING! =====================================
+There is no root password defined on this device!
+Use the "passwd" command to set up a new password
+in order to prevent unauthorized SSH logins.
+--------------------------------------------------
+root@OpenWrt:/# ls -la
 ```
 
-- So, lets check the kernel .config if we missed something...
 
 # Next ?
 
