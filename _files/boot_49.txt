@@ -1,0 +1,236 @@
+RedBoot> load -m ymodem -r -v -b %{FREEMEMLO} zImage
+CRaw file loaded 0x001d0000-0x0034fb97, assumed entry at 0x001d0000
+xyzModem - CRC mode, 12282(SOH)/0(STX)/0(CAN) packets, 4 retries
+RedBoot> exec -c "console=ttyS0,115200 rootdelay=12 root=/dev/sda1 loglevel=7 debug" -w 3
+argc:5
+argv:exec
+argv:-c
+argv:console=ttyS0,115200 rootdelay=12 root=/dev/sda1 loglevel=7 debug
+argv:-w
+argv:3
+About to start execution at 0x06000000 - abort with ^C within 3 seconds
+Using base address 0x001d0000 and length 0x0017fb98
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.9.85 (operator@Z600) (gcc version 5.5.0 (OpenWrt GCC 5.5.0 r6399-332b736a3e) ) #0 Thu Mar 8 20:16:24 2018
+[    0.000000] CPU: XScale-IXP43x Family [69054041] revision 1 (ARMv5TE), cr=000039ff
+[    0.000000] CPU: VIVT data cache, VIVT instruction cache
+[    0.000000] Machine: Intel KIXRP435 Reference Platform
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] On node 0 totalpages: 65536
+[    0.000000] free_area_init_node: node 0, pgdat c045ecdc, node_mem_map cfdf9000
+[    0.000000]   DMA zone: 128 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 16384 pages, LIFO batch:3
+[    0.000000]   Normal zone: 384 pages used for memmap
+[    0.000000]   Normal zone: 49152 pages, LIFO batch:15
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+[    0.000000] Kernel command line: console=ttyS0,115200 rootdelay=12 root=/dev/sda1 loglevel=7 debug
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 255148K/262144K available (3326K kernel code, 133K rwdata, 844K rodata, 136K init, 206K bss, 6996K reserved, 0K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff800000   ( 752 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0347b30   (3327 kB)
+[    0.000000]       .init : 0xc041c000 - 0xc043e000   ( 136 kB)
+[    0.000000]       .data : 0xc043e000 - 0xc045f540   ( 134 kB)
+[    0.000000]        .bss : 0xc045f540 - 0xc049308c   ( 207 kB)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS:64
+[    0.000014] sched_clock: 32 bits at 66MHz, resolution 15ns, wraps every 32212576760ns
+[    0.000052] clocksource: OSTS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 28669193401 ns
+[    0.000128] Calibrating delay loop... 663.55 BogoMIPS (lpj=3317760)
+[    0.050118] pid_max: default: 32768 minimum: 301
+[    0.050302] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.050321] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.051094] CPU: Testing write buffer coherency: ok
+[    0.051637] Setting up static identity map for 0x81e0 - 0x8230
+[    0.053660] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.053699] futex hash table entries: 256 (order: -1, 3072 bytes)
+[    0.054574] NET: Registered protocol family 16
+[    0.055244] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.056257] IXP4xx: Using 16MiB expansion bus window size
+[    0.057019] PCI: IXP4xx is host
+[    0.057043] PCI: IXP4xx Using direct access for memory space
+[    0.057210] PCI host bridge to bus 0000:00
+[    0.057242] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.057263] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
+[    0.057282] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.057363] pci 0000:00:02.0: [168c:0027] type 00 class 0x028000
+[    0.057413] pci 0000:00:02.0: reg 0x10: [mem 0x00000000-0x0000ffff]
+[    0.057529] pci 0000:00:02.0: PME# supported from D0 D3hot
+[    0.057610] pci 0000:00:02.0: dmabounce: registered device
+[    0.057888] PCI: bus0: Fast back to back transfers enabled
+[    0.057925] pci_bus 0000:00: busn_res: [bus 00-ff] end is updated to 00
+[    0.057986] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
+[    0.080031] SCSI subsystem initialized
+[    0.080610] usbcore: registered new interface driver usbfs
+[    0.080729] usbcore: registered new interface driver hub
+[    0.080848] usbcore: registered new device driver usb
+[    0.081120] i2c-gpio i2c-gpio.0: using pins 7 (SDA) and 6 (SCL)
+[    0.082319] clocksource: Switched to clocksource OSTS
+[    0.083562] NET: Registered protocol family 2
+[    0.084520] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.084589] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.084635] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.084747] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.084776] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.085063] NET: Registered protocol family 1
+[    0.085157] PCI: CLS 32 bytes, default 32
+[    0.091824] IXP4xx Queue Manager initialized.
+[    0.093376] NPE-B: reset: npe_debug_instr(): timeout
+[    0.094491] Crashlog allocated RAM at address 0x3f00000
+[    0.095411] workingset: timestamp_bits=30 max_order=16 bucket_order=0
+[    0.109888] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.109915] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.126592] io scheduler noop registered
+[    0.126619] io scheduler deadline registered (default)
+[    0.171014] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.172606] console [ttyS0] disabled
+[    0.172690] serial8250.0: ttyS0 at MMIO 0xc8000000 (irq = 15, base_baud = 921600) is a XScale
+[    0.739900] console [ttyS0] enabled
+[    0.745134] IXP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
+[    0.755431] IXP4XX-Flash.0: Found an alias at 0x100000 for the chip at 0x0
+[    0.762335] IXP4XX-Flash.0: Found an alias at 0x200000 for the chip at 0x0
+[    0.769224] IXP4XX-Flash.0: Found an alias at 0x300000 for the chip at 0x0
+[    0.776128] IXP4XX-Flash.0: Found an alias at 0x400000 for the chip at 0x0
+[    0.783028] IXP4XX-Flash.0: Found an alias at 0x500000 for the chip at 0x0
+[    0.789917] IXP4XX-Flash.0: Found an alias at 0x600000 for the chip at 0x0
+[    0.796822] IXP4XX-Flash.0: Found an alias at 0x700000 for the chip at 0x0
+[    0.803722] IXP4XX-Flash.0: Found an alias at 0x800000 for the chip at 0x0
+[    0.810610] IXP4XX-Flash.0: Found an alias at 0x900000 for the chip at 0x0
+[    0.817515] IXP4XX-Flash.0: Found an alias at 0xa00000 for the chip at 0x0
+[    0.824416] IXP4XX-Flash.0: Found an alias at 0xb00000 for the chip at 0x0
+[    0.831303] IXP4XX-Flash.0: Found an alias at 0xc00000 for the chip at 0x0
+[    0.838209] IXP4XX-Flash.0: Found an alias at 0xd00000 for the chip at 0x0
+[    0.845117] IXP4XX-Flash.0: Found an alias at 0xe00000 for the chip at 0x0
+[    0.852005] IXP4XX-Flash.0: Found an alias at 0xf00000 for the chip at 0x0
+[    0.858897] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.864086]   Amd/Fujitsu Extended Query version 1.0.
+[    0.869135] IXP4XX-Flash.0: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
+[    0.876636] IXP4XX-Flash.0: Swapping erase regions for top-boot CFI table.
+[    0.883522] number of CFI chips: 1
+[    0.888736] Searching for RedBoot partition table in IXP4XX-Flash.0 at offset 0xf0000
+[    0.955551] 3 RedBoot partitions found on MTD device IXP4XX-Flash.0
+[    0.961830] Creating 3 MTD partitions on "IXP4XX-Flash.0":
+[    0.967399] 0x000000000000-0x000000080000 : "RedBoot"
+[    0.974430] 0x0000000f0000-0x0000000ff000 : "FIS directory"
+[    0.982411] 0x0000000ff000-0x000000100000 : "RedBoot config"
+[    1.005077] libphy: IXP4xx MII Bus: probed
+[    1.009322] ixp4xx_eth: probe of ixp4xx_eth.16 failed with error -5
+[    1.015864] libphy: PHY ixp4xx-eth-0:01 not found
+[    1.020574] eth%d: Could not attach to PHY
+[    1.024819] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.031347] ehci-pci: EHCI PCI platform driver
+[    1.035986] ehci-platform: EHCI generic platform driver
+[    1.041401] ehci-platform ehci-platform.0: EHCI Host Controller
+[    1.047481] ehci-platform ehci-platform.0: new USB bus registered, assigned bus number 1
+[    1.055948] ehci-platform ehci-platform.0: irq 32, io mem 0xcd000000
+[    1.092348] ehci-platform ehci-platform.0: USB 2.0 started, EHCI 1.00
+[    1.100091] hub 1-0:1.0: USB hub found
+[    1.104432] hub 1-0:1.0: 1 port detected
+[    1.109010] ehci-platform ehci-platform.1: EHCI Host Controller
+[    1.115089] ehci-platform ehci-platform.1: new USB bus registered, assigned bus number 2
+[    1.123555] ehci-platform ehci-platform.1: irq 33, io mem 0xce000000
+[    1.152336] ehci-platform ehci-platform.1: USB 2.0 started, EHCI 1.00
+[    1.159972] hub 2-0:1.0: USB hub found
+[    1.164310] hub 2-0:1.0: 1 port detected
+[    1.169067] usbcore: registered new interface driver usb-storage
+[    1.175537] i2c /dev entries driver
+[    1.244590] ixp4xx_wdt: timer heartbeat 60 sec
+[    1.250271] NET: Registered protocol family 10
+[    1.258030] NET: Registered protocol family 17
+[    1.262665] 8021q: 802.1Q VLAN Support v1.8
+[    1.267021] XScale DSP coprocessor detected.
+[    1.273200] hctosys: unable to open rtc device (rtc0)
+[    1.278853] Waiting 12 sec before mounting root device...
+[    2.592303] random: fast init done
+[    3.822347] usb 1-1: new high-speed USB device number 2 using ehci-platform
+[    4.021319] usb-storage 1-1:1.0: USB Mass Storage device detected
+[    4.028480] scsi host0: usb-storage 1-1:1.0
+[    5.044901] scsi 0:0:0:0: Direct-Access     Generic  Flash Disk       8.07 PQ: 0 ANSI: 4
+[    5.057247] sd 0:0:0:0: [sda] 7864320 512-byte logical blocks: (4.03 GB/3.75 GiB)
+[    5.065930] sd 0:0:0:0: [sda] Write Protect is off
+[    5.070741] sd 0:0:0:0: [sda] Mode Sense: 23 00 00 00
+[    5.076952] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    5.093018]  sda: sda1
+[    5.100195] sd 0:0:0:0: [sda] Attached SCSI removable disk
+[   13.924777] EXT4-fs (sda1): couldn't mount as ext3 due to feature incompatibilities
+[   13.934899] EXT4-fs (sda1): couldn't mount as ext2 due to feature incompatibilities
+[   13.968559] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+[   13.976386] VFS: Mounted root (ext4 filesystem) on device 8:1.
+[   13.982635] Freeing unused kernel memory: 136K
+[   13.987079] This architecture does not have kernel memory protection.
+[   14.146046] init: Console is alive
+[   14.149826] init: - watchdog -
+[   14.296698] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[   14.304619] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[   14.322688] init: - preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[   18.185004] mount_root: mounting /dev/root
+[   18.189609] EXT4-fs (sda1): re-mounted. Opts: (null)
+[   18.197831] urandom-seed: Seed file not found (/etc/urandom.seed)
+[   18.241285] procd: - early -
+[   18.244462] procd: - watchdog -
+[   19.469045] procd: - watchdog -
+[   19.472751] procd: - ubus -
+[   19.533067] procd: - init -
+Please press Enter to activate this console.
+[   19.799914] kmodloader: loading kernel modules from /etc/modules.d/*
+[   19.813947] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   19.851118] Loading modules backported from Linux version wt-2017-11-01-0-gfe248fc2c180
+[   19.859236] Backport generated by backports.git v4.14-rc2-1-31-g86cf0e5d
+[   19.870122] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   19.885379] nf_conntrack version 0.5.0 (4096 buckets, 16384 max)
+[   19.959693] xt_time: kernel timezone is -0000
+[   20.036476] PPP generic driver version 2.4.2
+[   20.044262] NET: Registered protocol family 24
+[   20.068951] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   25.182464] random: crng init done
+
+
+
+BusyBox v1.27.2 () built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt SNAPSHOT, r6399-332b736a3e
+ -----------------------------------------------------
+=== WARNING! =====================================
+There is no root password defined on this device!
+Use the "passwd" command to set up a new password
+in order to prevent unauthorized SSH logins.
+--------------------------------------------------
+root@OpenWrt:/# ls -la
+drwxr-xr-x   17 root     root          4096 Mar 12 04:42 .
+drwxr-xr-x   17 root     root          4096 Mar 12 04:42 ..
+drwxr-xr-x    2 root     root          4096 Mar 12 04:37 bin
+drwxr-xr-x    4 root     root         11040 Mar 12 04:37 dev
+drwxr-xr-x   16 root     root          4096 Mar 12 04:37 etc
+-rwxr-xr-x    1 root     root            78 Mar  9 06:12 init
+drwxr-xr-x   11 root     root          4096 Mar 12 04:37 lib
+drwx------    2 root     root         16384 Mar  9 02:54 lost+found
+drwxr-xr-x    2 root     root          4096 Mar  8 20:16 mnt
+drwxr-xr-x    2 root     root          4096 Mar  8 20:16 overlay
+dr-xr-xr-x   46 root     root             0 Jan  1  1970 proc
+drwxr-xr-x    2 root     root          4096 Mar 12 04:37 rom
+drwxr-xr-x    2 root     root          4096 Mar  8 20:16 root
+drwxr-xr-x    2 root     root          4096 Mar 12 04:37 sbin
+dr-xr-xr-x   11 root     root             0 Jan  1  1970 sys
+drwxrwxrwt   15 root     root           420 Mar 12 04:37 tmp
+drwxr-xr-x    7 root     root          4096 Mar  8 20:16 usr
+lrwxrwxrwx    1 root     root             4 Mar 12 04:42 var -> /tmp
+drwxr-xr-x    2 root     root          4096 Mar  8 20:16 www
+root@OpenWrt:/# 
