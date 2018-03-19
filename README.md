@@ -242,7 +242,7 @@ root@OpenWrt:/#
 
 # PHY / Switch (RTL8366SR)
 
-- The Realtek PHY Switch is driven by a RTL8366SR chipset. The cambria does not use a switch, but there are other routers supported by OpenWrt/LEDE that feature this chipset. Looking at the vendor kernel boot log, a cutom module for the IXP4xx-eth driver seems to be used to init the PHYs correctly.
+- The Realtek PHY Switch is driven by a RTL8366SR chipset. The cambria does not use a switch, but there are other routers supported by OpenWrt/LEDE that feature this chipset. Looking at the vendor kernel boot log, a cutom module for the IXP4xx-eth driver seems to be used to init the PHYs correctly. Also it seems the first 3 ports, eth0 (WAN?), eth1 and eth2 are actually just IXP4xx PHYs ? The port eth3,eth4,eth5 are the only ports mapped to the realtek switch ? This may explain also the markings on the back of the router. (Ports 0-2 are 10/100 and Ports 3-5 are 10/100/1000.) 
 
 ```
 RTL8366 force link success! 
@@ -282,7 +282,7 @@ ixp400_eth: eth4 Realtek Tag 9002
 ixp400_eth: eth5 Realtek Tag 9004 
 ```
 
-- Porting some of the ixp435 NPE device code from the cambria-setup.c to the ixdp425-setup.c allows a eth0 and eth1 to come up. However the MAC addresses are not populated on boot and it does not work so far. 
+- Porting some of the ixp435 NPE device code from the cambria-setup.c to the ixdp425-setup.c allows a network interfaces to come up. However the MAC addresses are not populated on boot and it does not work so far. 
 
 ```
 static struct eth_plat_info kixrp435_npec_data = {
@@ -317,7 +317,7 @@ static struct platform_device kixrp435_npea_device = {
 [    1.003656] eth0: MII PHY 16 on NPE-C
 [    1.008475] eth1: MII PHY 32 on NPE-A
 ```
-- Devices are created (not the missing MAC):
+- Devices are created (note the missing MAC):
 
 ```
 root@OpenWrt:/# ip addr
@@ -340,7 +340,7 @@ root@OpenWrt:/# ip addr
     inet6 fe80::211:22ff:fe33:4455/64 scope link
        valid_lft forever preferred_lft forever
 ```
-- This may be the wrong approach as the RTL8366 is not initialized and requires SMI init, but it is a start..
+- This may be the wrong approach as the RTL8366 is not initialized and requires SMI init, but it is a start..I hope to get up the first 3 interfaces using basic IXP4xx NPE PHY.. well. I may be going down a rabbit hole..
 
 # Next ?
 
