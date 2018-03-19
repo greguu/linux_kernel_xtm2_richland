@@ -149,7 +149,7 @@ static struct resource cambria_usb1_resources[] = {
 ```
 - Note : The board seems to be identified as KIXRP435, "Intel KIXRP435 Reference Platform" and there is no complete support in the kernel for this platform. It falls back to basic IXDP425 support with some exemptions for IXP43x CPU's. For POC the USB support code will be included in ixdp425-setup.c
 
-- This turned out to be successful. Porting the Cambria USB EHCI support into the ixdp425-setup.c brought up EHCI USB on boot. A patch will be released once it turns out to be usable.
+- This turned out to be successful. Porting the Cambria USB EHCI support into the ixdp425-setup.c brought up EHCI USB on boot. A working (ugly) patch can be found here : ```_files/911-kirpx435-usb-ehci.patch```
 
 ```
   0.843103] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
