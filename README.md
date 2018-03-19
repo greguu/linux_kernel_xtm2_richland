@@ -16,7 +16,7 @@ Specs for the XTM 21-W:
 - RAM: 256 MiB
 - NOR: ? MiB (Redboot and config)
 - NAND: 256 MiB (Samsung NAND 256MiB 3,3V 8-bit)
-- LAN1: 3 x 10/100 (RTL 8366)
+- LAN1: 3 x 10/100 (IXP4xx-ETH PHY ?)
 - LAN2: 3 x 10/100/1000 (RTL 8366)
 - WIFI: 802.11a/b/g/n Mini PCI (Atheros AR9160 + AR5133)
 - USB: 2 x USB EHCI
