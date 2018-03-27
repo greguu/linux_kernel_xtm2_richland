@@ -242,7 +242,7 @@ root@OpenWrt:/#
 
 # PHY / Switch (RTL8366SR)
 
-- See ```_files/RTL8366s.md```
+- See ```RTL8366s.md```
 
 
 # Next ?
