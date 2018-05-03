@@ -2,12 +2,17 @@
 
 ![Illustration](https://github.com/greguu/linux_kernel_xtm2_richland/blob/master/_files/XTM-2-rearview.jpg)
 
-- Why all the effort ? There is no LEDE/OpenWrt or DD-WRT port for this platform. Hardware is nice!
-- Targeted models are XTM 21 / 22 / 23 and their wireless versions XTM 21-W / 22-W / 23-W.
+- Why all the effort ? 
+	-	There is no LEDE/OpenWrt or DD-WRT port for this platform.
+	-	Hardware is nice!
+	
+- Targeted models are:
+	XTM 21 / 22 / 23 and their wireless versions XTM 21-W / 22-W / 23-W.
+	
 - Watchguard ended support for these models (EOL) on the 30th of June 2017. (ebay ?)
 - The XTM 25 and 26 models are out of scope for this project.
 - For this project we are using the model XTM 21-W (HW Model #XP3E6W)
-- Watchguard uses a custom Linux kernel based on 2.6.35.x and the source has not been released.
+- Watchguard used a custom Linux kernel based on 2.6.35.x and the source has not been released :/
 - The bootloader is a custom version of Redboot, called Watchguard Redboot.
 
 Specs for the XTM 21-W:
