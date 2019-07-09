@@ -2,6 +2,13 @@
 
 ![Illustration](https://github.com/greguu/linux_kernel_xtm2_richland/blob/master/_files/XTM-2-rearview.jpg)
 
+```diff
++ UPDATE (July 2019) : I have revived this project and currently test the latest kernel 5.2 on the XTM22.
++ There is an experimental kernel source here : https://github.com/greguu/linux-5.2-xtm22
++ Once the kernel is good to go, I will focus again on Openwrt for the XTM22.
++ If you have a XTM-2 series Watchguard firewall and like to help with Kernel or Openwrt, let me know!
+```
+
 - Why all the effort ? 
 	-	There is no LEDE/OpenWrt or DD-WRT port for this platform.
 	-	Hardware is nice!
