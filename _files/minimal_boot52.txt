@@ -1,0 +1,113 @@
+[    0.000000] Booting Linux on physical CPU 0x0                                                                                                              
+[    0.000000] Linux version 5.2.0 (operator@Z600) (gcc version 9.1.0 (OpenWrt GCC 9.1.0 r10387-c3e31b6a9b)) #1 Tue Jul 9 18:52:18 NZST 2019                  
+[    0.000000] CPU: XScale-IXP43x Family [69054041] revision 1 (ARMv5TE), cr=000039ff                                                                         
+[    0.000000] CPU: VIVT data cache, VIVT instruction cache                                                                                                   
+[    0.000000] Machine: Intel KIXRP435 Reference Platform                                                                                                     
+[    0.000000] Memory policy: Data cache writeback                                                                                                            
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 65024                                                                                   
+[    0.000000] Kernel command line: console=ttyS0,115200 root=/dev/sda1                                                                                       
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)                                                                                
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)                                                                                  
+[    0.000000] Memory: 254588K/262144K available (3767K kernel code, 148K rwdata, 868K rodata, 136K init, 193K bss, 7556K reserved, 0K cma-reserved)          
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1                                                                                     
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16                                                                                                
+[    0.000000] Allocate Linux IRQs 16..21 HW IRQs 0..5                                                                                                        
+[    0.000000] Allocate Linux IRQs 24..34 HW IRQs 8..18                                                                                                       
+[    0.000000] Allocate Linux IRQs 46..47 HW IRQs 30..31                                                                                                      
+[    0.000000] Allocate Linux IRQs 48..57 HW IRQs 32..41                                                                                                      
+[    0.000000] random: get_random_bytes called from start_kernel+0x284/0x45c with crng_init=0                                                                 
+[    0.000000] clocksource: OSTS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 28669193401 ns                                                        
+[    0.000016] sched_clock: 32 bits at 66MHz, resolution 15ns, wraps every 32212576760ns                                                                      
+[    0.000082] Calibrating delay loop... 663.55 BogoMIPS (lpj=3317760)                                                                                        
+[    0.050035] pid_max: default: 32768 minimum: 301                                                                                                           
+[    0.050312] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)                                                                                    
+[    0.050334] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)                                                                               
+[    0.051138] CPU: Testing write buffer coherency: ok                                                                                                        
+[    0.052147] Setting up static identity map for 0x81e0 - 0x8230
+[    0.053540] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns                                               
+[    0.053578] futex hash table entries: 256 (order: -1, 3072 bytes)
+[    0.054630] NET: Registered protocol family 16
+[    0.055311] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.057638] IXP4xx: Using 16MiB expansion bus window size
+[    0.058165] PCI: IXP4xx is host
+[    0.058183] PCI: IXP4xx Using direct access for memory space
+[    0.058347] PCI host bridge to bus 0000:00
+[    0.058388] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.058409] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
+[    0.058427] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.058490] pci 0000:00:02.0: [168c:0027] type 00 class 0x028000
+[    0.058546] pci 0000:00:02.0: reg 0x10: [mem 0x00000000-0x0000ffff]
+[    0.058663] pci 0000:00:02.0: PME# supported from D0 D3hot
+[    0.058753] pci 0000:00:02.0: dmabounce: registered device
+[    0.059031] PCI: bus0: Fast back to back transfers enabled
+[    0.059066] pci_bus 0000:00: busn_res: [bus 00-ff] end is updated to 00
+[    0.059111] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
+[    0.090132] SCSI subsystem initialized
+[    0.090594] usbcore: registered new interface driver usbfs
+[    0.090692] usbcore: registered new interface driver hub
+[    0.090809] usbcore: registered new device driver usb
+[    0.090934] i2c-gpio i2c-gpio.0: cannot find GPIO chip IXP4XX_GPIO_CHIP, deferring
+[    0.090956] i2c-gpio i2c-gpio.0: cannot find GPIO chip IXP4XX_GPIO_CHIP, deferring
+[    0.092203] clocksource: Switched to clocksource OSTS
+[    0.093382] NET: Registered protocol family 2
+[    0.094364] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes)
+[    0.094424] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.094467] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.094514] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.094664] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.094696] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.094993] NET: Registered protocol family 1
+[    0.095081] PCI: CLS 32 bytes, default 32
+[    0.104495] workingset: timestamp_bits=30 max_order=16 bucket_order=0
+[    0.117497] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.117520] jffs2: version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
+[    0.120643] ixp4xx-gpio ixp4xx-gpio: IXP4 GPIO @(ptrval) registered
+[    0.121062] ixp4xx-qmgr ixp4xx-qmgr: IXP4xx Queue Manager initialized.
+[    0.121627] ixp4xx-npe ixp4xx-npe: NPE0 at 0xc8006000-0xc8006fff registered
+[    0.122922] NPE-B: reset: npe_debug_instr(): timeout
+[    0.122951] ixp4xx-npe ixp4xx-npe: NPE1 at 0xc8007000-0xc8007fff does not reset
+[    0.123315] ixp4xx-npe ixp4xx-npe: NPE2 at 0xc8008000-0xc8008fff registered
+[    0.155166] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.156497] printk: console [ttyS0] disabled
+[    0.156578] serial8250.0: ttyS0 at MMIO 0xc8000000 (irq = 31, base_baud = 921600) is a XScale
+[    0.715111] printk: console [ttyS0] enabled
+[    0.721063] IXP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
+[    0.731814] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.736997]   Amd/Fujitsu Extended Query version 1.0.
+[    0.742042] IXP4XX-Flash.0: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
+[    0.749525] IXP4XX-Flash.0: Swapping erase regions for top-boot CFI table.
+[    0.756401] number of CFI chips: 1
+[    0.762416] Searching for RedBoot partition table in IXP4XX-Flash.0 at offset 0xf0000
+[    0.829219] 3 RedBoot partitions found on MTD device IXP4XX-Flash.0
+[    0.835573] Creating 3 MTD partitions on "IXP4XX-Flash.0":
+[    0.841070] 0x000000000000-0x000000080000 : "RedBoot"
+[    0.848676] 0x0000000f0000-0x0000000ff000 : "FIS directory"
+[    0.854335] mtd: partition "FIS directory" doesn't end on an erase/write block -- force read-only
+[    0.865096] 0x0000000ff000-0x000000100000 : "RedBoot config"
+[    0.870764] mtd: partition "RedBoot config" doesn't start on an erase/write block boundary -- force read-only
+[    0.899085] libphy: IXP4xx MII Bus: probed
+[    0.903445] ixp4xx_eth: probe of ixp4xx_eth.16 failed with error -5
+[    0.909881] libphy: PHY ixp4xx-eth-0:01 not found
+[    0.914760] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.921295] ehci-platform: EHCI generic platform driver
+[    0.926775] usbcore: registered new interface driver usb-storage
+[    0.933165] i2c /dev entries driver
+[    0.936937] ixp4xx_wdt: timer heartbeat 60 sec
+[    0.942940] NET: Registered protocol family 10
+[    0.954903] Segment Routing with IPv6
+[    0.958732] NET: Registered protocol family 17
+[    0.964292] 8021q: 802.1Q VLAN Support v1.8
+[    0.968600] XScale DSP coprocessor detected.
+[    1.030611] i2c-gpio i2c-gpio.0: using lines 7 (SDA) and 6 (SCL)
+[    1.036918] hctosys: unable to open rtc device (rtc0)
+[    1.043278] VFS: Cannot open root device "sda1" or unknown-block(0,0): error -6
+[    1.050592] Please append a correct "root=" boot option; here are the available partitions:
+[    1.059023] 1f00             512 mtdblock0 
+[    1.059028]  (driver?)
+[    1.065581] 1f01              60 mtdblock1 
+[    1.065585]  (driver?)
+[    1.072114] 1f02               4 mtdblock2 
+[    1.072117]  (driver?)
+[    1.078659] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+[    1.086927] CPU: 0 PID: 1 Comm: swapper Not tainted 5.2.0 #1
+[    1.092576] Hardware name: Intel KIXRP435 Reference Platform
