@@ -110,7 +110,7 @@ Scope of this project:
 - Then load the kernel ```load -m ymodem -r -v -b %{FREEMEMLO} zImage```
 - CTRL-A SHIFT-Z in minicom and choose S (SHIFT-S) for send file.
 - Locate the just build zImage in /root (select with Space) and load it (Enter).
-- Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/sda1 rootwait=12" -w 5```
+- Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/sda1 rootdelay=12" -w 5```
 - Example : See ```/_files/boot_49.txt``` for a minimal boot log.
 
 
