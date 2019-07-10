@@ -252,6 +252,23 @@ in order to prevent unauthorized SSH logins.
 root@OpenWrt:/#
 ```
 
+```
+root@OpenWrt:/# cat /proc/cpuinfo 
+processor       : 0
+model name      : XScale-IXP43x Family rev 1 (v5b)
+BogoMIPS        : 663.55
+Features        : swp half fastmult edsp 
+CPU implementer : 0x69
+CPU architecture: 5TE
+CPU variant     : 0x0
+CPU part        : 0x404
+CPU revision    : 1
+
+Hardware        : Intel KIXRP435 Reference Platform
+Revision        : 0000
+Serial          : 0000000000000000
+```
+
 # PHY / Switch (RTL8366SR)
 
 - See ```RTL8366s.md```
