@@ -3,9 +3,9 @@
 ![Illustration](https://github.com/greguu/linux_kernel_xtm2_richland/blob/master/_files/XTM-2-rearview.jpg)
 
 ```diff
-+ UPDATE (July 2019) : I have revived this project and currently test the latest kernel 5.2 on the XTM21.
-+ There is an experimental kernel source here : https://github.com/greguu/linux-5.2-xtm21
-+ Once the kernel is good to go, I will focus again on Openwrt for the XTM21-W.
++ UPDATE (2022) : I have revived this project and currently test the latest kernel 5.17-rc2 on the XTM21.
++ Experimental kernel source / patches and OpenWrt rootfs will be provided once ready.
++ You will find a minimal boot log and some kernel confing in the _files section.
 + If you have a XTM-2 series Watchguard firewall and like to help with Kernel or Openwrt, let me know!
 ```
 
@@ -40,11 +40,11 @@ Specs for the XTM 21-W:
 Scope of this project:
 
 - Investigate the "Richland" platform and similarities to Cambria and the KIXRP435 Development Board.
-- Port to Linux stable 4.9.85 (at time of writing stable LEDE / OpenWrt kernel, patches available)
-- Test basic userland on USB drive (LEDE ?)
+- Define Linux 5.17 Device Tree for this device.
+- Test basic userland on USB drive (OpenWrt)
 - Investigate and update Redboot or flash an alternative bootloader (uboot ?) ..risky..
-- Test userland and port to LEDE / OpenWrt.
-- Flash LEDE to NAND.
+- Test userland and port to OpenWrt.
+- Flash OpenWrt to NAND.
 
 
 # Serial Console
@@ -85,14 +85,14 @@ Scope of this project:
 - Although this CPU should support little endian, too - we will focus on armeb.
 - Currently the OpenWrt / LEDE toolchain is used. Follow the OpenWrt / LEDE wiki and get the source via git.
 
-- Build with:  ```openwrt-toolchain-ixp4xx-generic_gcc-5.5.0_musl.Linux-x86_64.tar.bz2```
+- Build with:  ```armeb-openwrt-linux-gcc (OpenWrt GCC 11.2.0 r18647+1-17135ae091) 11.2.0, GNU ld (GNU Binutils) 2.37) 2```
 
 
 # Set up the toolchain
 
 - Depending on your setup you will need required build tools and compilers.
-- Follow the OpenWrt Wiki on how to setup the toolchain. Then replace the ```config-4.9``` with the one under ```_files```.
-- Note : The target is ixp4xx and the subtarget is currently KIXRP435, this may change.
+- Follow the OpenWrt Wiki on how to setup the toolchain. Then replace the ```config-5.17``` with the one under ```_files```.
+- Note : The target is ixp4xx has been removed from OpenWrt at the moment. Details to follow.
 
 
 # Build
@@ -111,10 +111,10 @@ Scope of this project:
 - CTRL-A SHIFT-Z in minicom and choose S (SHIFT-S) for send file.
 - Locate the just build zImage in /root (select with Space) and load it (Enter).
 - Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/sda1 rootdelay=12" -w 5```
-- Example : See ```/_files/boot_49.txt``` for a minimal boot log.
+- Example : See ```/_files/minimal-boot-5.17-rc2.txt``` for a minimal boot log.
 
 
-# USB (EHCI)
+# USB (EHCI) ?? NEEDS UPDATING !!
 
 The platform USB driver ehci-ipx4xx.c was removed with kernel 3.8 or so as part of the "USB: EHCI and OHCI platform driver conversions" but we can find some clues in the Watchguard kernel boot log:
 ```
