@@ -1,0 +1,123 @@
+RedBoot> load -m ymodem -r -v -b %{FREEMEMLO} zImage_dtb
+CRaw file loaded 0x001d0000-0x00431ca3, assumed entry at 0x001d0000
+xyzModem - CRC mode, 19516(SOH)/0(STX)/0(CAN) packets, 4 retries
+RedBoot> exec -w 5
+argc:3
+argv:exec
+argv:-w
+argv:5
+About to start execution at 0x06000000 - abort with ^C within 5 seconds
+Using base address 0x001d0000 and length 0x00261ca4
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 5.17.0-rc2 (operator@Z600) (armeb-openwrt-linux-gcc (OpenWrt GCC 11.2.0 r18647+1-17135ae091) 11.2.0, GNU ld (GNU Binutils) 2.37) 2
+[    0.000000] CPU: XScale-IXP43x Family [69054041] revision 1 (ARMv5TE), cr=000039ff
+[    0.000000] CPU: VIVT data cache, VIVT instruction cache
+[    0.000000] OF: fdt: Machine model: Intel KIXRP435 Reference Design
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000000000000-0x000000000fffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x000000000fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000000fffffff]
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 65024
+[    0.000000] Kernel command line: console=ttyS0,115200n8
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 252744K/262144K available (4784K kernel code, 528K rwdata, 1208K rodata, 156K init, 207K bss, 9400K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] random: get_random_bytes called from start_kernel+0x304/0x52c with crng_init=0
+[    0.000000] clocksource: OSTS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 28669193401 ns
+[    0.000002] sched_clock: 32 bits at 66MHz, resolution 15ns, wraps every 32212576760ns
+[    0.000035] Switching to timer-based delay loop, resolution 15ns
+[    0.000140] Calibrating delay loop (skipped), value calculated using timer frequency.. 133.33 BogoMIPS (lpj=666660)
+[    0.000179] pid_max: default: 32768 minimum: 301
+[    0.000482] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.000544] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.001445] CPU: Testing write buffer coherency: ok
+[    0.002596] cblist_init_generic: Setting adjustable number of callback queues.
+[    0.002648] cblist_init_generic: Setting shift to 0 and lim to 1.
+[    0.002904] Setting up static identity map for 0x8200 - 0x8250
+[    0.006060] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.006137] futex hash table entries: 256 (order: -1, 3072 bytes, linear)
+[    0.006808] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.007553] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.021542] SCSI subsystem initialized
+[    0.021991] usbcore: registered new interface driver usbfs
+[    0.022116] usbcore: registered new interface driver hub
+[    0.022116] usbcore: registered new interface driver hub
+[    0.022228] usbcore: registered new device driver usb
+[    0.024587] clocksource: Switched to clocksource OSTS
+[    0.026133] NET: Registered PF_INET protocol family
+[    0.026421] IP idents hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.027494] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.027596] TCP established hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.027651] TCP bind hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.027703] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.027889] UDP hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.027964] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.028289] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.031208] PCI: CLS 0 bytes, default 32
+[    0.032095] Initialise system trusted keyrings
+[    0.034249] workingset: timestamp_bits=30 max_order=16 bucket_order=0
+[    0.232411] Key type asymmetric registered
+[    0.232469] Asymmetric key parser 'x509' registered
+[    0.233883] intel-extbus c4000000.bus: expansion bus at 50000000
+[    0.233939] intel-extbus c4000000.bus: IXP43x at 667 MHz
+[    0.233971] intel-extbus c4000000.bus: CS0 at 0x50000000, size 0x1000000, config before: 0xbfff3c42
+[    0.234015] intel-extbus c4000000.bus: CS0 enabled intel,ixp4xx-eb-write-enable
+[    0.234046] intel-extbus c4000000.bus: CS0 wrote 0xbfff3c42 into CS config
+[    0.235803] ixp4xx-gpio c8004000.gpio: IXP4 GPIO registered
+[    0.236252] ixp4xx-pci c0000000.pci: host bridge /soc/pci@c0000000 ranges:
+[    0.236358] ixp4xx-pci c0000000.pci:      MEM 0x0048000000..0x004bffffff -> 0x0048000000
+[    0.236405] ixp4xx-pci c0000000.pci:       IO 0x004c000000..0x004c00ffff -> 0x0000000000
+[    0.236460] ixp4xx-pci c0000000.pci:   IB MEM 0x0000000000..0x0003ffffff -> 0x0000000000
+[    0.236677] ixp4xx-pci c0000000.pci: controller is in host mode
+[    0.236744] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_0 to 0x00000000
+[    0.236771] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_1 to 0x01000000
+[    0.236796] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_2 to 0x02000000
+[    0.236820] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_3 to 0x03000000
+[    0.236845] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_4 to 0x04000000
+[    0.236868] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_5 to 0xfffffc01
+[    0.236891] ixp4xx-pci c0000000.pci: set TRDY limit to 0x80ff
+[    0.236912] ixp4xx-pci c0000000.pci: initialized as master
+[    0.237194] ixp4xx-pci c0000000.pci: PCI host bridge to bus 0000:00
+[    0.237253] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.237285] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
+[    0.237314] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.237470] pci 0000:00:02.0: [168c:0027] type 00 class 0x028000
+[    0.237520] pci 0000:00:02.0: reg 0x10: [mem 0x00000000-0x0000ffff]
+[    0.237650] pci 0000:00:02.0: PME# supported from D0 D3hot
+[    0.238727] PCI: bus0: Fast back to back transfers enabled
+[    0.238806] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
+[    0.275247] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.277242] printk: console [ttyS0] disabled
+[    0.277415] c8000000.serial: ttyS0 at MMIO 0xc8000003 (irq = 22, base_baud = 921600) is a XScale
+[    1.274979] printk: console [ttyS0] enabled
+[    1.280490] c8001000.serial: ttyS1 at MMIO 0xc8001003 (irq = 23, base_baud = 921600) is a XScale
+[    1.316160] loop: module loaded
+[    1.322478] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.329145] ehci-platform: EHCI generic platform driver
+[    1.334759] usbcore: registered new interface driver usb-storage
+[    1.340796] i2c_dev: i2c /dev entries driver
+[    1.347153] NET: Registered PF_INET6 protocol family
+[    1.393069] Segment Routing with IPv6
+[    1.396967] In-situ OAM (IOAM) with IPv6
+[    1.401069] NET: Registered PF_PACKET protocol family
+[    1.407018] 8021q: 802.1Q VLAN Support v1.8
+[    1.411507] XScale DSP coprocessor detected.
+[    1.415977] Loading compiled-in X.509 certificates
+[    1.464986] i2c-gpio i2c: using lines 7 (SDA) and 6 (SCL)
+[    1.471175] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    1.488464] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    1.495878] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    1.504540] platform regulatory.0: Falling back to sysfs fallback for: regulatory.db
+[    1.515205] /dev/root: Can't open blockdev
+[    1.519365] VFS: Cannot open root device "(null)" or unknown-block(0,0): error -6
+[    1.526909] Please append a correct "root=" boot option; here are the available partitions:
+[    1.535288] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+[    1.543556] Rebooting in 1 seconds..
+[    3.547877] Reboot failed -- System halted
