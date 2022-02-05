@@ -1,4 +1,4 @@
-# Linux on the Watchguard XTM2 Platform (Richland)
+# Linux on the WatchGuard XTM2 Platform (Richland)
 
 ![Illustration](https://github.com/greguu/linux_kernel_xtm2_richland/blob/master/_files/XTM-2-rearview.jpg)
 
