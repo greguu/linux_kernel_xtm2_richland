@@ -6,7 +6,7 @@ argv:console=ttyS0,115200 root=/dev/sda1 rootdelay=12 debug
 argv:-w
 argv:5
 About to start execution at 0x06000000 - abort with ^C within 5 seconds
-Using base address 0x001d0000 and length 0x002e4374
+Using base address 0x001d0000 and length 0x002e4364
 Uncompressing Linux... done, booting the kernel.
 [    0.000000] Booting Linux on physical CPU 0x0
 [    0.000000] Linux version 5.17.0-rc3 (operator@Z600) (armeb-openwrt-linux-gcc (OpenWrt GCC 11.2.0 r18647+1-17135ae091) 11.2.0, GNU ld (GNU Binutils) 2.37) 2
@@ -34,152 +34,150 @@ Uncompressing Linux... done, booting the kernel.
 [    0.000000] clocksource: OSTS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 28669193401 ns
 [    0.000002] sched_clock: 32 bits at 66MHz, resolution 15ns, wraps every 32212576760ns
 [    0.000031] Switching to timer-based delay loop, resolution 15ns
-[    0.000124] Calibrating delay loop (skipped), value calculated using timer frequency.. 133.33 BogoMIPS (lpj=666660)
+[    0.000123] Calibrating delay loop (skipped), value calculated using timer frequency.. 133.33 BogoMIPS (lpj=666660)
 [    0.000158] pid_max: default: 32768 minimum: 301
 [    0.000434] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
 [    0.000484] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
-[    0.001294] CPU: Testing write buffer coherency: ok
+[    0.001293] CPU: Testing write buffer coherency: ok
 [    0.002337] Setting up static identity map for 0x8220 - 0x828c
-[    0.005159] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-[    0.005230] futex hash table entries: 256 (order: -1, 3072 bytes, linear)
-[    0.006059] NET: Registered PF_NETLINK/PF_ROUTE protocol family
-[    0.006779] DMA: preallocated 256 KiB pool for atomic coherent allocations
-[    0.019609] SCSI subsystem initialized
-[    0.019941] usbcore: registered new interface driver usbfs
-[    0.020093] usbcore: registered new interface driver hub
-[    0.020213] usbcore: registered new device driver usb
-[    0.020311] pps_core: LinuxPPS API ver. 1 registered
-[    0.020326] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-[    0.020361] PTP clock support registered
-[    0.021760] NET: Registered PF_ATMPVC protocol family
-[    0.021811] NET: Registered PF_ATMSVC protocol family
-[    0.022414] clocksource: Switched to clocksource OSTS
-[    0.023981] NET: Registered PF_INET protocol family
-[    0.024243] IP idents hash table entries: 4096 (order: 3, 32768 bytes, linear)
-[    0.025086] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
-[    0.025174] TCP established hash table entries: 2048 (order: 1, 8192 bytes, linear)
-[    0.025225] TCP bind hash table entries: 2048 (order: 1, 8192 bytes, linear)
-[    0.025274] TCP: Hash tables configured (established 2048 bind 2048)
-[    0.025430] UDP hash table entries: 256 (order: 0, 4096 bytes, linear)
-[    0.025485] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes, linear)
-[    0.025784] NET: Registered PF_UNIX/PF_LOCAL protocol family
-[    0.026662] RPC: Registered named UNIX socket transport module.
-[    0.026715] RPC: Registered udp transport module.
-[    0.026728] RPC: Registered tcp transport module.
-[    0.026741] RPC: Registered tcp NFSv4.1 backchannel transport module.
-[    0.028414] PCI: CLS 0 bytes, default 32
-[    0.029314] Initialise system trusted keyrings
-[    0.029617] workingset: timestamp_bits=30 max_order=16 bucket_order=0
-[    0.040110] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
-[    0.040962] Key type asymmetric registered
-[    0.041004] Asymmetric key parser 'x509' registered
-[    0.041233] io scheduler mq-deadline registered
-[    0.041274] io scheduler kyber registered
-[    0.042058] intel-extbus c4000000.bus: expansion bus at 50000000
-[    0.042109] intel-extbus c4000000.bus: IXP43x at 667 MHz
-[    0.042137] intel-extbus c4000000.bus: CS0 at 0x50000000, size 0x1000000, config before: 0xbfff3c42
-[    0.042174] intel-extbus c4000000.bus: CS0 enabled intel,ixp4xx-eb-write-enable
-[    0.042200] intel-extbus c4000000.bus: CS0 wrote 0xbfff3c42 into CS config
-[    0.043443] ixp4xx-gpio c8004000.gpio: IXP4 GPIO registered
-[    0.043649] ixp4xx-gpio i2c: invalid resource
-[    0.043676] ixp4xx-gpio: probe of i2c failed with error -22
-[    0.043925] ixp4xx-pci c0000000.pci: host bridge /soc/pci@c0000000 ranges:
-[    0.044016] ixp4xx-pci c0000000.pci:      MEM 0x0048000000..0x004bffffff -> 0x0048000000
-[    0.044057] ixp4xx-pci c0000000.pci:       IO 0x004c000000..0x004c00ffff -> 0x0000000000
-[    0.044120] ixp4xx-pci c0000000.pci:   IB MEM 0x0000000000..0x0003ffffff -> 0x0000000000
-[    0.044311] ixp4xx-pci c0000000.pci: controller is in host mode
-[    0.044374] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_0 to 0x00000000
-[    0.044397] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_1 to 0x01000000
-[    0.044418] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_2 to 0x02000000
-[    0.044438] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_3 to 0x03000000
-[    0.044459] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_4 to 0x04000000
-[    0.044478] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_5 to 0xfffffc01
-[    0.044497] ixp4xx-pci c0000000.pci: set TRDY limit to 0x80ff
-[    0.044514] ixp4xx-pci c0000000.pci: initialized as master
-[    0.044814] ixp4xx-pci c0000000.pci: PCI host bridge to bus 0000:00
-[    0.044863] pci_bus 0000:00: root bus resource [bus 00-ff]
-[    0.044893] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
-[    0.044919] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
-[    0.045061] pci 0000:00:02.0: [168c:0027] type 00 class 0x028000
-[    0.045107] pci 0000:00:02.0: reg 0x10: [mem 0x00000000-0x0000ffff]
-[    0.045232] pci 0000:00:02.0: PME# supported from D0 D3hot
-[    0.046207] PCI: bus0: Fast back to back transfers enabled
-[    0.046279] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
-[    0.046859] ixp4xx-qmgr 60000000.queue-manager: IXP4xx Queue Manager initialized.
-[    0.047699] ixp4xx-npe c8006000.npe: NPE0 at [mem 0xc8006000-0xc8006fff] registered
-[    0.049359] NPE-B: reset: npe_debug_instr(): timeout
-[    0.049424] ixp4xx-npe c8006000.npe: NPE1 at [mem 0xc8007000-0xc8007fff] does not reset
-[    0.049961] ixp4xx-npe c8006000.npe: NPE2 at [mem 0xc8008000-0xc8008fff] registered
-[    0.089536] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
-[    0.091495] printk: console [ttyS0] disabled
-[    0.091638] c8000000.serial: ttyS0 at MMIO 0xc8000003 (irq = 22, base_baud = 921600) is a XScale
-[    0.754446] printk: console [ttyS0] enabled
-[    0.759902] c8001000.serial: ttyS1 at MMIO 0xc8001003 (irq = 23, base_baud = 921600) is a XScale
-[    0.785469] brd: module loaded
-[    0.794734] loop: module loaded
-[    0.798819] physmap-flash 50000000.flash: initialized Intel IXP4xx-specific physmap control
-[    0.807472] physmap-flash 50000000.flash: physmap platform flash device: [mem 0x50000000-0x50ffffff]
-[    0.816994] 50000000.flash: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
-[    0.827210] 50000000.flash: Found an alias at 0x100000 for the chip at 0x0
-[    0.834116] 50000000.flash: Found an alias at 0x200000 for the chip at 0x0
-[    0.841015] 50000000.flash: Found an alias at 0x300000 for the chip at 0x0
-[    0.847912] 50000000.flash: Found an alias at 0x400000 for the chip at 0x0
-[    0.854809] 50000000.flash: Found an alias at 0x500000 for the chip at 0x0
-[    0.861708] 50000000.flash: Found an alias at 0x600000 for the chip at 0x0
-[    0.868605] 50000000.flash: Found an alias at 0x700000 for the chip at 0x0
-[    0.875504] 50000000.flash: Found an alias at 0x800000 for the chip at 0x0
-[    0.882402] 50000000.flash: Found an alias at 0x900000 for the chip at 0x0
-[    0.889298] 50000000.flash: Found an alias at 0xa00000 for the chip at 0x0
-[    0.896196] 50000000.flash: Found an alias at 0xb00000 for the chip at 0x0
-[    0.903098] 50000000.flash: Found an alias at 0xc00000 for the chip at 0x0
-[    0.909992] 50000000.flash: Found an alias at 0xd00000 for the chip at 0x0
-[    0.916892] 50000000.flash: Found an alias at 0xe00000 for the chip at 0x0
-[    0.923794] 50000000.flash: Found an alias at 0xf00000 for the chip at 0x0
-[    0.931651] Support for command set 0002 not present
-[    0.936655] gen_probe: No supported Vendor Command Set found
-[    0.942371] physmap-flash 50000000.flash: map_probe failed
-[    0.950601] hdlc: HDLC support module revision 1.22
-[    0.955897] ath9k 0000:00:02.0: enabling device (0340 -> 0342)
-[    2.520407] ath: EEPROM regdomain sanitized
-[    2.524624] ath: EEPROM regdomain: 0x64
-[    2.528456] ath: EEPROM indicates we should expect a direct regpair map
-[    2.535109] ath: Country alpha2 being used: 00
-[    2.539551] ath: Regpair used: 0x64
-[    2.556034] ieee80211 phy0: Selected rate control algorithm 'minstrel_ht'
-[    2.564364] ieee80211 phy0: Atheros AR9160 MAC/BB Rev:1 AR5133 RF Rev:b0 mem=0xd0940000, irq=26
-[    2.573493] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
-[    2.580075] random: fast init done
-[    2.583483] ehci-platform: EHCI generic platform driver
-[    2.588986] ehci-platform cd000000.usb: EHCI Host Controller
-[    2.594807] ehci-platform cd000000.usb: new USB bus registered, assigned bus number 1
-[    2.603118] ehci-platform cd000000.usb: irq 24, io mem 0xcd000000
-[    2.630032] ehci-platform cd000000.usb: USB 2.0 started, EHCI 0.42
-[    2.636483] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.17
-[    2.644825] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
-[    2.652061] usb usb1: Product: EHCI Host Controller
-[    2.656934] usb usb1: Manufacturer: Linux 5.17.0-rc3 ehci_hcd
-[    2.662686] usb usb1: SerialNumber: cd000000.usb
-[    2.668097] hub 1-0:1.0: USB hub found
-[    2.671996] hub 1-0:1.0: 3 ports detected
-[    2.677188] ehci-platform ce000000.usb: EHCI Host Controller
-[    2.683001] ehci-platform ce000000.usb: new USB bus registered, assigned bus number 2
-[    2.691304] ehci-platform ce000000.usb: irq 25, io mem 0xce000000
-[    2.720041] ehci-platform ce000000.usb: USB 2.0 started, EHCI 0.42
-[    2.726517] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.17
-[    2.734853] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
-[    2.742082] usb usb2: Product: EHCI Host Controller
-[    2.746955] usb usb2: Manufacturer: Linux 5.17.0-rc3 ehci_hcd
-[    2.752707] usb usb2: SerialNumber: ce000000.usb
-[    2.758115] hub 2-0:1.0: USB hub found
-[    2.762018] hub 2-0:1.0: 3 ports detected
-[    2.767251] usbcore: registered new interface driver usb-storage
-[    2.773402] i2c_dev: i2c /dev entries driver
-[    2.778466] ixp4xx-watchdog ixp4xx-watchdog: IXP4xx watchdog available
-[    2.785709] NET: Registered PF_PACKET protocol family
-[    2.791527] XScale DSP coprocessor detected.
-[    2.795927] Loading compiled-in X.509 certificates
-[    2.803401] cfg80211: Loading compiled-in X.509 certificates for regulatory database
-[    2.817078] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
-[    2.824341] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
-[    2.833049] cfg80211: failed to load regulatory.db
-[    2.838149] Waiting for root device ...
+[    0.005158] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.005229] futex hash table entries: 256 (order: -1, 3072 bytes, linear)
+[    0.006058] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.006778] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.019599] SCSI subsystem initialized
+[    0.019931] usbcore: registered new interface driver usbfs
+[    0.020082] usbcore: registered new interface driver hub
+[    0.020201] usbcore: registered new device driver usb
+[    0.020301] pps_core: LinuxPPS API ver. 1 registered
+[    0.020317] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.020351] PTP clock support registered
+[    0.021751] NET: Registered PF_ATMPVC protocol family
+[    0.021801] NET: Registered PF_ATMSVC protocol family
+[    0.022405] clocksource: Switched to clocksource OSTS
+[    0.023973] NET: Registered PF_INET protocol family
+[    0.024235] IP idents hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.025078] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.025166] TCP established hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.025217] TCP bind hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.025266] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.025422] UDP hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.025478] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.025777] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.026655] RPC: Registered named UNIX socket transport module.
+[    0.026708] RPC: Registered udp transport module.
+[    0.026721] RPC: Registered tcp transport module.
+[    0.026733] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.028407] PCI: CLS 0 bytes, default 32
+[    0.029307] Initialise system trusted keyrings
+[    0.029610] workingset: timestamp_bits=30 max_order=16 bucket_order=0
+[    0.040104] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    0.040954] Key type asymmetric registered
+[    0.040996] Asymmetric key parser 'x509' registered
+[    0.041226] io scheduler mq-deadline registered
+[    0.041267] io scheduler kyber registered
+[    0.042050] intel-extbus c4000000.bus: expansion bus at 50000000
+[    0.042102] intel-extbus c4000000.bus: IXP43x at 667 MHz
+[    0.042130] intel-extbus c4000000.bus: CS0 at 0x50000000, size 0x1000000, config before: 0xbfff3c42
+[    0.042167] intel-extbus c4000000.bus: CS0 enabled intel,ixp4xx-eb-write-enable
+[    0.042193] intel-extbus c4000000.bus: CS0 wrote 0xbfff3c42 into CS config
+[    0.043431] ixp4xx-gpio c8004000.gpio: IXP4 GPIO registered
+[    0.043807] ixp4xx-pci c0000000.pci: host bridge /soc/pci@c0000000 ranges:
+[    0.043900] ixp4xx-pci c0000000.pci:      MEM 0x0048000000..0x004bffffff -> 0x0048000000
+[    0.043940] ixp4xx-pci c0000000.pci:       IO 0x004c000000..0x004c00ffff -> 0x0000000000
+[    0.044002] ixp4xx-pci c0000000.pci:   IB MEM 0x0000000000..0x0003ffffff -> 0x0000000000
+[    0.044192] ixp4xx-pci c0000000.pci: controller is in host mode
+[    0.044255] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_0 to 0x00000000
+[    0.044278] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_1 to 0x01000000
+[    0.044299] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_2 to 0x02000000
+[    0.044320] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_3 to 0x03000000
+[    0.044340] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_4 to 0x04000000
+[    0.044359] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_5 to 0xfffffc01
+[    0.044378] ixp4xx-pci c0000000.pci: set TRDY limit to 0x80ff
+[    0.044395] ixp4xx-pci c0000000.pci: initialized as master
+[    0.044695] ixp4xx-pci c0000000.pci: PCI host bridge to bus 0000:00
+[    0.044744] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.044774] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
+[    0.044800] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.044941] pci 0000:00:02.0: [168c:0027] type 00 class 0x028000
+[    0.044987] pci 0000:00:02.0: reg 0x10: [mem 0x00000000-0x0000ffff]
+[    0.045113] pci 0000:00:02.0: PME# supported from D0 D3hot
+[    0.046079] PCI: bus0: Fast back to back transfers enabled
+[    0.046152] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
+[    0.046730] ixp4xx-qmgr 60000000.queue-manager: IXP4xx Queue Manager initialized.
+[    0.047569] ixp4xx-npe c8006000.npe: NPE0 at [mem 0xc8006000-0xc8006fff] registered
+[    0.049230] NPE-B: reset: npe_debug_instr(): timeout
+[    0.049295] ixp4xx-npe c8006000.npe: NPE1 at [mem 0xc8007000-0xc8007fff] does not reset
+[    0.049831] ixp4xx-npe c8006000.npe: NPE2 at [mem 0xc8008000-0xc8008fff] registered
+[    0.089401] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+[    0.091339] printk: console [ttyS0] disabled
+[    0.091484] c8000000.serial: ttyS0 at MMIO 0xc8000003 (irq = 22, base_baud = 921600) is a XScale
+[    0.744386] printk: console [ttyS0] enabled
+[    0.749844] c8001000.serial: ttyS1 at MMIO 0xc8001003 (irq = 23, base_baud = 921600) is a XScale
+[    0.775393] brd: module loaded
+[    0.784651] loop: module loaded
+[    0.788733] physmap-flash 50000000.flash: initialized Intel IXP4xx-specific physmap control
+[    0.797386] physmap-flash 50000000.flash: physmap platform flash device: [mem 0x50000000-0x50ffffff]
+[    0.806897] 50000000.flash: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
+[    0.817121] 50000000.flash: Found an alias at 0x100000 for the chip at 0x0
+[    0.824023] 50000000.flash: Found an alias at 0x200000 for the chip at 0x0
+[    0.830923] 50000000.flash: Found an alias at 0x300000 for the chip at 0x0
+[    0.837818] 50000000.flash: Found an alias at 0x400000 for the chip at 0x0
+[    0.844717] 50000000.flash: Found an alias at 0x500000 for the chip at 0x0
+[    0.851615] 50000000.flash: Found an alias at 0x600000 for the chip at 0x0
+[    0.858512] 50000000.flash: Found an alias at 0x700000 for the chip at 0x0
+[    0.865409] 50000000.flash: Found an alias at 0x800000 for the chip at 0x0
+[    0.872310] 50000000.flash: Found an alias at 0x900000 for the chip at 0x0
+[    0.879205] 50000000.flash: Found an alias at 0xa00000 for the chip at 0x0
+[    0.886104] 50000000.flash: Found an alias at 0xb00000 for the chip at 0x0
+[    0.893004] 50000000.flash: Found an alias at 0xc00000 for the chip at 0x0
+[    0.899898] 50000000.flash: Found an alias at 0xd00000 for the chip at 0x0
+[    0.906796] 50000000.flash: Found an alias at 0xe00000 for the chip at 0x0
+[    0.913697] 50000000.flash: Found an alias at 0xf00000 for the chip at 0x0
+[    0.921561] Support for command set 0002 not present
+[    0.926563] gen_probe: No supported Vendor Command Set found
+[    0.932278] physmap-flash 50000000.flash: map_probe failed
+[    0.940507] hdlc: HDLC support module revision 1.22
+[    0.945804] ath9k 0000:00:02.0: enabling device (0340 -> 0342)
+[    2.510344] ath: EEPROM regdomain sanitized
+[    2.514557] ath: EEPROM regdomain: 0x64
+[    2.518389] ath: EEPROM indicates we should expect a direct regpair map
+[    2.525042] ath: Country alpha2 being used: 00
+[    2.529482] ath: Regpair used: 0x64
+[    2.545958] ieee80211 phy0: Selected rate control algorithm 'minstrel_ht'
+[    2.554290] ieee80211 phy0: Atheros AR9160 MAC/BB Rev:1 AR5133 RF Rev:b0 mem=0xd0940000, irq=26
+[    2.563400] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.569953] ehci-platform: EHCI generic platform driver
+[    2.575520] ehci-platform cd000000.usb: EHCI Host Controller
+[    2.581258] random: fast init done
+[    2.584737] ehci-platform cd000000.usb: new USB bus registered, assigned bus number 1
+[    2.593060] ehci-platform cd000000.usb: irq 24, io mem 0xcd000000
+[    2.620032] ehci-platform cd000000.usb: USB 2.0 started, EHCI 0.42
+[    2.626486] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.17
+[    2.634826] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.642063] usb usb1: Product: EHCI Host Controller
+[    2.646936] usb usb1: Manufacturer: Linux 5.17.0-rc3 ehci_hcd
+[    2.652687] usb usb1: SerialNumber: cd000000.usb
+[    2.658098] hub 1-0:1.0: USB hub found
+[    2.661998] hub 1-0:1.0: 3 ports detected
+[    2.667190] ehci-platform ce000000.usb: EHCI Host Controller
+[    2.672990] ehci-platform ce000000.usb: new USB bus registered, assigned bus number 2
+[    2.681306] ehci-platform ce000000.usb: irq 25, io mem 0xce000000
+[    2.710041] ehci-platform ce000000.usb: USB 2.0 started, EHCI 0.42
+[    2.716519] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.17
+[    2.724854] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.732083] usb usb2: Product: EHCI Host Controller
+[    2.736957] usb usb2: Manufacturer: Linux 5.17.0-rc3 ehci_hcd
+[    2.742708] usb usb2: SerialNumber: ce000000.usb
+[    2.748108] hub 2-0:1.0: USB hub found
+[    2.752013] hub 2-0:1.0: 3 ports detected
+[    2.757242] usbcore: registered new interface driver usb-storage
+[    2.763394] i2c_dev: i2c /dev entries driver
+[    2.768459] ixp4xx-watchdog ixp4xx-watchdog: IXP4xx watchdog available
+[    2.775700] NET: Registered PF_PACKET protocol family
+[    2.781505] XScale DSP coprocessor detected.
+[    2.785904] Loading compiled-in X.509 certificates
+[    2.793383] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    2.807047] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    2.814308] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    2.823017] cfg80211: failed to load regulatory.db
+[    2.828117] Waiting for root device ...
