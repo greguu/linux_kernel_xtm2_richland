@@ -32,26 +32,6 @@
                 serial0 = &uart0;
         };
 
-        i2c {
-                compatible = "intel,ixp4xx-gpio","i2c-gpio";
-                sda-gpios = <&gpio0 7 (GPIO_ACTIVE_HIGH|GPIO_OPEN_DRAIN)>;
-                scl-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH|GPIO_OPEN_DRAIN)>;
-                #address-cells = <1>;
-                #size-cells = <0>;
-
-                eeprom@50 {
-                        /*
-                         * Philips PCF8582C-2T/03 512byte I2C EEPROM
-                         * should behave like an Atmel 24c04.
-                         */
-                        compatible = "atmel,24c04";
-                        reg = <0x50>;
-                        pagesize = <16>;
-                        size = <512>;
-                        read-only;
-                };
-        };
-
         soc {
                 interrupt-controller@c8003000 {
                         compatible = "intel,ixp43x-interrupt";
