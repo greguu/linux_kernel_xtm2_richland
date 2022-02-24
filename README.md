@@ -18,7 +18,8 @@
 	The XTM2 series are possibly all the same HW model (just software limits set by Watchguard ?)
 	
 - Watchguard ended support for these models (EOL) on the 30th of June 2017. Bargains available online !
-- The XTM 25 and 26 models are out of scope for this project (U-Boot is locked?
+- The XTM 25 and 26 models are out of scope for this project.
+   (The XTM 25 and 26 use U-Boot with a password lock. Let me know if you got one of these!!)
 - For this project we are using the model XTM 21-W (HW Model #XP3E6W).
 - Watchguard used a custom Linux kernel based on 2.6.35.x and the source has not been released :/
 - The bootloader is a custom version of Redboot, called Watchguard Redboot.
