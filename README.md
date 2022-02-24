@@ -5,7 +5,7 @@
 ```diff
 + UPDATE (2022) : I have revived this project and currently test the latest kernel 5.17-rc4 on the XTM21.
 + Experimental kernel source / patches and OpenWrt rootfs can be found in the seperate OpenWrt fork.
-+ If you have a XTM-2 series Watchguard firewall and like to help with Kernel or Openwrt development, let me know!
++ If you have an XTM-2 series Watchguard firewall and like to help with Kernel or Openwrt development, let me know!
 ```
 
 - Why all the effort ? 
