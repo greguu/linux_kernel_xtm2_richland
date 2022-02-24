@@ -4,22 +4,21 @@
 
 ```diff
 + UPDATE (2022) : I have revived this project and currently test the latest kernel 5.17-rc4 on the XTM21.
-+ Experimental kernel source / patches and OpenWrt rootfs can be built from the forkes OpenWrt Repo.
-+ You will find updated boot log and kernel conf in the _files section.
-+ If you have a XTM-2 series Watchguard firewall and like to help with Kernel or Openwrt, let me know!
++ Experimental kernel source / patches and OpenWrt rootfs can be found in the seperate OpenWrt fork.
++ If you have a XTM-2 series Watchguard firewall and like to help with Kernel or Openwrt development, let me know!
 ```
 
 - Why all the effort ? 
-	-	There is no "open" Linux port for this platform.
-	-	Hardware is nice!
+	-	There is no "open" Linux port for this platform as of yet.
+	-	Hardware is nice!!!
 	
 - Targeted models are:
 	XTM 21 / 22 / 23 and their wireless versions XTM 21-W / 22-W / 23-W
 	These are essential the same HW model, just differ in WiFi capability and soft limits set by Watchguard.
 	
 - Watchguard ended support for these models (EOL) on the 30th of June 2017. Bargains available online !
-- The XTM 25 and 26 models are out of scope for this project (U-Boot locked)
-- For this project we are using the model XTM 21-W (HW Model #XP3E6W)
+- The XTM 25 and 26 models are out of scope for this project (U-Boot is locked?
+- For this project we are using the model XTM 21-W (HW Model #XP3E6W).
 - Watchguard used a custom Linux kernel based on 2.6.35.x and the source has not been released :/
 - The bootloader is a custom version of Redboot, called Watchguard Redboot.
 
