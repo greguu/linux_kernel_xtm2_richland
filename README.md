@@ -14,7 +14,8 @@
 	
 - Targeted models are:
 	XTM 21 / 22 / 23 and their wireless versions XTM 21-W / 22-W / 23-W
-	These are essential the same HW model, just differ in WiFi capability and soft limits set by Watchguard.
+
+	The XTM2 series are possibly all the same HW model (just software limits set by Watchguard ?)
 	
 - Watchguard ended support for these models (EOL) on the 30th of June 2017. Bargains available online !
 - The XTM 25 and 26 models are out of scope for this project (U-Boot is locked?
