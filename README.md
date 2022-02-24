@@ -114,16 +114,17 @@ Scope of this project:
 - Example : See ```/_files/minimal-boot-5.17-rc2.txt``` for a minimal boot log.
 
 
-# USB (EHCI) - Obsolete, EHCI support has been added to intel-ixp43x-watchguard-xtm21w.dts
+# USB (EHCI)
+
+EHCI support has been added to intel-ixp43x.dtsi and can be found in my OpenWrt fork as well as the initial Watchguard XTM21-W Device Tree support
 
 # PHY / Switch (RTL8366SR)
 
-- See ```RTL8366s.md```
-
+- TODO: Understand the mainline RTL8366S implementation and potential differences.
 
 # Next ?
 
-- WiFi (Atheros) - Confirmed working 
+- WiFi (Atheros) -> Confirmed working 
 
 - LEDs and Triggers
 
