@@ -120,7 +120,7 @@ EHCI support has been added to intel-ixp43x.dtsi and can be found in my OpenWrt 
 
 # PHY / Switch (RTL8366SR)
 
-- TODO: Understand the mainline RTL8366S implementation and potential differences.
+- TODO: Understand the mainline DSA based implementation of RTL8366 and potential differences with the chip used on this platform, RTL8366SR. As well as the link between the IXP43x ETH PHY and the switch.
 
 # Next ?
 
