@@ -1,240 +1,189 @@
-[    0.000167] pid_max: default: 32768 minimum: 301
-[    0.000424] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
-[    0.000479] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
-[    0.001611] CPU: Testing write buffer coherency: ok
-[    0.002793] Setting up static identity map for 0x8220 - 0x828c
-[    0.006207] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-[    0.006275] futex hash table entries: 256 (order: -1, 3072 bytes, linear)
-[    0.007324] NET: Registered PF_NETLINK/PF_ROUTE protocol family
-[    0.008048] DMA: preallocated 256 KiB pool for atomic coherent allocations
-[    0.009126] No ATAGs?
-[    0.021038] vgaarb: loaded
-[    0.021502] SCSI subsystem initialized
-[    0.021849] usbcore: registered new interface driver usbfs
-[    0.021956] usbcore: registered new interface driver hub
-[    0.022055] usbcore: registered new device driver usb
-[    0.024448] clocksource: Switched to clocksource OSTS
-[    0.026007] NET: Registered PF_INET protocol family
-[    0.026273] IP idents hash table entries: 4096 (order: 3, 32768 bytes, linear)
-[    0.027312] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
-[    0.027401] TCP established hash table entries: 2048 (order: 1, 8192 bytes, linear)
-[    0.027450] TCP bind hash table entries: 2048 (order: 1, 8192 bytes, linear)
-[    0.027499] TCP: Hash tables configured (established 2048 bind 2048)
-[    0.027801] MPTCP token hash table entries: 512 (order: 0, 6144 bytes, linear)
-[    0.027925] UDP hash table entries: 256 (order: 0, 4096 bytes, linear)
-[    0.027960] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes, linear)
-[    0.028303] NET: Registered PF_UNIX/PF_LOCAL protocol family
-[    0.028400] PCI: CLS 0 bytes, default 32
-[    0.029355] Initialise system trusted keyrings
-[    0.029823] workingset: timestamp_bits=14 max_order=16 bucket_order=2
-[    0.042747] Key type asymmetric registered
-[    0.042799] Asymmetric key parser 'x509' registered
-[    0.043308] io scheduler mq-deadline registered
-[    0.044469] intel-extbus c4000000.bus: expansion bus at 50000000
-[    0.044519] intel-extbus c4000000.bus: IXP43x at 667 MHz
-[    0.045513] ixp4xx-gpio c8004000.gpio: IXP4 GPIO registered
-[    0.045878] ixp4xx-pci c0000000.pci: host bridge /soc/pci@c0000000 ranges:
-[    0.045963] ixp4xx-pci c0000000.pci:      MEM 0x0048000000..0x004bffffff -> 0x0048000000
-[    0.046006] ixp4xx-pci c0000000.pci:       IO 0x004c000000..0x004c00ffff -> 0x0000000000
-[    0.046056] ixp4xx-pci c0000000.pci:   IB MEM 0x0000000000..0x0003ffffff -> 0x0000000000
-[    0.046252] ixp4xx-pci c0000000.pci: controller is in host mode
-[    0.046313] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_0 to 0x00000000
-[    0.046337] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_1 to 0x01000000
-[    0.046358] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_2 to 0x02000000
-[    0.046379] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_3 to 0x03000000
-[    0.046399] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_4 to 0x04000000
-[    0.046419] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_5 to 0xfffffc01
-[    0.046438] ixp4xx-pci c0000000.pci: set TRDY limit to 0x80ff
-[    0.046454] ixp4xx-pci c0000000.pci: initialized as master
-[    0.046757] ixp4xx-pci c0000000.pci: PCI host bridge to bus 0000:00
-[    0.046808] pci_bus 0000:00: root bus resource [bus 00-ff]
-[    0.046837] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
-[    0.046861] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
-[    0.047011] pci 0000:00:02.0: [168c:0027] type 00 class 0x028000
-[    0.047058] pci 0000:00:02.0: reg 0x10: [mem 0x00000000-0x0000ffff]
-[    0.047181] pci 0000:00:02.0: PME# supported from D0 D3hot
-[    0.048214] PCI: bus0: Fast back to back transfers enabled
-[    0.048284] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
-[    0.048873] ixp4xx-qmgr 60000000.queue-manager: IXP4xx Queue Manager initialized.
-[    0.049724] ixp4xx-npe c8006000.npe: NPE0 at [mem 0xc8006000-0xc8006fff] registered
-[    0.051452] NPE-B: reset: npe_debug_instr(): timeout
-[    0.051511] ixp4xx-npe c8006000.npe: NPE1 at [mem 0xc8007000-0xc8007fff] does not reset
-[    0.052049] ixp4xx-npe c8006000.npe: NPE2 at [mem 0xc8008000-0xc8008fff] registered
-[    0.091483] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
-[    0.093334] printk: console [ttyS0] disabled
-[    0.093474] c8000000.serial: ttyS0 at MMIO 0xc8000003 (irq = 22, base_baud = 921600) is a XScale
-[    0.495877] printk: console [ttyS0] enabled
-[    0.501326] c8001000.serial: ttyS1 at MMIO 0xc8001003 (irq = 23, base_baud = 921600) is a XScale
-[    0.511594] physmap-flash 50000000.flash: initialized Intel IXP4xx-specific physmap control
-[    0.520193] physmap-flash 50000000.flash: physmap platform flash device: [mem 0x50000000-0x500fffff]
-[    0.529651] 50000000.flash: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
-[    0.539936] Amd/Fujitsu Extended Query Table at 0x0040
-[    0.545152]   Amd/Fujitsu Extended Query version 1.0.
-[    0.550208] 50000000.flash: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
-[    0.557694] 50000000.flash: Swapping erase regions for top-boot CFI table.
-[    0.564579] number of CFI chips: 1
-[    0.569887] 6 fixed-partitions partitions found on MTD device 50000000.flash
-[    0.577039] Creating 6 MTD partitions on "50000000.flash":
-[    0.582556] 0x000000000000-0x000000080000 : "RedBoot"
-[    0.589742] 0x000000080000-0x0000000a0000 : "cfg0"
-[    0.596466] 0x0000000a0000-0x0000000b0000 : "cfg1"
-[    0.603186] 0x0000000b0000-0x0000000c0000 : "mfg"
-[    0.609802] 0x0000000c0000-0x0000000d0000 : "bootOpt"
-[    0.616759] 0x0000000e0000-0x000000100000 : "RedBoot config"
-[    0.626203] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
-[    0.632811] ehci-platform: EHCI generic platform driver
-[    0.045513] ixp4xx-gpio c8004000.gpio: IXP4 GPIO registered
-[    0.045878] ixp4xx-pci c0000000.pci: host bridge /soc/pci@c0000000 ranges:
-[    0.045963] ixp4xx-pci c0000000.pci:      MEM 0x0048000000..0x004bffffff -> 0x0048000000
-[    0.046006] ixp4xx-pci c0000000.pci:       IO 0x004c000000..0x004c00ffff -> 0x0000000000
-[    0.046056] ixp4xx-pci c0000000.pci:   IB MEM 0x0000000000..0x0003ffffff -> 0x0000000000
-[    0.046252] ixp4xx-pci c0000000.pci: controller is in host mode
-[    0.046313] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_0 to 0x00000000
-[    0.046337] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_1 to 0x01000000
-[    0.046358] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_2 to 0x02000000
-[    0.046379] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_3 to 0x03000000
-[    0.046399] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_4 to 0x04000000
-[    0.046419] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_5 to 0xfffffc01
-[    0.046438] ixp4xx-pci c0000000.pci: set TRDY limit to 0x80ff
-[    0.046454] ixp4xx-pci c0000000.pci: initialized as master
-[    0.046757] ixp4xx-pci c0000000.pci: PCI host bridge to bus 0000:00
-[    0.046808] pci_bus 0000:00: root bus resource [bus 00-ff]
-[    0.046837] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
-[    0.046861] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
-[    0.047011] pci 0000:00:02.0: [168c:0027] type 00 class 0x028000
-[    0.047058] pci 0000:00:02.0: reg 0x10: [mem 0x00000000-0x0000ffff]
-[    0.047181] pci 0000:00:02.0: PME# supported from D0 D3hot
-[    0.048214] PCI: bus0: Fast back to back transfers enabled
-[    0.048284] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
-[    0.048873] ixp4xx-qmgr 60000000.queue-manager: IXP4xx Queue Manager initialized.
-[    0.049724] ixp4xx-npe c8006000.npe: NPE0 at [mem 0xc8006000-0xc8006fff] registered
-[    0.051452] NPE-B: reset: npe_debug_instr(): timeout
-[    0.051511] ixp4xx-npe c8006000.npe: NPE1 at [mem 0xc8007000-0xc8007fff] does not reset
-[    0.052049] ixp4xx-npe c8006000.npe: NPE2 at [mem 0xc8008000-0xc8008fff] registered
-[    0.091483] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
-[    0.093334] printk: console [ttyS0] disabled
-[    0.093474] c8000000.serial: ttyS0 at MMIO 0xc8000003 (irq = 22, base_baud = 921600) is a XScale
-[    0.495877] printk: console [ttyS0] enabled
-[    0.501326] c8001000.serial: ttyS1 at MMIO 0xc8001003 (irq = 23, base_baud = 921600) is a XScale
-[    0.511594] physmap-flash 50000000.flash: initialized Intel IXP4xx-specific physmap control
-[    0.520193] physmap-flash 50000000.flash: physmap platform flash device: [mem 0x50000000-0x500fffff]
-[    0.529651] 50000000.flash: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
-[    0.539936] Amd/Fujitsu Extended Query Table at 0x0040
-[    0.545152]   Amd/Fujitsu Extended Query version 1.0.
-[    0.550208] 50000000.flash: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
-[    0.557694] 50000000.flash: Swapping erase regions for top-boot CFI table.
-[    0.564579] number of CFI chips: 1
-[    0.569887] 6 fixed-partitions partitions found on MTD device 50000000.flash
-[    0.577039] Creating 6 MTD partitions on "50000000.flash":
-[    0.582556] 0x000000000000-0x000000080000 : "RedBoot"
-[    0.589742] 0x000000080000-0x0000000a0000 : "cfg0"
-[    0.596466] 0x0000000a0000-0x0000000b0000 : "cfg1"
-[    0.603186] 0x0000000b0000-0x0000000c0000 : "mfg"
-[    0.609802] 0x0000000c0000-0x0000000d0000 : "bootOpt"
-[    0.616759] 0x0000000e0000-0x000000100000 : "RedBoot config"
-[    0.626203] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
-[    0.632811] ehci-platform: EHCI generic platform driver
-[    0.638325] ehci-platform cd000000.usb: EHCI Host Controller
-[    0.644131] ehci-platform cd000000.usb: new USB bus registered, assigned bus number 1
-[    0.652037] ehci-platform: Set caps_offset = 0x100
-[    0.657240] ehci-platform cd000000.usb: irq 24, io mem 0xcd000000
+[    0.001598] CPU: Testing write buffer coherency: ok
+[    0.002784] Setting up static identity map for 0x8220 - 0x828c
+[    0.006225] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.006295] futex hash table entries: 256 (order: -1, 3072 bytes, linear)
+[    0.007343] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.008068] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.009162] No ATAGs?
+[    0.020818] vgaarb: loaded
+[    0.021266] SCSI subsystem initialized
+[    0.021632] usbcore: registered new interface driver usbfs
+[    0.021744] usbcore: registered new interface driver hub
+[    0.021838] usbcore: registered new device driver usb
+[    0.024201] clocksource: Switched to clocksource OSTS
+[    0.025767] NET: Registered PF_INET protocol family
+[    0.026032] IP idents hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.027077] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.027163] TCP established hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.027213] TCP bind hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.027262] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.027557] MPTCP token hash table entries: 512 (order: 0, 6144 bytes, linear)
+[    0.027683] UDP hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.027717] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.028069] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.028162] PCI: CLS 0 bytes, default 32
+[    0.029108] Initialise system trusted keyrings
+[    0.029568] workingset: timestamp_bits=14 max_order=16 bucket_order=2
+[    0.042304] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    0.043531] Key type asymmetric registered
+[    0.043582] Asymmetric key parser 'x509' registered
+[    0.044065] io scheduler mq-deadline registered
+[    0.045226] intel-extbus c4000000.bus: expansion bus at 50000000
+[    0.045275] intel-extbus c4000000.bus: IXP43x at 667 MHz
+[    0.045302] intel-extbus c4000000.bus: CS0 at 0x50000000, size 0x100000, config before: 0xbfff3c42
+[    0.045339] intel-extbus c4000000.bus: CS0 wrote 0xbfff2c42 into CS config
+[    0.046616] ixp4xx-gpio c8004000.gpio: IXP4 GPIO registered
+[    0.046986] ixp4xx-pci c0000000.pci: host bridge /soc/pci@c0000000 ranges:
+[    0.047075] ixp4xx-pci c0000000.pci:      MEM 0x0048000000..0x004bffffff -> 0x0048000000
+[    0.047118] ixp4xx-pci c0000000.pci:       IO 0x004c000000..0x004c00ffff -> 0x0000000000
+[    0.047164] ixp4xx-pci c0000000.pci:   IB MEM 0x0000000000..0x0003ffffff -> 0x0000000000
+[    0.047362] ixp4xx-pci c0000000.pci: controller is in host mode
+[    0.047424] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_0 to 0x00000000
+[    0.047447] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_1 to 0x01000000
+[    0.047468] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_2 to 0x02000000
+[    0.047488] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_3 to 0x03000000
+[    0.047508] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_4 to 0x04000000
+[    0.047527] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_5 to 0xfffffc01
+[    0.047546] ixp4xx-pci c0000000.pci: set TRDY limit to 0x80ff
+[    0.047563] ixp4xx-pci c0000000.pci: initialized as master
+[    0.047861] ixp4xx-pci c0000000.pci: PCI host bridge to bus 0000:00
+[    0.047909] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.047940] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
+[    0.047965] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.048114] pci 0000:00:02.0: [168c:0027] type 00 class 0x028000
+[    0.048163] pci 0000:00:02.0: reg 0x10: [mem 0x00000000-0x0000ffff]
+[    0.048287] pci 0000:00:02.0: PME# supported from D0 D3hot
+[    0.049337] PCI: bus0: Fast back to back transfers enabled
+[    0.049408] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
+[    0.049990] ixp4xx-qmgr 60000000.queue-manager: IXP4xx Queue Manager initialized.
+[    0.050911] ixp4xx-npe c8006000.npe: NPE0 at [mem 0xc8006000-0xc8006fff] registered
+[    0.052574] NPE-B: reset: npe_debug_instr(): timeout
+[    0.052637] ixp4xx-npe c8006000.npe: NPE1 at [mem 0xc8007000-0xc8007fff] does not reset
+[    0.053174] ixp4xx-npe c8006000.npe: NPE2 at [mem 0xc8008000-0xc8008fff] registered
+[    0.092799] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+[    0.094664] printk: console [ttyS0] disabled
+[    0.094804] c8000000.serial: ttyS0 at MMIO 0xc8000003 (irq = 22, base_baud = 921600) is a XScale
+[    0.499483] printk: console [ttyS0] enabled
+[    0.504951] c8001000.serial: ttyS1 at MMIO 0xc8001003 (irq = 23, base_baud = 921600) is a XScale
+[    0.515493] physmap-flash 50000000.flash: initialized Intel IXP4xx-specific physmap control
+[    0.524114] physmap-flash 50000000.flash: physmap platform flash device: [mem 0x50000000-0x500fffff]
+[    0.533622] 50000000.flash: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
+[    0.543839] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.549030]   Amd/Fujitsu Extended Query version 1.0.
+[    0.554096] 50000000.flash: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
+[    0.561594] 50000000.flash: Swapping erase regions for top-boot CFI table.
+[    0.568465] number of CFI chips: 1
+[    0.573819] 6 fixed-partitions partitions found on MTD device 50000000.flash
+[    0.580963] Creating 6 MTD partitions on "50000000.flash":
+[    0.586458] 0x000000000000-0x000000080000 : "RedBoot"
+[    0.593715] 0x000000080000-0x0000000a0000 : "cfg0"
+[    0.600516] 0x0000000a0000-0x0000000b0000 : "cfg1"
+[    0.607216] 0x0000000b0000-0x0000000c0000 : "mfg"
+[    0.613884] 0x0000000c0000-0x0000000d0000 : "bootOpt"
+[    0.620908] 0x0000000e0000-0x000000100000 : "RedBoot config"
+[    0.630397] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.636953] ehci-platform: EHCI generic platform driver
+[    0.642468] ehci-platform cd000000.usb: EHCI Host Controller
+[    0.648246] ehci-platform cd000000.usb: new USB bus registered, assigned bus number 1
+[    0.656157] ehci-platform: Set caps_offset = 0x100
+[    0.661373] ehci-platform cd000000.usb: irq 24, io mem 0xcd000000
 [    0.690025] ehci-platform cd000000.usb: USB 2.0 started, EHCI 1.00
-[    0.696467] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.17
-[    0.704808] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
-[    0.712037] usb usb1: Product: EHCI Host Controller
-[    0.716910] usb usb1: Manufacturer: Linux 5.17-rc7 ehci_hcd
-[    0.722488] usb usb1: SerialNumber: cd000000.usb
-[    0.727929] hub 1-0:1.0: USB hub found
-[    0.731846] hub 1-0:1.0: 1 port detected
-[    0.736805] ehci-platform ce000000.usb: EHCI Host Controller
-[    0.742601] ehci-platform ce000000.usb: new USB bus registered, assigned bus number 2
-[    0.750473] ehci-platform: Set caps_offset = 0x100
-[    0.755642] ehci-platform ce000000.usb: irq 25, io mem 0xce000000
-[    0.790040] ehci-platform ce000000.usb: USB 2.0 started, EHCI 1.00
-[    0.796530] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.17
-[    0.804871] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
-[    0.812101] usb usb2: Product: EHCI Host Controller
-[    0.816983] usb usb2: Manufacturer: Linux 5.17-rc7 ehci_hcd
-[    0.822562] usb usb2: SerialNumber: ce000000.usb
-[    0.827984] hub 2-0:1.0: USB hub found
-[    0.831906] hub 2-0:1.0: 1 port detected
-[    0.836871] usbcore: registered new interface driver usb-storage
-[    0.843039] i2c_dev: i2c /dev entries driver
-[    0.847621] ledtrig-cpu: registered to indicate activity on CPUs
-[    0.854201] ixp4xx-watchdog ixp4xx-watchdog: IXP4xx watchdog available
-[    0.862431] NET: Registered PF_INET6 protocol family
-[    0.874597] Segment Routing with IPv6
-[    0.878291] RPL Segment Routing with IPv6
-[    0.882434] In-situ OAM (IOAM) with IPv6
-[    0.886521] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
-[    0.894814] NET: Registered PF_PACKET protocol family
-[    0.900106] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
-[    0.913643] XScale DSP coprocessor detected.
-[    0.918172] Loading compiled-in X.509 certificates
-[    1.011657] i2c-gpio i2c: using lines 7 (SDA) and 6 (SCL)
-[    1.018202] Waiting for root device /dev/sda1...
-[    1.120022] usb 2-1: new high-speed USB device number 2 using ehci-platform
-[    1.324855] usb 2-1: New USB device found, idVendor=13fe, idProduct=1a00, bcdDevice= 1.00
-[    1.333115] usb 2-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
-[    1.340290] usb 2-1: Product: USB DISK 2.0
-[    1.344741] usb 2-1: Manufacturer:
-[    1.348925] usb 2-1: SerialNumber: 076B180586BC
-[    1.354561] usb-storage 2-1:1.0: USB Mass Storage device detected
-[    1.361688] scsi host0: usb-storage 2-1:1.0
+[    0.696474] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.17
+[    0.704810] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.712039] usb usb1: Product: EHCI Host Controller
+[    0.716920] usb usb1: Manufacturer: Linux 5.17-rc7 ehci_hcd
+[    0.722500] usb usb1: SerialNumber: cd000000.usb
+[    0.727931] hub 1-0:1.0: USB hub found
+[    0.731854] hub 1-0:1.0: 1 port detected
+[    0.736842] ehci-platform ce000000.usb: EHCI Host Controller
+[    0.742647] ehci-platform ce000000.usb: new USB bus registered, assigned bus number 2
+[    0.750516] ehci-platform: Set caps_offset = 0x100
+[    0.755686] ehci-platform ce000000.usb: irq 25, io mem 0xce000000
+[    0.790039] ehci-platform ce000000.usb: USB 2.0 started, EHCI 1.00
+[    0.796515] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.17
+[    0.804848] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.812087] usb usb2: Product: EHCI Host Controller
+[    0.816967] usb usb2: Manufacturer: Linux 5.17-rc7 ehci_hcd
+[    0.822546] usb usb2: SerialNumber: ce000000.usb
+[    0.827981] hub 2-0:1.0: USB hub found
+[    0.831900] hub 2-0:1.0: 1 port detected
+[    0.836893] usbcore: registered new interface driver usb-storage
+[    0.843060] i2c_dev: i2c /dev entries driver
+[    0.847638] ledtrig-cpu: registered to indicate activity on CPUs
+[    0.854214] ixp4xx-watchdog ixp4xx-watchdog: IXP4xx watchdog available
+[    0.862462] NET: Registered PF_INET6 protocol family
+[    0.874658] Segment Routing with IPv6
+[    0.878354] RPL Segment Routing with IPv6
+[    0.882496] In-situ OAM (IOAM) with IPv6
+[    0.886585] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    0.894868] NET: Registered PF_PACKET protocol family
+[    0.900158] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    0.913716] XScale DSP coprocessor detected.
+[    0.918227] Loading compiled-in X.509 certificates
+[    1.009344] i2c-gpio i2c: using lines 7 (SDA) and 6 (SCL)
+[    1.015914] Waiting for root device /dev/sda1...
+[    1.120024] usb 2-1: new high-speed USB device number 2 using ehci-platform
+[    1.324776] usb 2-1: New USB device found, idVendor=13fe, idProduct=1a00, bcdDevice= 1.00
+[    1.333040] usb 2-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    1.340214] usb 2-1: Product: USB DISK 2.0
+[    1.344656] usb 2-1: Manufacturer:
+[    1.348840] usb 2-1: SerialNumber: 076B180586BC
+[    1.354476] usb-storage 2-1:1.0: USB Mass Storage device detected
+[    1.361609] scsi host0: usb-storage 2-1:1.0
 [    2.350004] random: fast init done
-[    2.401288] scsi 0:0:0:0: Direct-Access              USB DISK 2.0     PMAP PQ: 0 ANSI: 0 CCS
-[    2.410514] scsi 0:0:0:0: Attached scsi generic sg0 type 0
-[    3.432710] sd 0:0:0:0: [sda] 1003520 512-byte logical blocks: (514 MB/490 MiB)
-[    3.440700] sd 0:0:0:0: [sda] Write Protect is off
-[    3.445531] sd 0:0:0:0: [sda] Mode Sense: 23 00 00 00
-[    3.451202] sd 0:0:0:0: [sda] No Caching mode page found
-[    3.456552] sd 0:0:0:0: [sda] Assuming drive cache: write through
-[    3.468220]  sda: sda1
-[    3.473642] sd 0:0:0:0: [sda] Attached SCSI removable disk
-[    3.487086] EXT4-fs (sda1): INFO: recovery required on readonly filesystem
-[    3.494064] EXT4-fs (sda1): write access will be enabled during recovery
-[    3.692722] EXT4-fs (sda1): recovery complete
-[    3.852573] EXT4-fs (sda1): mounted filesystem with ordered data mode. Quota mode: disabled.
-[    3.861201] VFS: Mounted root (ext4 filesystem) readonly on device 8:1.
-[    3.868165] Freeing unused kernel image (initmem) memory: 160K
-[    3.874062] Kernel memory protection not selected by kernel config.
-[    3.880360] Run /sbin/init as init process
-[    3.884462]   with arguments:
-[    3.887422]     /sbin/init
-[    3.890130]   with environment:
-[    3.893264]     HOME=/
-[    3.895617]     TERM=linux
-[    4.270986] init: Console is alive
-[    4.274986] init: - watchdog -
-[    4.291220] kmodloader: loading kernel modules from /etc/modules-boot.d/*
-[    4.306131] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
-[    4.330692] init: - preinit -
-[    5.155775] random: jshn: uninitialized urandom read (4 bytes read)
-[    5.188496] random: jshn: uninitialized urandom read (4 bytes read)
+[    2.401210] scsi 0:0:0:0: Direct-Access              USB DISK 2.0     PMAP PQ: 0 ANSI: 0 CCS
+[    2.410442] scsi 0:0:0:0: Attached scsi generic sg0 type 0
+[    3.433253] sd 0:0:0:0: [sda] 1003520 512-byte logical blocks: (514 MB/490 MiB)
+[    3.441248] sd 0:0:0:0: [sda] Write Protect is off
+[    3.446079] sd 0:0:0:0: [sda] Mode Sense: 23 00 00 00
+[    3.451748] sd 0:0:0:0: [sda] No Caching mode page found
+[    3.457102] sd 0:0:0:0: [sda] Assuming drive cache: write through
+[    3.468761]  sda: sda1
+[    3.474187] sd 0:0:0:0: [sda] Attached SCSI removable disk
+[    3.487629] EXT4-fs (sda1): INFO: recovery required on readonly filesystem
+[    3.494604] EXT4-fs (sda1): write access will be enabled during recovery
+[    3.696257] EXT4-fs (sda1): recovery complete
+[    3.855742] EXT4-fs (sda1): mounted filesystem with ordered data mode. Quota mode: disabled.
+[    3.864386] VFS: Mounted root (ext4 filesystem) readonly on device 8:1.
+[    3.871412] Freeing unused kernel image (initmem) memory: 164K
+[    3.877261] Kernel memory protection not selected by kernel config.
+[    3.883576] Run /sbin/init as init process
+[    3.887676]   with arguments:
+[    3.890648]     /sbin/init
+[    3.893353]   with environment:
+[    3.896487]     HOME=/
+[    3.898838]     TERM=linux
+[    4.280084] init: Console is alive
+[    4.284142] init: - watchdog -
+[    4.300321] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[    4.315421] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[    4.340698] init: - preinit -
+[    5.153237] random: jshn: uninitialized urandom read (4 bytes read)
+[    5.185521] random: jshn: uninitialized urandom read (4 bytes read)
 Press the [f] key and hit [enter] to enter failsafe mode
 Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
-[    9.448058] mount_root: mounting /dev/root
-[    9.455344] EXT4-fs (sda1): re-mounted. Quota mode: disabled.
-[    9.461784] mount_root: loading kmods from internal overlay
-[    9.478657] kmodloader: loading kernel modules from //etc/modules-boot.d/*
-[    9.487374] kmodloader: done loading kernel modules from //etc/modules-boot.d/*
-[   10.067647] block: attempting to load /etc/config/fstab
-[   10.084189] block: extroot: not configured
-[   10.094541] urandom-seed: Seeding with /etc/urandom.seed
-[   10.144332] procd: - early -
-[   10.147698] procd: - watchdog -
-[   11.410816] procd: - watchdog -
-[   11.419100] procd: - ubus -
-[   11.466211] random: ubusd: uninitialized urandom read (4 bytes read)
-[   11.491501] random: ubusd: uninitialized urandom read (4 bytes read)
-[   11.504688] random: ubusd: uninitialized urandom read (4 bytes read)
-[   11.528751] procd: - init -
+[    9.445000] mount_root: mounting /dev/root
+[    9.452027] EXT4-fs (sda1): re-mounted. Quota mode: disabled.
+[    9.458379] mount_root: loading kmods from internal overlay
+[    9.475195] kmodloader: loading kernel modules from //etc/modules-boot.d/*
+[    9.483914] kmodloader: done loading kernel modules from //etc/modules-boot.d/*
+[   10.064459] block: attempting to load /etc/config/fstab
+[   10.081219] block: extroot: not configured
+[   10.091552] urandom-seed: Seeding with /etc/urandom.seed
+[   10.141491] procd: - early -
+[   10.144840] procd: - watchdog -
+[   11.404123] procd: - watchdog -
+[   11.411059] procd: - ubus -
+[   11.462731] random: ubusd: uninitialized urandom read (4 bytes read)
+[   11.481991] random: ubusd: uninitialized urandom read (4 bytes read)
+[   11.499109] random: ubusd: uninitialized urandom read (4 bytes read)
+[   11.525561] procd: - init -
 Please press Enter to activate this console.
-[   15.804937] kmodloader: loading kernel modules from /etc/modules.d/*
-[   15.840684] kmodloader: done loading kernel modules from /etc/modules.d/*
-[   16.538498] urngd: v1.0.2 started.
-[   16.663922] random: crng init done
-[   16.667351] random: 5 urandom warning(s) missed due to ratelimiting
+[   15.746398] kmodloader: loading kernel modules from /etc/modules.d/*
+[   15.820671] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   16.523025] urngd: v1.0.2 started.
+[   16.649958] random: crng init done
+[   16.653452] random: 5 urandom warning(s) missed due to ratelimiting
 
 BusyBox v1.35.0 (2022-03-09 21:44:25 UTC) built-in shell (ash)
 
@@ -251,4 +200,7 @@ There is no root password defined on this device!
 Use the "passwd" command to set up a new password
 in order to prevent unauthorized SSH logins.
 --------------------------------------------------
-root@OpenWrt:/#
+root@OpenWrt:/# cat /dev/mtd
+mtd0       mtd1ro     mtd3       mtd4ro     mtdblock0  mtdblock3
+mtd0ro     mtd2       mtd3ro     mtd5       mtdblock1  mtdblock4
+mtd1       mtd2ro     mtd4       mtd5ro     mtdblock2  mtdblock5
