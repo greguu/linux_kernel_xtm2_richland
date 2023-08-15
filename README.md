@@ -3,8 +3,8 @@
 ![Illustration](https://github.com/greguu/linux_kernel_xtm2_richland/blob/master/_files/XTM-2-rearview.jpg)
 
 ```diff
-+ UPDATE (2022) : I have revived this project and currently test the latest kernel 5.17-rc4 on the XTM21.
-+ Experimental kernel source / patches and OpenWrt rootfs can be found in the seperate OpenWrt fork.
++ UPDATE (2023) : I have revived this project and currently test the latest kernel 5.17-rc4 on the XTM21.
++ Experimental kernel source / patches can be found in the seperate OpenWrt commit https://github.com/openwrt/openwrt/commit/ac57ed8a35ca0422f8eb850d3c09553cce9053a9
 + If you have an XTM-2 series Watchguard firewall and like to help with Kernel or Openwrt development, let me know!
 ```
 
