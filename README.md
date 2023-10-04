@@ -18,20 +18,22 @@
 	The XTM2 series are possibly all the same HW model (just software limits set by Watchguard ?)
 	
 - Watchguard ended support for these models (EOL) on the 30th of June 2017. Bargains available online !
+
 - The XTM 25 and 26 models are out of scope for this project.
    (The XTM 25 and 26 use U-Boot with a password lock. Let me know if you got one of these!!)
+
 - For this project we are using the model XTM 21-W (HW Model #XP3E6W).
 - Watchguard used a custom Linux kernel based on 2.6.35.x and the source has not been released :/
 - The bootloader is a custom version of Redboot, called Watchguard Redboot.
 
 Specs for the XTM 21-W:
 
-- CPU: XScale-IXP43x 666Mhz
+- CPU: XScale-IXP43x 667Mhz
 - RAM: 256 MiB
-- NOR: ? MiB (Redboot and config)
+- NOR: 16 MiB (Redboot, zImage and Redboot config)
 - NAND: 256 MiB (Samsung NAND 256MiB 3,3V 8-bit)
-- LAN1: 3 x 10/100 (IXP4xx-ETH PHY ?)
-- LAN2: 3 x 10/100/1000 (RTL 8366)
+- LAN1: 1 x 10/100 (IXP4xx-ETH PHY ?)
+- LAN2: 5 x 10/100/1000 (RTL 8366)
 - WIFI: 802.11a/b/g/n Mini PCI (Atheros AR9160 + AR5133)
 - USB: 2 x USB EHCI
 - SERIAL: On Board (TTL, 115200 8N1)
@@ -42,7 +44,7 @@ Specs for the XTM 21-W:
 Scope of this project:
 
 - Investigate the "Richland" platform and similarities to Cambria and the KIXRP435 Development Board.
-- Define Linux 5.17+ Device Tree for this device.
+- Define Linux 6.1+ Device Tree for this device.
 - Test basic userland on USB drive (OpenWrt)
 - Investigate and update Redboot or flash an alternative bootloader (uboot ?) ..risky..
 - Test userland and port to OpenWrt.
@@ -76,31 +78,23 @@ Scope of this project:
 - to enter the Redboot menu, hit CTRL-C before the 5 second timer expires.
 - You will be presented with a password prompt!
 - Password : F5BA25AB44724fb5A6DD37554809CE34 (found on dd-wrt.com forum)
-- Watchguard Boot Log : ```/_files/watchguard_boot.txt```
-- Watchguard Kernel Config : ```/_files/watchguard_config.txt```
+- Vendor Watchguard Boot Log : ```/_files/watchguard_boot.txt```
+- Vendor Watchguard Kernel Config : ```/_files/watchguard_config.txt```
 - To logon to the Watchguard shell use the default credentials: admin / readwrite.
 
-# Getting a toolchain and kernel
+# OpenWrt build
 
 - Note: We are using Arch Linux as a build host in this example.
 - Note: The CPU is armeb (big endian).
 - Although this CPU should support little endian, too - we will focus on armeb.
-- Currently the OpenWrt / LEDE toolchain is used. Follow the OpenWrt / LEDE wiki and get the source via git.
-
-- Build with:  ```armeb-openwrt-linux-gcc (OpenWrt GCC 11.2.0 r18647+1-17135ae091) 11.2.0, GNU ld (GNU Binutils) 2.37) 2```
-
-
-# Set up the toolchain
-
-- Depending on your setup you will need required build tools and compilers.
-- Follow the OpenWrt Wiki on how to setup the toolchain. Then replace the ```config-5.17``` with the one under ```_files```.
-- Note : The target is ixp4xx has been removed from OpenWrt at the moment. Details to follow.
+- Currently the OpenWrt toolchain is used. Follow the OpenWrt wiki and get the source via my openwrt git.
+- Note : The target is ixp4xx has been removed from OpenWrt at the moment. The current 6.1 branch is aiming to revive this port.
 
 
 # Build
 
 - Run ```make menuconfig``` and choose the right target and subtarget. IXP4xx and Generic should be fine.
-- Then just run ```make -j16 V=s``` (adjust -j to match your available CPU threads)
+- Then just run ```make -j64 V=s``` (adjust -j to match your available CPU threads)
 
 
 # Loading a kernel via ymodem
@@ -113,7 +107,7 @@ Scope of this project:
 - CTRL-A SHIFT-Z in minicom and choose S (SHIFT-S) for send file.
 - Locate the just build zImage in /root (select with Space) and load it (Enter).
 - Once loaded, boot the kernel ```exec -c "console=ttyS0,115200 root=/dev/sda1 rootdelay=12" -w 5```
-- Example : See ```/_files/minimal-boot-5.17-rc2.txt``` for a minimal boot log.
+- Example : See ```/_files/boot-6.1.txt``` for a minimal boot log.
 
 
 # USB (EHCI)
