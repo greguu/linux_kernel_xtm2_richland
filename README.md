@@ -114,6 +114,84 @@ Scope of this project:
 
 EHCI support has been added to intel-ixp43x.dtsi and can be found in my OpenWrt fork as well as the initial Watchguard XTM21-W Device Tree support
 
+# NOR FLASH
+
+The 16MB of NOR Flash are staticly defined in the vendor kernel
+```
+XP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank
+Amd/Fujitsu Extended Query Table at 0x0040
+IXP4XX-Flash.0: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
+IXP4XX-Flash.0: Swapping erase regions for top-boot CFI table.
+number of CFI chips: 1
+RedBoot partition parsing not available
+cmdlinepart partition parsing not available
+IXP4xx flash: using static partition definition
+Creating 6 MTD partitions on "IXP4XX-Flash.0":
+0x000000000000-0x000000080000 : "Redboot"
+0x000000080000-0x0000000a0000 : "cfg0"
+0x0000000a0000-0x0000000b0000 : "cfg1"
+0x0000000b0000-0x0000000c0000 : "mfg"
+0x0000000c0000-0x0000000d0000 : "bootOpt"
+
+```
+
+```
+Running 'fis init' will setup 3 partitions with different erasebock sizes.
+0x000000000000-0x000000080000 : "RedBoot"
+0x0000000f0000-0x0000000ff000 : "FIS directory"
+0x0000000ff000-0x000000100000 : "RedBoot config"
+```
+
+Once booted, these can be accessed as below:
+```
+dev:  size   erasesize  name
+mtd0: 00080000 00010000 "RedBoot"
+mtd1: 0000f000 00008000 "FIS directory"
+mtd2: 00001000 00004000 "RedBoot config"
+```
+
+
+# NAND
+
+Via Redboot we can query some info about the NAND.
+
+The NAND uses Timing and Control Registers for Chip Select 1
+The GPIO Output Enable Register is also used for NAND.
+
+Reference :https://www.intel.com/content/dam/www/public/us/en/documents/manuals/ixp43x-product-line-network-processors-developers-manual.pdf
+
+
+```
+RedBoot> nandTest -t 10
+ ******* IXP425 Registers *******
+IXP_OER : 0xc8004004 : 0x34cd 
+EXPCS1  : 0xc4000004 : 0x80403c43 
+Status Read :  0xc0
+STATUS READY
+```
+
+The vendor 2.6 kernel uses Symtec GPIO NAND driver
+
+```
+GPIO NAND driver, © 2004 Simtec Electronics
+NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND 256MiB 3,3V 8-bit)
+Scanning device for bad blocks
+Bad eraseblock 461 at 0x0000039a0000
+Bad eraseblock 599 at 0x000004ae0000
+Bad eraseblock 661 at 0x0000052a0000
+Bad eraseblock 1286 at 0x00000a0c0000
+Bad eraseblock 1322 at 0x00000a540000
+Bad eraseblock 1503 at 0x00000bbe0000
+Creating 5 MTD partitions on "NAND 256MiB 3,3V 8-bit":
+0x000000000000-0x000000400000 : "SysA Kernel"
+0x000000400000-0x000008000000 : "SysA Code"
+0x000008000000-0x00000e400000 : "SysA Data"
+0x00000e400000-0x00000e800000 : "SysB Kernel"
+0x00000e800000-0x000010000000 : "SysB Code"
+```
+
+TODO: Define correct GPIO NAND setup in devicetree for CS1
+
 # PHY / Switch (RTL8366SR)
 
 - TODO: Understand the mainline DSA based implementation of RTL8366 and potential differences with the chip used on this platform, RTL8366SR. As well as the link between the IXP43x ETH PHY and the switch.
