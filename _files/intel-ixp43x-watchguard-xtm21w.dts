@@ -7,14 +7,14 @@
 /dts-v1/;
 
 #include "intel-ixp43x.dtsi"
-#include "intel-ixp4xx-reference-design.dtsi"
 #include <dt-bindings/input/input.h>
 
 / {
         model = "Watchguard XTM21W";
-        compatible = "watchguard,richland","intel,ixp43x";
+        compatible = "watchguard,xtm21w","intel,ixp43x";
         #address-cells = <1>;
         #size-cells = <1>;
+
         memory@0 {
                 /*
                  * The Watchuard XTM21W has 256 MB of memory
@@ -32,17 +32,43 @@
                 serial0 = &uart0;
         };
 
+        i2c {
+            compatible = "i2c-gpio";
+            /*
+             * Watchguard vendor kernel used IRQ 5 for SDA and IRQ 4 for SCL
+            */
+            sda-gpios = <&gpio0 5 (GPIO_ACTIVE_HIGH|GPIO_OPEN_DRAIN)>;
+            scl-gpios = <&gpio0 4 (GPIO_ACTIVE_HIGH|GPIO_OPEN_DRAIN)>;
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            /* RTC: Seiko Instruments S-35390A */
+            s35390a@30 {
+                compatible = "sii,s35390a";
+                reg = <0x30>;
+            };
+        };
+
         soc {
+                gpio0: gpio@c8004000 {
+                    compatible = "intel,ixp4xx-gpio";
+                    reg = <0xc8004000 0x1000>;
+                    gpio-controller;
+                    #gpio-cells = <2>;
+                    interrupt-controller;
+                    #interrupt-cells = <2>;
+                };
+
                 interrupt-controller@c8003000 {
                         compatible = "intel,ixp43x-interrupt";
                 };
 
-                /* TODO: just copied, needs detailed layout for Watchguard Flash and NAND */
                 bus@c4000000 {
                         compatible = "intel,ixp43x-expansion-bus-controller", "syscon";
                         /* Uses at least up to 0x230 */
                         reg = <0xc4000000 0x1000>;
 
+                        /* 16 MB NOR FLASH */
                         flash@0,0 {
                                 compatible = "intel,ixp4xx-flash", "cfi-flash";
                                 bank-width = <2>;
@@ -53,125 +79,98 @@
 
                                 partitions {
                                         compatible = "redboot-fis";
-                                        /* Eraseblock at 0x0fe0000 */
-                                        fis-index-block = <0x7f>;
+                                        /*
+                                         * The stock Watchguard Redboot flash layout is staticly defined.
+                                         * Running 'fis init' will setup 3 partitions with different erasebock sizes.
+                                         * 0x000000000000-0x000000080000 : "RedBoot"
+                                         * 0x0000000f0000-0x0000000ff000 : "FIS directory"
+                                         * 0x0000000ff000-0x000000100000 : "RedBoot config"
+                                         *
+                                         * dev:  size   erasesize  name
+                                         * mtd0: 00080000 00010000 "RedBoot"
+                                         * mtd1: 0000f000 00008000 "FIS directory"
+                                         * mtd2: 00001000 00004000 "RedBoot config"
+                                         */
+                                        fis-index-block = <0xf>;
                                 };
                         };
-
                         /* Flash memory defined per-variant */
-                        nand-controller@3,0 {
-                                /* Some designs have a NAND on CS3 enable it here if present */
-                                status = "disabled";
+                        gpio-nand@1,0 {
+                            /* Some designs have a NAND on CS1 enable it here if present */
+                            status = "ok";
 
-                                /*
-                                 * gen_nand needs to be extended and documented to get
-                                 * command byte = 1 and address byte = 2 from the device
-                                 * tree.
-                                 */
-                                compatible = "gen_nand";
+                            /*
+                            * 
+                            * 256MB of Samsung GPIO controlled SLC NAND 
+                            * 
+                            */
+                            compatible = "gpio-control-nand";
 
-                                /* Expansion bus set-up */
-                                intel,ixp4xx-eb-t1 = <0>;
-                                intel,ixp4xx-eb-t2 = <0>;
-                                intel,ixp4xx-eb-t3 = <1>; // 1 cycle extra strobe phase
-                                intel,ixp4xx-eb-t4 = <0>;
-                                intel,ixp4xx-eb-t5 = <0>;
-                                intel,ixp4xx-eb-cycle-type = <0>; // Intel cycle type
-                                intel,ixp4xx-eb-byte-access-on-halfword = <0>;
-                                intel,ixp4xx-eb-mux-address-and-data = <0>;
-                                intel,ixp4xx-eb-ahb-split-transfers = <0>;
-                                intel,ixp4xx-eb-write-enable = <1>;
-                                intel,ixp4xx-eb-byte-access = <1>;
+                            /* Expansion bus set-up */
+                            intel,ixp4xx-eb-t1 = <0>;
+                            intel,ixp4xx-eb-t2 = <0>;
+                            intel,ixp4xx-eb-t3 = <1>; // 1 cycle extra strobe phase
+                            intel,ixp4xx-eb-t4 = <0>;
+                            intel,ixp4xx-eb-t5 = <0>;
+                            intel,ixp4xx-eb-cycle-type = <0>; // Intel cycle type
+                            intel,ixp4xx-eb-byte-access-on-halfword = <0>;
+                            intel,ixp4xx-eb-mux-address-and-data = <0>;
+                            intel,ixp4xx-eb-ahb-split-transfers = <0>;
+                            intel,ixp4xx-eb-write-enable = <1>;
+                            intel,ixp4xx-eb-byte-access = <1>;
 
-                                /* 512 bytes memory window */
-                                reg = <3 0x00000000 0x200>;
-                                nand-on-flash-bbt;
-                                nand-ecc-mode = "soft_bch";
-                                nand-ecc-step-size = <512>;
-                                nand-ecc-strength = <4>;
-                                nce-gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>; /* NCE */
+                            /* 512 bytes memory window */
+                            reg = <1 0x00000000 0x200>;
+                            nand-on-flash-bbt;
+                            nand-ecc-mode = "soft_bch";
+                            nand-ecc-step-size = <512>;
+                            nand-ecc-strength = <4>;
 
-                                label = "ixp400 NAND";
+                            #address-cells = <1>;
+                            #size-cells = <1>;
+                            gpios = <&gpio0  7 GPIO_ACTIVE_HIGH>,  /* RDY */
+                                    <&gpio0 12 GPIO_ACTIVE_HIGH>,  /* nCE */
+                                    <&gpio0  9 GPIO_ACTIVE_HIGH>,  /* ALE */
+                                    <&gpio0  8 GPIO_ACTIVE_HIGH>,  /* CLE */
+                                    <0>;                           /* nWP */
 
-                                partitions {
-                                        compatible = "fixed-partitions";
-                                        #address-cells = <1>;
-                                        #size-cells = <1>;
+                            label = "ixp400 NAND";
 
-                                        fs@0 {
-                                                label = "ixp400 NAND FS 0";
-                                                reg = <0x0 0x800000>;
-                                        };
-                                        fs@800000 {
-                                                label = "ixp400 NAND FS 1";
-                                                reg = <0x800000 0x0>;
-                                        };
+                            partitions {
+                                compatible = "fixed-partitions";
+                                #address-cells = <1>;
+                                #size-cells = <1>;
+
+                                fs@0 {
+                                    label = "ixp400 NAND FS 0";
+                                    reg = <0x0 0x800000>;
                                 };
+                                fs@800000 {
+                                    label = "ixp400 NAND FS 1";
+                                    reg = <0x800000 0x0>;
+                                };
+                            };
                         };
                 };
-
-                /* The Linux Kernel Watchguard deployed had the PCI Non-Preftecht Workaround Enabled
-                 * So we assume it needed despite the XTM2 being IXP435 ?
-                 * PCI: IXP43x Richland silicon detected - PCI Non-Prefetch Workaround Enabled
-                 * no difference observed between using compatible ixp42x-pci or ixp43x-pci....
-                 * TODO: ixp42x-pci maybe not a good choice, create richland-pci or reduce to 1 slot only as on HW ?
-                 */
 
                 pci@c0000000 {
-                        compatible = "intel,ixp43x-pci"; /* works wihtout the workaround */
-                        status = "ok";
-
-                        /*
-                         * Taken from IXDP425 PCI boardfile.
-                         * PCI slots on the BIXMB425BD base card.
-                         * We have up to 4 slots (IDSEL) with 4 swizzled IRQs.
-                         */
-                        #interrupt-cells = <1>;
-                        interrupt-map-mask = <0xf800 0 0 7>;
-                        interrupt-map =
-                        /* IDSEL 1 */
-                        <0x0800 0 0 1 &gpio0 11 IRQ_TYPE_LEVEL_LOW>, /* INT A on slot 1 is irq 11 */
-                        <0x0800 0 0 2 &gpio0 10 IRQ_TYPE_LEVEL_LOW>, /* INT B on slot 1 is irq 10 */
-                        <0x0800 0 0 3 &gpio0 9  IRQ_TYPE_LEVEL_LOW>, /* INT C on slot 1 is irq 9 */
-                        <0x0800 0 0 4 &gpio0 8  IRQ_TYPE_LEVEL_LOW>, /* INT D on slot 1 is irq 8 */
-                        /* IDSEL 2 */
-                        <0x1000 0 0 1 &gpio0 10 IRQ_TYPE_LEVEL_LOW>, /* INT A on slot 2 is irq 10 */
-                        <0x1000 0 0 2 &gpio0 9  IRQ_TYPE_LEVEL_LOW>, /* INT B on slot 2 is irq 9 */
-                        <0x1000 0 0 3 &gpio0 8  IRQ_TYPE_LEVEL_LOW>, /* INT C on slot 2 is irq 8 */
-                        <0x1000 0 0 4 &gpio0 11 IRQ_TYPE_LEVEL_LOW>, /* INT D on slot 2 is irq 11 */
-                        /* IDSEL 3 */
-                        <0x1800 0 0 1 &gpio0 9  IRQ_TYPE_LEVEL_LOW>, /* INT A on slot 3 is irq 9 */
-                        <0x1800 0 0 2 &gpio0 8  IRQ_TYPE_LEVEL_LOW>, /* INT B on slot 3 is irq 8 */
-                        <0x1800 0 0 3 &gpio0 11 IRQ_TYPE_LEVEL_LOW>, /* INT C on slot 3 is irq 11 */
-                        <0x1800 0 0 4 &gpio0 10 IRQ_TYPE_LEVEL_LOW>, /* INT D on slot 3 is irq 10 */
-                        /* IDSEL 4 */
-                        <0x2000 0 0 1 &gpio0 8  IRQ_TYPE_LEVEL_LOW>, /* INT A on slot 4 is irq 8 */
-                        <0x2000 0 0 2 &gpio0 11 IRQ_TYPE_LEVEL_LOW>, /* INT B on slot 4 is irq 11 */
-                        <0x2000 0 0 3 &gpio0 10 IRQ_TYPE_LEVEL_LOW>, /* INT C on slot 4 is irq 10 */
-                        <0x2000 0 0 4 &gpio0 9  IRQ_TYPE_LEVEL_LOW>; /* INT D on slot 4 is irq 9 */
+                    status = "ok";
+                    /*
+                    * Watchguard kernel did apply the PCI prefetch workaround (eg hammering errata)
+                    * -> PCI: IXP43x Richland silicon detected - PCI Non-Prefetch Workaround Enabled
+                    * Hence we set it to ixp42x-pci compatible to enforce this, despite being ixp43x
+                    * FIXME: This workaround may not be required ?
+                    */
+                    compatible = "intel,ixp42x-pci";
+                    /*
+                    * One slot only for WiFi
+                    */
+                    #interrupt-cells = <1>;
+                    interrupt-map-mask = <0xf800 0 0 7>;
+                    interrupt-map =
+                    /* IDSEL 1 */
+                    <0x8000 0 0 1 &gpio0 1  IRQ_TYPE_LEVEL_LOW>; /* INT A on slot 1 is irq 1 */
                 };
 
-                /* this used to work on platform code */
-
-                ehci0: usb@cd000000 {
-                       compatible = "generic-ehci";
-                       reg = <0xcd000000 0x300>;
-                       interrupts = <32 IRQ_TYPE_LEVEL_HIGH>;
-                       big-endian;
-                       has-transaction-translator;
-                       caps-offset = <0x100>;
-                       status = "ok";
-                };
-
-                ehci1: usb@ce000000 {
-                       compatible = "generic-ehci";
-                       reg = <0xce000000 0x300>;
-                       interrupts = <33 IRQ_TYPE_LEVEL_HIGH>;
-                       big-endian;
-                       has-transaction-translator;
-                       caps-offset = <0x100>;
-                       status = "ok";
-                };
-
-            };
+       };
 };
