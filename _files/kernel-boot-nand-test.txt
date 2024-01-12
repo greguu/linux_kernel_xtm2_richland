@@ -1,0 +1,317 @@
+
+                WatchGuard RedBoot 2.04 - Mar 16 2010 10:36:42                                    
+                                                                                                  
+ +-------------------------------------------------------------------------+                      
+ |WatchGuard (SYSA)                                                        |                      
+ |WatchGuard (SYSB)                                                        |                      
+ |WatchGuard (SAFE MODE)                                                   |                      
+ |                                                                         |                      
+ |                                                                         |                      
+ |                                                                         |                      
+ |                                                                         |                      
+ |                                                                         |                      
+ |                                                                         |                      
+ |                                                                         |                      
+ |                                                                         |                      
+ +-------------------------------------------------------------------------+                      
+                                                                                                  
+      Use the ^ and v keys to select which entry is highlighted.                                  
+      Press enter to boot the selected OS.                                                        
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+      The highlighted entry will be loaded  5 seconds.                                            
+Password> F5BA25AB44724fb5A6DD37554809CE34                                                        
+                                                                                                  
+Trying NPE-C...success. Using NPE-C with PHY 16.                                                  
+                                                                                                  
+Trying NPE-A...success. Using NPE-A with PHY 5.                                                   
+Ethernet wan: MAC address 04:00:00:00:00:01                                                       
+RedBoot> load -m ymodem -r -v -b %{FREEMEMLO} zImage                                              
+CRaw file loaded 0x001d0000-0x004a5071, assumed entry at 0x001d0000                               
+xyzModem - CRC mode, 23203(SOH)/0(STX)/0(CAN) packets, 11 retries                                 
+RedBoot>                                                                                          
+RedBoot> exec -c "console=ttyS0,115200 root=/dev/sda1 debug loglevel=7 rootdelay=5" -w 1          
+argc:5                                                                                            
+argv:exec                                                                                         
+argv:-c                                                                                           
+argv:console=ttyS0,115200 root=/dev/sda1 debug loglevel=7 rootdelay=5                             
+argv:-w                                                                                           
+argv:1                                                                                            
+About to start execution at 0x06000000 - abort with ^C within 1 seconds                           
+Using base address 0x001d0000 and length 0x002d5074                                               
+[    0.000000] Booting Linux on physical CPU 0x0                                                  
+[    0.000000] Linux version 6.1.52 (operator@x99x2) (armeb-openwrt-linux-muslgnueabi-gcc (OpenWrt GCC 12.3.0 r24004-3
+[    0.000000] CPU: XScale-IXP43x Family [69054041] revision 1 (ARMv5TE), cr=000039ff             
+[    0.000000] CPU: VIVT data cache, VIVT instruction cache                                       
+[    0.000000] OF: fdt: Machine model: Watchguard XTM21W                                          
+[    0.000000] Memory policy: Data cache writeback                                                
+[    0.000000] Zone ranges:                                                                       
+[    0.000000]   Normal   [mem 0x0000000000000000-0x000000000fffffff]                             
+[    0.000000] Movable zone start for each node                                                   
+[    0.000000] Early memory node ranges                                                           
+[    0.000000]   node   0: [mem 0x0000000000000000-0x000000000fffffff]                            
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000000fffffff]                   
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 64960                       
+[    0.000000] Kernel command line: console=ttyS0,115200n8 rootwait console=ttyS0,115200 root=/dev/sda1 debug logleve5
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes, linear)            
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes, linear)              
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off                            
+[    0.000000] Memory: 249536K/262144K available (5963K kernel code, 576K rwdata, 1584K rodata, 1024K init, 208K bss,)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16                                    
+[    0.000000] clocksource: OSTS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 28669193401 ns
+[    0.000002] sched_clock: 32 bits at 67MHz, resolution 15ns, wraps every 32212576760ns
+[    0.000025] Switching to timer-based delay loop, resolution 15ns
+[    0.000227] Calibrating delay loop (skipped), value calculated using timer frequency.. 133.33 BogoMIPS (lpj=666660)
+[    0.000268] CPU: Testing write buffer coherency: ok
+[    0.000485] pid_max: default: 32768 minimum: 301
+[    0.002048] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.002089] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.006675] cblist_init_generic: Setting adjustable number of callback queues.
+[    0.006698] cblist_init_generic: Setting shift to 0 and lim to 1.
+[    0.007031] Setting up static identity map for 0x100000 - 0x100050
+[    0.011488] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.011545] futex hash table entries: 256 (order: -1, 3072 bytes, linear)
+[    0.014051] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.014894] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.016440] No ATAGs?
+[    0.032119] SCSI subsystem initialized
+[    0.033229] usbcore: registered new interface driver usbfs
+[    0.033322] usbcore: registered new interface driver hub
+[    0.033403] usbcore: registered new device driver usb
+[    0.036234] clocksource: Switched to clocksource OSTS
+[    0.039071] NET: Registered PF_INET protocol family
+[    0.039450] IP idents hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.041150] tcp_listen_portaddr_hash hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.041224] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.041259] TCP established hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.041302] TCP bind hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.041397] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.041616] UDP hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.041666] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.042272] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.042354] PCI: CLS 0 bytes, default 32
+[    0.048839] workingset: timestamp_bits=14 max_order=16 bucket_order=2
+[    0.061184] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.061214] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.064313] intel-extbus c4000000.bus: expansion bus at 50000000
+[    0.064346] intel-extbus c4000000.bus: IXP43x at 667 MHz
+[    0.064366] intel-extbus c4000000.bus: CS0 at 0x50000000, size 0x100000, config before: 0xbfff3c42
+[    0.064400] intel-extbus c4000000.bus: CS0 enabled intel,ixp4xx-eb-write-enable
+[    0.064419] intel-extbus c4000000.bus: CS0 wrote 0xbfff2c42 into CS config
+[    0.064442] intel-extbus c4000000.bus: CS1 at 0x51000000, size 0x000200, config before: 0x80403c43
+[    0.064462] intel-extbus c4000000.bus: CS1 set intel,ixp4xx-eb-t1 to 0
+[    0.064478] intel-extbus c4000000.bus: CS1 set intel,ixp4xx-eb-t2 to 0
+[    0.064493] intel-extbus c4000000.bus: CS1 set intel,ixp4xx-eb-t3 to 1
+[    0.064508] intel-extbus c4000000.bus: CS1 set intel,ixp4xx-eb-t4 to 0
+[    0.064524] intel-extbus c4000000.bus: CS1 set intel,ixp4xx-eb-t5 to 0
+[    0.064540] intel-extbus c4000000.bus: CS1 disabled intel,ixp4xx-eb-byte-access-on-halfword
+[    0.064563] intel-extbus c4000000.bus: CS1 disabled intel,ixp4xx-eb-mux-address-and-data
+[    0.064580] intel-extbus c4000000.bus: CS1 disabled intel,ixp4xx-eb-ahb-split-transfers
+[    0.064597] intel-extbus c4000000.bus: CS1 enabled intel,ixp4xx-eb-write-enable
+[    0.064614] intel-extbus c4000000.bus: CS1 enabled intel,ixp4xx-eb-byte-access
+[    0.064630] intel-extbus c4000000.bus: CS1 set cycle type 0
+[    0.064643] intel-extbus c4000000.bus: CS1 wrote 0x80400003 into CS config
+[    0.067133] ixp4xx-gpio c8004000.gpio: IXP4 GPIO registered
+[    0.067464] ixp4xx-pci c0000000.pci: host bridge /soc/pci@c0000000 ranges:
+[    0.067546] ixp4xx-pci c0000000.pci:      MEM 0x0048000000..0x004bffffff -> 0x0048000000
+[    0.067589] ixp4xx-pci c0000000.pci:       IO 0x004c000000..0x004c00ffff -> 0x0000000000
+[    0.067704] ixp4xx-pci c0000000.pci:   IB MEM 0x0000000000..0x0003ffffff -> 0x0000000000
+[    0.067802] ixp4xx-pci c0000000.pci: activate hammering errata
+[    0.067929] ixp4xx-pci c0000000.pci: controller is in host mode
+[    0.067966] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_0 to 0x00000000
+[    0.067988] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_1 to 0x01000000
+[    0.068002] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_2 to 0x02000000
+[    0.068016] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_3 to 0x03000000
+[    0.068029] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_4 to 0x04000000
+[    0.068042] ixp4xx-pci c0000000.pci: set PCI_BASE_ADDR_5 to 0xfffffc01
+[    0.068055] ixp4xx-pci c0000000.pci: set TRDY limit to 0x80ff
+[    0.068065] ixp4xx-pci c0000000.pci: initialized as master
+[    0.068393] ixp4xx-pci c0000000.pci: PCI host bridge to bus 0000:00
+[    0.068422] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.068442] pci_bus 0000:00: root bus resource [mem 0x48000000-0x4bffffff]
+[    0.068461] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.068683] pci 0000:00:02.0: [168c:0027] type 00 class 0x028000
+[    0.068757] pci 0000:00:02.0: reg 0x10: [mem 0x00000000-0x0000ffff]
+[    0.069065] pci 0000:00:02.0: PME# supported from D0 D3hot
+[    0.070489] PCI: bus0: Fast back to back transfers enabled
+[    0.070538] pci 0000:00:02.0: BAR 0: assigned [mem 0x48000000-0x4800ffff]
+[    0.071681] ixp4xx-qmgr 60000000.queue-manager: IXP4xx Queue Manager initialized.
+[    0.072603] ixp4xx-npe c8006000.npe: NPE0 at [mem 0xc8006000-0xc8006fff] registered
+[    0.074245] NPE-B: reset: npe_debug_instr(): timeout
+[    0.074282] ixp4xx-npe c8006000.npe: NPE1 at [mem 0xc8007000-0xc8007fff] does not reset
+[    0.074821] ixp4xx-npe c8006000.npe: NPE2 at [mem 0xc8008000-0xc8008fff] registered
+[    0.118691] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+[    0.120408] printk: console [ttyS0] disabled
+[    0.120528] c8000000.serial: ttyS0 at MMIO 0xc8000003 (irq = 19, base_baud = 921600) is a XScale
+[    1.295625] printk: console [ttyS0] enabled
+[    1.301152] c8001000.serial: ttyS1 at MMIO 0xc8001003 (irq = 20, base_baud = 921600) is a XScale
+[    1.311854] physmap-flash 50000000.flash: initialized Intel IXP4xx-specific physmap control
+[    1.320472] physmap-flash 50000000.flash: physmap platform flash device: [mem 0x50000000-0x500fffff]
+[    1.330003] 50000000.flash: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022da
+[    1.340221] Amd/Fujitsu Extended Query Table at 0x0040
+[    1.345411]   Amd/Fujitsu Extended Query version 1.0.
+[    1.350479] 50000000.flash: JEDEC Device ID is 0x22DA. Assuming broken CFI table.
+[    1.357979] 50000000.flash: Swapping erase regions for top-boot CFI table.
+[    1.364854] number of CFI chips: 1
+[    1.379223] Searching for RedBoot partition table in 50000000.flash at offset 0xf0000
+[    1.445474] 3 RedBoot partitions found on MTD device 50000000.flash
+[    1.451852] Creating 3 MTD partitions on "50000000.flash":
+[    1.457356] 0x000000000000-0x000000080000 : "RedBoot"
+[    1.464336] 0x0000000f0000-0x0000000ff000 : "FIS directory"
+[    1.470019] mtd: partition "FIS directory" doesn't end on an erase/write block -- force read-only
+[    1.484631] 0x0000000ff000-0x000000100000 : "RedBoot config"
+[    1.490394] mtd: partition "RedBoot config" doesn't start on an erase/write block boundary -- force read-only
+[    1.504477] IO was  0 
+[    1.507031] IO now   d08b4000 
+[    1.510139] IO finally   d08b4000 
+[    1.513838] nand: device found, Manufacturer ID: 0xec, Chip ID: 0xda
+[    1.520274] nand: Samsung NAND 256MiB 3,3V 8-bit
+[    1.524912] nand: 256 MiB, SLC, erase size: 128 KiB, page size: 2048, OOB size: 64
+[    1.532507] ------------[ cut here ]------------
+[    1.537126] WARNING: CPU: 0 PID: 1 at drivers/mtd/nand/raw/nand_base.c:5718 nand_scan_with_ids+0x13f4/0x1838
+[    1.547015] Hamming ECC initialization failed!
+[    1.551456] Modules linked in:
+[    1.554516] CPU: 0 PID: 1 Comm: swapper Not tainted 6.1.52 #0
+[    1.560266] Hardware name: IXP4xx (Device Tree)
+[    1.564799]  unwind_backtrace from show_stack+0x10/0x14
+[    1.570069]  show_stack from dump_stack_lvl+0x28/0x30
+[    1.575136]  dump_stack_lvl from __warn+0x94/0xdc
+[    1.579868]  __warn from warn_slowpath_fmt+0x70/0x84
+[    1.584849]  warn_slowpath_fmt from nand_scan_with_ids+0x13f4/0x1838
+[    1.591221]  nand_scan_with_ids from gpio_nand_probe+0x2a4/0x34c
+[    1.597253]  gpio_nand_probe from platform_probe+0x44/0x84
+[    1.602765]  platform_probe from really_probe+0xb4/0x2dc
+[    1.608085]  really_probe from driver_probe_device+0x34/0x124
+[    1.613840]  driver_probe_device from __driver_attach+0x90/0x17c
+[    1.619855]  __driver_attach from bus_for_each_dev+0x64/0x90
+[    1.625550]  bus_for_each_dev from bus_add_driver+0x154/0x1e8
+[    1.631312]  bus_add_driver from driver_register+0x8c/0x124
+[    1.636895]  driver_register from do_one_initcall+0x4c/0x274
+[    1.642563]  do_one_initcall from kernel_init_freeable+0x164/0x1ec
+[    1.648770]  kernel_init_freeable from kernel_init+0x10/0x128
+[    1.654551]  kernel_init from ret_from_fork+0x14/0x2c
+[    1.659618] Exception stack(0xc0c25fb0 to 0xc0c25ff8)
+[    1.664677] 5fa0:                                     00000000 00000000 00000000 00000000
+[    1.672865] 5fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    1.681047] 5fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+[    1.687736] ---[ end trace 0000000000000000 ]---
+[    1.692383] gpio-nand: probe of 51000000.gpio-nand failed with error -524
+[    1.711741] mdio_bus ixp4xx-eth-0: MDIO device at address 0 is missing.
+[    1.718545] mdio_bus ixp4xx-eth-0: MDIO device at address 1 is missing.
+[    1.725244] mdio_bus ixp4xx-eth-0: MDIO device at address 2 is missing.
+[    1.732167] mv88e6060 ixp4xx-eth-0:10: switch Marvell 88E6060 (B0) detected
+[    1.763187] ixp4xx_eth c800a000.ethernet eth0: eth0: MII PHY 0 on NPE-C
+[    1.777485] ixp4xx_eth c800c000.ethernet eth1: eth1: MII PHY 0 on NPE-A
+[    1.784374] hdlc: HDLC support module revision 1.22
+[    1.790279] usbcore: registered new interface driver usb-storage
+[    1.796656] i2c_dev: i2c /dev entries driver
+[    1.801908] ixp4xx-watchdog ixp4xx-watchdog: IXP4xx watchdog available
+[    1.810463] NET: Registered PF_INET6 protocol family
+[    1.817861] ehci-platform cd000000.usb: EHCI Host Controller
+[    1.823615] ehci-platform cd000000.usb: new USB bus registered, assigned bus number 1
+[    1.831537] ehci-platform: Set caps_offset = 0x100
+[    1.836747] ehci-platform cd000000.usb: irq 21, io mem 0xcd000000
+[    1.843580] ehci-platform ce000000.usb: EHCI Host Controller
+[    1.849405] ehci-platform ce000000.usb: new USB bus registered, assigned bus number 2
+[    1.857298] ehci-platform: Set caps_offset = 0x100
+[    1.862495] ehci-platform ce000000.usb: irq 22, io mem 0xce000000
+[    1.889854] ehci-platform cd000000.usb: USB 2.0 started, EHCI 1.00
+[    1.897481] hub 1-0:1.0: USB hub found
+[    1.903557] hub 1-0:1.0: 1 port detected
+[    1.914216] Segment Routing with IPv6
+[    1.918173] In-situ OAM (IOAM) with IPv6
+[    1.922318] NET: Registered PF_PACKET protocol family
+[    1.927636] ehci-platform ce000000.usb: USB 2.0 started, EHCI 1.00
+[    1.935528] hub 2-0:1.0: USB hub found
+[    1.941778] hub 2-0:1.0: 1 port detected
+[    1.950019] 8021q: 802.1Q VLAN Support v1.8
+[    1.954457] XScale DSP coprocessor detected.
+[    1.968011] rtc-s35390a 0-0030: registered as rtc0
+[    1.974055] rtc-s35390a 0-0030: setting system clock to 2000-01-01T00:06:42 UTC (946685202)
+[    1.982601] i2c-gpio i2c: using lines 5 (SDA) and 4 (SCL)
+[    1.988412] mv88e6060 ixp4xx-eth-0:10: switch Marvell 88E6060 (B0) detected
+[    2.033681] mv88e6060 ixp4xx-eth-0:10: configuring for fixed/rgmii-id link mode
+[    2.041502] mv88e6060 ixp4xx-eth-0:10 lan1 (uninitialized): PHY [dsa-0.0:00] driver [Generic PHY] (irq=POLL)
+[    2.053442] mv88e6060 ixp4xx-eth-0:10 lan2 (uninitialized): PHY [dsa-0.0:01] driver [Generic PHY] (irq=POLL)
+[    2.065437] mv88e6060 ixp4xx-eth-0:10 lan3 (uninitialized): PHY [dsa-0.0:02] driver [Generic PHY] (irq=POLL)
+[    2.077221] eth0: mtu greater than device maximum
+[    2.081960] ixp4xx_eth c800a000.ethernet eth0: error -22 setting MTU to 1504 to include DSA overhead
+[    2.091179] device eth0 entered promiscuous mode
+[    2.095941] DSA: tree 0 setup
+[    2.099160] mv88e6060 ixp4xx-eth-0:10: Link is Up - 100Mbps/Full - flow control off
+[    2.119307] Waiting 5 sec before mounting root device...
+[    2.266249] usb 2-1: new high-speed USB device number 2 using ehci-platform
+[    2.475711] usb-storage 2-1:1.0: USB Mass Storage device detected
+[    2.485904] scsi host0: usb-storage 2-1:1.0
+[    3.528619] scsi 0:0:0:0: Direct-Access     Generic  Flash Disk       8.07 PQ: 0 ANSI: 4
+[    3.541867] sd 0:0:0:0: [sda] 15728640 512-byte logical blocks: (8.05 GB/7.50 GiB)
+[    3.551984] sd 0:0:0:0: [sda] Write Protect is off
+[    3.557901] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    3.574866]  sda: sda1
+[    3.577917] sd 0:0:0:0: [sda] Attached SCSI removable disk
+[    7.228034] EXT4-fs (sda1): INFO: recovery required on readonly filesystem
+[    7.234983] EXT4-fs (sda1): write access will be enabled during recovery
+[    7.790556] EXT4-fs (sda1): orphan cleanup on readonly fs
+[    7.813168] EXT4-fs (sda1): recovery complete
+[    7.831433] EXT4-fs (sda1): mounted filesystem with ordered data mode. Quota mode: disabled.
+[    7.840066] VFS: Mounted root (ext4 filesystem) readonly on device 8:1.
+[    7.848655] Freeing unused kernel image (initmem) memory: 1024K
+[    7.854746] Run /sbin/init as init process
+[    8.099048] init: Console is alive
+[    8.103279] init: - watchdog -
+[    8.276857] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[    8.321918] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[    8.340276] init: - preinit -
+ip: command line is not complete, try "help"
+ip: command line is not complete, try "help"
+[   10.796270] random: crng init done
+[   11.011681] NPE-C: firmware functionality 0x5, revision 0x2:1
+[   11.019345] ixp4xx_eth c800a000.ethernet eth0: eth0: link up, speed 100 Mb/s, full duplex
+[   11.036467] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[   13.324463] mount_root: mounting /dev/root
+[   13.336004] EXT4-fs (sda1): re-mounted. Quota mode: disabled.
+[   13.345801] urandom-seed: Seeding with /etc/urandom.seed
+[   13.430090] eth0: link down
+[   13.447803] procd: - early -
+[   13.451183] procd: - watchdog -
+[   15.305685] procd: - watchdog -
+[   15.311023] procd: - ubus -
+[   15.376398] procd: - init -
+Please press Enter to activate this console.
+
+[   16.631111] kmodloader: loading kernel modules from /etc/modules.d/*
+
+
+BusyBox v1.36.1 (2023-09-22 10:43:02 UTC) built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt SNAPSHOT, r24004-3d54fad70d
+ -----------------------------------------------------
+[   16.734814] ixp4xx_crypto c8006000.npe:crypto: probing...
+=== WARNING! =====================================
+There is no root password defined on this device!
+Use the "passwd" command to set up a new password
+in order to prevent unauthorized SSH logins.
+--------------------------------------------------
+root@(none):/# [   17.249559] PPP generic driver version 2.4.2
+[   17.270220] NET: Registered PF_PPPOX protocol family
+[   17.320133] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   20.439532] urngd: v1.0.2 started.
+[   29.741997] ixp4xx_eth c800a000.ethernet eth0: eth0: link up, speed 100 Mb/s, full duplex
+[   29.773418] br-lan: port 1(eth0) entered blocking state
+[   29.778765] br-lan: port 1(eth0) entered disabled state
+[   29.893921] br-lan: port 1(eth0) entered blocking state
+[   29.899263] br-lan: port 1(eth0) entered forwarding state
+[   30.726389] IPv6: ADDRCONF(NETDEV_CHANGE): br-lan: link becomes ready
