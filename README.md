@@ -3,9 +3,7 @@
 ![Illustration](https://github.com/greguu/linux_kernel_xtm2_richland/blob/master/_files/XTM-2-rearview.jpg)
 
 ```diff
-+ UPDATE (2023) : I have revived this project and currently test the latest kernel 6.1 on the XTM21.
-+ Experimental kernel source / patches can be found here https://github.com/greguu/openwrt/releases/tag/ixp4xx-v6.1
-+ If you have an XTM-2 series Watchguard firewall and like to help with Kernel or Openwrt development, let me know!
++ UPDATE (2024) : NAND and the Marvel switch (the first 3 10/100 ports) are working thanks to contributions from HHarte and Leon. Oustanding is the Realtek switch and some tidy up on flashing OpenWrt and testing, checking all LEDs work as expected.
 ```
 
 - Why all the effort ? 
