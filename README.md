@@ -30,10 +30,10 @@ Specs for the XTM 21-W:
 
 - CPU: XScale-IXP43x 667Mhz
 - RAM: 256 MiB
-- NOR: 16 MiB (Redboot, zImage and Redboot config)
+- NOR: 16 MiB (Redboot, fis, Redboot config)
 - NAND: 256 MiB (Samsung NAND 256MiB 3,3V 8-bit)
-- LAN1: 3 x 10/100 (Marvel 88e6060) ?
-- LAN2: 3 x 10/100/1000 (RTL 8366SE SMI)
+- LAN1: 3 x 10/100 (Marvel 88e6060)
+- LAN2: 3 x 10/100/1000 (Realtek 8366SR)
 - WIFI: 802.11a/b/g/n Mini PCI (Atheros AR9160 + AR5133)
 - USB: 2 x USB EHCI
 - SERIAL: On Board (TTL, 115200 8N1)
@@ -116,7 +116,7 @@ EHCI support has been added to intel-ixp43x.dtsi and can be found in my OpenWrt 
 
 # NOR FLASH
 
-The 16MB of NOR Flash are staticly defined in the vendor kernel
+The 1MB of NOR Flash is staticly defined in the vendor kernel
 ```
 XP4XX-Flash.0: Found 1 x16 devices at 0x0 in 16-bit bank
 Amd/Fujitsu Extended Query Table at 0x0040
@@ -189,8 +189,7 @@ Creating 5 MTD partitions on "NAND 256MiB 3,3V 8-bit":
 0x00000e400000-0x00000e800000 : "SysB Kernel"
 0x00000e800000-0x000010000000 : "SysB Code"
 ```
-
-TODO: Define correct GPIO NAND setup in devicetree for CS1
+Thanks to contribution to the .dts and gpio.c from Leon the Samsung NAND is working now!
 
 # RTC
 - The RTC is Seiko Instruments S-35390A via I2C
@@ -204,8 +203,9 @@ TODO: Define correct GPIO NAND setup in devicetree for CS1
 
 # PHY / Switch (RTL8366SR and Marvel 88e6060)
 
-- TODO: Understand the mainline DSA based implementation of RTL8366 and potential differences with the chip used on this platform, RTL8366SR. As well as the link between the IXP43x ETH PHY and the switch.
-- TODO: Configure the Marvel 88e6060 Switch for the first 3 ports (10/100)
+- TODO: Understand the mainline DSA based implementation of RTL8366 and potential differences with the chip used on this platform, RTL8366SR.
+- The Marvel 88e6060 switch does work now! Thanks to HHarte for his contribution to the .dts file!
+
 
 # Next ?
 
