@@ -28,7 +28,7 @@ Specs for the XTM 21-W:
 
 - CPU: XScale-IXP43x 667Mhz
 - RAM: 256 MiB
-- NOR: 16 MiB (Redboot, fis, Redboot config)
+- NOR: 1 MiB (Redboot, fis, Redboot config)
 - NAND: 256 MiB (Samsung NAND 256MiB 3,3V 8-bit)
 - LAN1: 3 x 10/100 (Marvel 88e6060)
 - LAN2: 3 x 10/100/1000 (Realtek 8366SR)
